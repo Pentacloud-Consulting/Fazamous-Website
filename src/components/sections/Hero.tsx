@@ -62,7 +62,7 @@ function ParticleSwarm({ count, radius, spread, color, size, rotSpeed }: { count
   return (
     <points ref={ref}>
       <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+        <bufferAttribute attach="attributes-position" count={count} args={[positions, 3]} />
       </bufferGeometry>
       <pointsMaterial size={size} color={color} transparent opacity={0.85} blending={THREE.AdditiveBlending} sizeAttenuation />
     </points>
