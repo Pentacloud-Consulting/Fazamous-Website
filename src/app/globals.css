@@ -1,22 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #050505;
+  --color-background: #0A0B0F;
   --color-foreground: #ffffff;
   --color-secondary: #a1a1aa;
-  --color-accent: #4EA8FF;
+  --color-accent: #6366F1;
   --color-surface: rgba(255, 255, 255, 0.03);
   --color-surface-hover: rgba(255, 255, 255, 0.08);
   --color-border: rgba(255, 255, 255, 0.08);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --bg: #050505;
+  --bg: #0A0B0F;
   --fg: #ffffff;
-  --accent: #4EA8FF;
-  --accent-dim: #2a7ad4;
+  --ink: #0A0B0F;
+  --panel: #12141C;
+  --panel-raised: #181B26;
+  --accent: #6366F1;
+  --accent-dim: #4F46E5;
+  --signal-cyan: #22D3EE;
+  --signal-amber: #F59E0B;
   --silver: #a1a1aa;
   --surface: rgba(255,255,255,0.03);
   --surface-hover: rgba(255,255,255,0.07);
@@ -37,6 +43,38 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== LIVE INTELLIGENCE RAIL ===== */
+.rail-panel {
+  background: var(--panel);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+
+.rail-ticker {
+  background: var(--panel);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float, .animate-ping, .light-sweep::after {
+    animation: none !important;
+  }
 }
 
 /* Lenis */
@@ -267,7 +305,7 @@ body::after {
 
 /* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #050505; }
+::-webkit-scrollbar-track { background: #0A0B0F; }
 ::-webkit-scrollbar-thumb {
   background: rgba(255,255,255,0.1);
   border-radius: 3px;

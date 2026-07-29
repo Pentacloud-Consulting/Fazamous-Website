@@ -196,42 +196,40 @@ export function Footer() {
           <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               {
-                title: "Platforms",
+                title: "Products",
                 links: [
-                  { name: "Insights", tag: "HOT" },
-                  { name: "Nexus Ops" },
-                  { name: "Quantum AI" },
-                  { name: "Aegis Shield" },
-                  { name: "Cortex Core" }
+                  { name: "Insights", tag: "FLAGSHIP", href: "/services" },
+                  { name: "TriageAI", href: "/services" },
+                  { name: "Aegis", href: "/services" },
+                  { name: "DataPulse", href: "/services" },
+                  { name: "MedVision AI", href: "/services" }
                 ],
               },
               {
                 title: "Solutions",
                 links: [
-                  { name: "Enterprise AI" },
-                  { name: "Decision Engine" },
-                  { name: "Autonomous Systems" },
-                  { name: "Data Fabric" }
+                  { name: "Telecommunications", href: "/solutions" },
+                  { name: "Financial Services", href: "/solutions" },
+                  { name: "Healthcare", href: "/solutions" },
+                  { name: "Supply Chain", tag: "NEW", href: "/solutions" }
                 ],
               },
               {
                 title: "Company",
                 links: [
-                  { name: "About" },
-                  { name: "Research Labs" },
-                  { name: "Careers", tag: "HIRING" },
-                  { name: "Press" },
-                  { name: "Blog" }
+                  { name: "About", href: "/about" },
+                  { name: "Services", href: "/services" },
+                  { name: "Contact", href: "/contact" },
+                  { name: "Careers", tag: "HIRING", href: "/about" },
                 ],
               },
               {
                 title: "Resources",
                 links: [
-                  { name: "Documentation" },
-                  { name: "API Reference" },
-                  { name: "System Status" },
-                  { name: "Security" },
-                  { name: "Contact" }
+                  { name: "Documentation", href: "#" },
+                  { name: "API Reference", href: "#" },
+                  { name: "System Status", href: "#" },
+                  { name: "Security", href: "#" },
                 ],
               },
             ].map((group, gIdx) => (
@@ -247,10 +245,10 @@ export function Footer() {
                 </h4>
                 
                 <ul className="space-y-3">
-                  {group.links.map((link) => (
+                  {group.links.map((link: { name: string; tag?: string; href?: string }) => (
                     <li key={link.name}>
                       <Link
-                        href="#"
+                        href={link.href || "#"}
                         className="group flex items-center justify-between text-white/50 text-sm hover:text-white transition-all duration-300 font-light"
                       >
                         <motion.span 
