@@ -70,7 +70,7 @@ export function TechnologyVision() {
   const [activeTech, setActiveTech] = useState<string | null>(null);
 
   return (
-    <section ref={containerRef} id="technology" className="py-28 relative overflow-hidden bg-[#030303]">
+    <section ref={containerRef} id="technology" className="py-12 relative overflow-hidden bg-[#030303]">
       {/* Ambient background lighting */}
       <motion.div
         style={{ y: y1 }}
@@ -114,10 +114,9 @@ export function TechnologyVision() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] mb-6 text-white"
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2 text-white"
             >
-              Engineering the<br />
-              <span className="text-gradient-accent">Impossible.</span>
+              Engineering the <span className="text-gradient-accent">Impossible.</span>
             </motion.h2>
 
             <motion.p

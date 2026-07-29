@@ -109,7 +109,7 @@ export function InsightsPlatform() {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.96, 1]);
   const rotateX = useTransform(scrollYProgress, [0, 0.5], [10, 0]);
 
@@ -117,7 +117,7 @@ export function InsightsPlatform() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={containerRef} id="platforms" className="py-24 relative overflow-hidden bg-[#050505]">
+    <section ref={containerRef} id="platforms" className="pt-24 pb-0 relative overflow-hidden bg-[#050505]">
       <GridBackground />
       
       {/* Background ambient */}
@@ -125,58 +125,54 @@ export function InsightsPlatform() {
       
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
-        <div ref={sectionRef} className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-16">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 glass-pill mb-6 border-glow"
-            >
-              <div className="w-1.5 h-1.5 rounded-full bg-[#4EA8FF] shadow-[0_0_8px_#4EA8FF] animate-pulse" />
-              <span className="text-white/30 uppercase tracking-widest text-[10px] font-mono">Platform Core</span>
-            </motion.div>
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-6xl lg:text-[5.5rem] font-medium tracking-tight leading-[1.02]"
-            >
-              Decision<br />
-              <span className="text-gradient">Intelligence.</span>
-            </motion.h2>
-          </div>
-
+        <div ref={sectionRef} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 glass-pill mb-6 border-glow"
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-[#4EA8FF] shadow-[0_0_8px_#4EA8FF] animate-pulse" />
+            <span className="text-white/30 uppercase tracking-widest text-[10px] font-mono">Platform Core</span>
+          </motion.div>
+          
+          <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="max-w-md lg:pt-16"
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight pb-4"
           >
-            <p className="text-white/40 leading-[1.8] text-[15px] mb-8 font-light">
-              Transform raw data streams into autonomous decisions. INSIGHTS leverages our proprietary knowledge graph to empower enterprise leaders with real-time situational awareness and predictive modeling.
-            </p>
-            <motion.a
-              href="#"
-              whileHover={{ x: 5 }}
-              className="group inline-flex items-center gap-3 text-white text-[13px] font-medium tracking-wide"
-            >
-              <span className="relative">
-                Discover INSIGHTS
-                <span className="absolute left-0 bottom-0 w-full h-[1px] bg-gradient-to-r from-[#4EA8FF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </span>
-              <span className="w-6 h-6 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center group-hover:bg-[#4EA8FF] group-hover:border-[#4EA8FF] group-hover:text-black transition-all duration-300">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
-                </svg>
-              </span>
-            </motion.a>
-          </motion.div>
+            Decision <span className="text-gradient">Intelligence.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-white/40 leading-[1.8] text-[15px] mb-8 font-light max-w-2xl"
+          >
+            Transform raw data streams into autonomous decisions. INSIGHTS leverages our proprietary knowledge graph to empower enterprise leaders with real-time situational awareness and predictive modeling.
+          </motion.p>
+          
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            href="#"
+            whileHover={{ scale: 1.05 }}
+            className="group inline-flex items-center gap-3 px-6 py-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 rounded-full text-white text-[13px] font-medium tracking-wide transition-all duration-300"
+          >
+            Discover INSIGHTS
+            <span className="w-5 h-5 rounded-full bg-[#4EA8FF] text-black flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+              </svg>
+            </span>
+          </motion.a>
         </div>
 
         {/* Dashboard Mockup */}
-        <div style={{ perspective: "1000px" }}>
+        <div style={{ perspective: "1000px" }} className="-mb-12 md:-mb-24 z-20 relative">
           <motion.div style={{ scale, y, rotateX }} className="relative mx-auto w-full max-w-[1200px]">
             <PremiumCard className="p-3 md:p-4">
               <div className="rounded-2xl bg-[#030303] border border-white/[0.05] overflow-hidden relative">

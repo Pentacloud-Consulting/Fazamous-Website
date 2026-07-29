@@ -38,7 +38,7 @@ export function IndustryServiceTemplate({ slug }: { slug: string }) {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-8 text-white" style={{ fontFamily: fonts.display }}>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-8 pb-2 text-white" style={{ fontFamily: fonts.display }}>
             {industry.name}
           </h1>
 

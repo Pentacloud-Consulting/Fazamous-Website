@@ -89,7 +89,7 @@ export function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-5xl lg:text-[4rem] font-semibold tracking-tight leading-[1.08] mb-8 text-white"
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-8 pb-2 text-white"
             >
               We don&apos;t build tools.<br />
               We build <span className="text-gradient-accent">intelligence</span><br />

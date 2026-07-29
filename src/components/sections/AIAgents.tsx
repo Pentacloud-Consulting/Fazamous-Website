@@ -114,10 +114,9 @@ export function AIAgents() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl lg:text-[5rem] font-medium tracking-tight leading-[1.05] mb-6"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2"
           >
-            Multi-Agent<br />
-            <span className="text-gradient">Orchestration.</span>
+            Multi-Agent <span className="text-gradient">Orchestration.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

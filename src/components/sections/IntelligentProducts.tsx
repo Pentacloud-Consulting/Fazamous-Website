@@ -55,7 +55,7 @@ export function IntelligentProducts() {
             <span className="text-white/40 uppercase tracking-[0.2em] text-[9px] font-bold" style={{ fontFamily: fonts.mono }}>Platform Capabilities</span>
           </div>
           
-          <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-[1.1] mb-3" style={{ fontFamily: fonts.display }}>
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-3 pb-2" style={{ fontFamily: fonts.display }}>
             Intelligent <span className="text-white/40">Products.</span>
           </h2>
           

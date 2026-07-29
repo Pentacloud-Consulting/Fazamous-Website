@@ -80,7 +80,7 @@ export function UseCases() {
   const laserTop = useTransform(scrollYProgress, [0.15, 0.85], ["0%", "100%"]);
 
   return (
-    <section id="process" ref={containerRef} className="py-32 relative overflow-hidden bg-[#030303]">
+    <section id="process" ref={containerRef} className="py-12 relative overflow-hidden bg-[#030303]">
       {/* Background ambient gradient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-br from-[#00e5ff]/[0.02] via-[#8B5CF6]/[0.02] to-transparent blur-[220px] pointer-events-none" />
 
@@ -115,10 +115,9 @@ export function UseCases() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-6 text-white"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2 text-white"
           >
-            From Insight to<br />
-            <span className="text-gradient-accent">Autonomous Action.</span>
+            From Insight to <span className="text-gradient-accent">Autonomous Action.</span>
           </motion.h2>
 
           <motion.p

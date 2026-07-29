@@ -26,7 +26,7 @@ export function AutonomousSystems() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-24 relative overflow-hidden bg-[#030303]">
+    <section ref={containerRef} className="py-12 relative overflow-hidden bg-[#030303]">
       {/* Background parallax ambient lighting */}
       <motion.div
         style={{ y: y1 }}
@@ -69,10 +69,9 @@ export function AutonomousSystems() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-5xl lg:text-[4.5rem] font-semibold tracking-tight leading-[1.05] mb-8"
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-8 pb-2"
             >
-              Beyond<br />
-              <span className="text-gradient-accent">Automation.</span>
+              Beyond <span className="text-gradient-accent">Automation.</span>
             </motion.h2>
             
             <motion.p

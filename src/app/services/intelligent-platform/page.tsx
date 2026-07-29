@@ -25,7 +25,7 @@ export default function IntelligentPlatformPage() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-8 text-white" style={{ fontFamily: fonts.display }}>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-8 pb-2 text-white" style={{ fontFamily: fonts.display }}>
             The Intelligence Layer <br/> <span className="text-white/40">Behind Every Industry.</span>
           </h1>
 

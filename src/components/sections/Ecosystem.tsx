@@ -99,7 +99,7 @@ export function Ecosystem() {
   const rightNodes = ecosystemNodes.slice(3, 6);
 
   return (
-    <section id="solutions" className="py-24 relative overflow-hidden bg-[#020202]">
+    <section id="solutions" className="pt-0 pb-24 relative overflow-hidden bg-[#020202] z-10">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12" ref={ref}>
         {/* Header */}
         <div className="text-center mb-24 relative z-30">
@@ -117,7 +117,7 @@ export function Ecosystem() {
             initial={{ opacity: 0, y: 25 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl md:text-5xl lg:text-[4rem] font-semibold tracking-[-0.03em] leading-[1.1] mb-6 text-white"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2 text-white"
           >
             Fazamous's Methodology
           </motion.h2>
