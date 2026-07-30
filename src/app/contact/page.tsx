@@ -75,7 +75,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="relative min-h-screen text-white overflow-hidden selection:bg-[#22D3EE]/30 bg-black" ref={pageRef} style={{ fontFamily: fonts.sans }}>
+    <main className="relative min-h-screen text-white overflow-hidden selection:bg-[#22D3EE]/30 bg-black" ref={pageRef} style={{ fontFamily: fonts.body }}>
       
       <style>{`
         @keyframes twinkle {
