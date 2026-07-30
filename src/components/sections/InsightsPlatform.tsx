@@ -172,7 +172,7 @@ export function InsightsPlatform() {
         </div>
 
         {/* Dashboard Mockup */}
-        <div style={{ perspective: "1000px" }} className="-mb-12 md:-mb-24 z-20 relative">
+        <div style={{ perspective: "1000px" }} className="mb-8 z-20 relative">
           <motion.div style={{ scale, y, rotateX }} className="relative mx-auto w-full max-w-[1200px]">
             <PremiumCard className="p-3 md:p-4">
               <div className="rounded-2xl bg-[#030303] border border-white/[0.05] overflow-hidden relative">

@@ -18,7 +18,7 @@ export function Industries() {
     if (isHovering || !isInView) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % industryData.length);
-    }, 4000);
+    }, 2000);
     return () => clearInterval(interval);
   }, [isHovering, isInView]);
 

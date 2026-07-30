@@ -1,280 +1,494 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { fonts } from "@/styles/tokens";
+import { ArrowRight, Mail, MessageSquare, AtSign, ChevronDown, ExternalLink, MapPin } from "lucide-react";
 
-import { colors, fonts, heroEnter, ease } from "@/styles/tokens";
-import { Mail, MapPin, ShieldCheck, CheckCircle2, ArrowRight } from "lucide-react";
-
-const formFields = [
-  { name: "name", label: "Full Name", type: "text", placeholder: "Jane Doe" },
-  { name: "email", label: "Work Email", type: "email", placeholder: "jane@company.com" },
-  { name: "company", label: "Company", type: "text", placeholder: "Acme Corp" },
-  { name: "message", label: "Message", type: "textarea", placeholder: "Tell us about your use case…" },
+const faqData = [
+  {
+    question: "How quickly can we deploy Fazamous?",
+    answer: "Our cloud-hosted solutions can be deployed instantly. For enterprise on-premise deployments or custom integrations, we typically have a 1-2 week onboarding process to ensure everything is perfectly tailored to your systems."
+  },
+  {
+    question: "Do you work with startups and small businesses?",
+    answer: "Yes, we have highly scalable, usage-based pricing models tailored specifically for startups and growing businesses to ensure you get enterprise-grade AI capabilities within your budget."
+  },
+  {
+    question: "What are your engagement models?",
+    answer: "We offer flexible models including self-serve API access, dedicated enterprise clusters, and full-service managed integration depending on your specific requirements and scope."
+  },
+  {
+    question: "Do you integrate with existing enterprise tools?",
+    answer: "Absolutely. Fazamous is designed to seamlessly integrate with major platforms like Salesforce, HubSpot, and your custom internal data lakes via our secure, low-latency API."
+  },
+  {
+    question: "Do you offer custom AI model training?",
+    answer: "Yes, our enterprise plan includes dedicated support for fine-tuning our foundational models on your proprietary data in a secure, entirely isolated environment."
+  }
 ];
 
-export default function ContactPage() {
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
-  const formRef = useRef(null);
-  const formInView = useInView(formRef, { once: true, margin: "-80px" });
+const Sparkles = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  
+  if (!mounted) return null;
 
-  const [formState, setFormState] = useState<Record<string, string>>({});
-  const [focusedField, setFocusedField] = useState<string | null>(null);
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      {[...Array(60)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute bg-white rounded-full"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${Math.random() * 2.5 + 1}px`,
+            height: `${Math.random() * 2.5 + 1}px`,
+            opacity: Math.random() * 0.6 + 0.1,
+            animation: `twinkle ${Math.random() * 4 + 3}s ease-in-out infinite alternate`,
+            animationDelay: `${Math.random() * 5}s`,
+            boxShadow: `0 0 ${Math.random() * 8 + 4}px rgba(255,255,255,0.8)`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+export default function ContactPage() {
+  const pageRef = useRef(null);
+  const isInView = useInView(pageRef, { once: true, margin: "-100px" });
+
   const [submitted, setSubmitted] = useState(false);
+  const [agree, setAgree] = useState(false);
+  const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agree) return alert("Please agree to be contacted.");
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
-    setFormState({});
+    setAgree(false);
   };
 
-
-
   return (
-    <main className="relative" style={{ backgroundColor: colors.ink }}>
-      <Navbar />
+    <main className="relative min-h-screen text-white overflow-hidden selection:bg-[#22D3EE]/30 bg-black" ref={pageRef} style={{ fontFamily: fonts.sans }}>
+      
+      <style>{`
+        @keyframes twinkle {
+          0% { opacity: 0.1; transform: scale(0.8); }
+          100% { opacity: 1; transform: scale(1.3); }
+        }
+      `}</style>
 
-      <div>
-        {/* ─── Hero ─── */}
-        <section ref={heroRef} className="pt-36 pb-16 px-6 md:px-12 max-w-[1100px] mx-auto">
-          <motion.div {...heroEnter}>
-            <div className="mb-5 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: colors.signalCyan }} />
-              <span className="text-[10px] uppercase tracking-[0.25em] font-semibold" style={{ fontFamily: fonts.mono, color: colors.signalCyan }}>
-                Contact
-              </span>
-            </div>
-
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6" style={{ fontFamily: fonts.display }}>
-              Start a<br />
-              <span style={{ color: colors.signalIndigo }}>Conversation.</span>
-            </h1>
-
-            <p className="text-white/50 max-w-xl text-[16px] leading-relaxed" style={{ fontFamily: fonts.body }}>
-              Whether you&apos;re exploring a pilot or ready to deploy at scale,
-              we&apos;ll match you with the right team.
-            </p>
-          </motion.div>
-        </section>
-
-        {/* ─── Form + Sidebar ─── */}
-        <section ref={formRef} className="px-6 md:px-12 pb-24 max-w-[1100px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-7">
-              <AnimatePresence mode="wait">
-                {submitted ? (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4, ease: ease.smooth }}
-                    className="rounded-[20px] border border-white/[0.08] p-12 text-center flex flex-col items-center gap-4"
-                    style={{ backgroundColor: colors.panel }}
-                  >
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.1 }}
-                    >
-                      <CheckCircle2 size={48} style={{ color: colors.signalCyan }} />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold text-white" style={{ fontFamily: fonts.display }}>
-                      Message received
-                    </h3>
-                    <p className="text-white/40 text-[14px]" style={{ fontFamily: fonts.body }}>
-                      Our team will respond within 24 hours. Check your inbox.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <motion.form
-                    key="form"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    onSubmit={handleSubmit}
-                    className="rounded-[20px] border border-white/[0.08] p-8 md:p-10"
-                    style={{ backgroundColor: colors.panel }}
-                  >
-                    <div className="flex flex-col gap-6">
-                      {formFields.map((field, idx) => (
-                        <motion.div
-                          key={field.name}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={formInView ? { opacity: 1, y: 0 } : {}}
-                          transition={{ duration: 0.4, delay: 0.1 + idx * 0.08, ease: ease.smooth }}
-                        >
-                          <label
-                            className="block text-[10px] uppercase tracking-[0.2em] mb-2"
-                            style={{ fontFamily: fonts.mono, color: focusedField === field.name ? colors.signalCyan : colors.white40 }}
-                          >
-                            {field.label}
-                          </label>
-
-                          {field.type === "textarea" ? (
-                            <textarea
-                              name={field.name}
-                              placeholder={field.placeholder}
-                              rows={4}
-                              value={formState[field.name] || ""}
-                              onChange={(e) => setFormState({ ...formState, [field.name]: e.target.value })}
-                              onFocus={() => setFocusedField(field.name)}
-                              onBlur={() => setFocusedField(null)}
-                              required
-                              className="w-full rounded-xl px-4 py-3 text-[14px] text-white placeholder:text-white/20 outline-none transition-all duration-150 resize-none"
-                              style={{
-                                fontFamily: fonts.body,
-                                backgroundColor: colors.panelRaised,
-                                border: `1px solid ${focusedField === field.name ? `${colors.signalCyan}60` : "rgba(255,255,255,0.08)"}`,
-                                boxShadow: focusedField === field.name ? `0 0 0 3px ${colors.signalCyan}15` : "none",
-                              }}
-                            />
-                          ) : (
-                            <input
-                              type={field.type}
-                              name={field.name}
-                              placeholder={field.placeholder}
-                              value={formState[field.name] || ""}
-                              onChange={(e) => setFormState({ ...formState, [field.name]: e.target.value })}
-                              onFocus={() => setFocusedField(field.name)}
-                              onBlur={() => setFocusedField(null)}
-                              required
-                              className="w-full rounded-xl px-4 py-3 text-[14px] text-white placeholder:text-white/20 outline-none transition-all duration-150"
-                              style={{
-                                fontFamily: fonts.body,
-                                backgroundColor: colors.panelRaised,
-                                border: `1px solid ${focusedField === field.name ? `${colors.signalCyan}60` : "rgba(255,255,255,0.08)"}`,
-                                boxShadow: focusedField === field.name ? `0 0 0 3px ${colors.signalCyan}15` : "none",
-                              }}
-                            />
-                          )}
-                        </motion.div>
-                      ))}
-
-                      <motion.button
-                        type="submit"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="mt-2 w-full py-3.5 rounded-xl text-[14px] font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] cursor-pointer"
-                        style={{
-                          fontFamily: fonts.display,
-                          backgroundColor: colors.signalIndigo,
-                          color: colors.white,
-                        }}
-                      >
-                        Send Message
-                      </motion.button>
-                    </div>
-                  </motion.form>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Sidebar — Alternate Paths + Locations + Certifications */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-              {/* Alternate Paths */}
-              <div
-                className="rounded-[20px] border border-white/[0.08] p-7"
-                style={{ backgroundColor: colors.panel }}
-              >
-                <h3 className="text-sm font-semibold text-white mb-5" style={{ fontFamily: fonts.display }}>
-                  Alternate Channels
-                </h3>
-
-                <a
-                  href="mailto:contact@fazamous.com"
-                  className="flex items-center gap-3 text-[13px] text-white/60 hover:text-white transition-colors mb-4 group"
-                  style={{ fontFamily: fonts.body }}
-                >
-                  <Mail size={14} style={{ color: colors.signalIndigo }} />
-                  <span>Request a Demo — contact@fazamous.com</span>
-                  <ArrowRight size={12} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-
-                <a
-                  href="mailto:sales@fazamous.com"
-                  className="flex items-center gap-3 text-[13px] text-white/60 hover:text-white transition-colors group"
-                  style={{ fontFamily: fonts.body }}
-                >
-                  <Mail size={14} style={{ color: colors.signalCyan }} />
-                  <span>Enterprise Sales — sales@fazamous.com</span>
-                  <ArrowRight size={12} className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </div>
-
-              {/* Locations */}
-              {/* // TODO: confirm these are real offices before shipping */}
-              <div
-                className="rounded-[20px] border border-white/[0.08] p-7"
-                style={{ backgroundColor: colors.panel }}
-              >
-                <h3 className="text-sm font-semibold text-white mb-5" style={{ fontFamily: fonts.display }}>
-                  Offices
-                  <span
-                    className="ml-2 text-[8px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded align-middle"
-                    style={{ fontFamily: fonts.mono, color: colors.signalAmber, backgroundColor: `${colors.signalAmber}15`, border: `1px solid ${colors.signalAmber}40` }}
-                  >
-                    TODO
-                  </span>
-                </h3>
-
-                <div className="flex flex-col gap-3">
-                  {/* // TODO: confirm San Francisco is a real office */}
-                  <div className="flex items-center gap-3 text-[13px] text-white/50" style={{ fontFamily: fonts.body }}>
-                    <MapPin size={14} style={{ color: colors.signalIndigo }} />
-                    <span>San Francisco, CA</span>
-                  </div>
-                  {/* // TODO: confirm Zurich is a real office */}
-                  <div className="flex items-center gap-3 text-[13px] text-white/50" style={{ fontFamily: fonts.body }}>
-                    <MapPin size={14} style={{ color: colors.signalCyan }} />
-                    <span>Zurich, Switzerland</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Certification Badges */}
-              {/* // TODO: confirm actually held before displaying publicly */}
-              <div
-                className="rounded-[20px] border border-white/[0.08] p-7"
-                style={{ backgroundColor: colors.panel }}
-              >
-                <h3 className="text-sm font-semibold text-white mb-5" style={{ fontFamily: fonts.display }}>
-                  Compliance
-                  <span
-                    className="ml-2 text-[8px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded align-middle"
-                    style={{ fontFamily: fonts.mono, color: colors.signalAmber, backgroundColor: `${colors.signalAmber}15`, border: `1px solid ${colors.signalAmber}40` }}
-                  >
-                    TODO: CONFIRM
-                  </span>
-                </h3>
-
-                <div className="flex flex-wrap gap-3">
-                  {/* // TODO: confirm SOC 2 certification is actually held */}
-                  {["SOC 2 Type II", "ISO 27001", "GDPR"].map((cert) => (
-                    <div
-                      key={cert}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg border border-white/[0.06] text-[11px] text-white/50"
-                      style={{ fontFamily: fonts.mono, backgroundColor: colors.panelRaised }}
-                    >
-                      <ShieldCheck size={12} style={{ color: colors.signalCyan }} />
-                      {cert}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
+      {/* ─── Premium Twinkling Sparkle Background ─── */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <Sparkles />
       </div>
 
+      <Navbar />
 
+      {/* Main Split-Screen Container */}
+      <div className="relative z-10 pt-32 pb-16 px-6 md:px-12 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-stretch relative">
+          
+
+
+          {/* ─── LEFT COLUMN: True Glass Card ─── */}
+          <motion.div 
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative rounded-[40px] overflow-hidden p-10 md:p-14 lg:p-16 flex flex-col h-full min-h-[600px]"
+            style={{
+              background: "linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)",
+              backdropFilter: "blur(60px)",
+              WebkitBackdropFilter: "blur(60px)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              boxShadow: "0 40px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.2), inset 0 0 40px rgba(255,255,255,0.05)"
+            }}
+          >
+            {/* Inner top highlight */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            
+            {/* Abstract Decorative Graphic */}
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-[15%] w-[400px] h-[400px] pointer-events-none hidden md:block">
+               {/* 3D Rings */}
+               <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="w-full h-full absolute inset-0 border-[1px] border-white/5 rounded-full" />
+               <motion.div animate={{ rotate: -360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="w-[80%] h-[80%] absolute top-[10%] left-[10%] border-[2px] border-dashed border-[#22D3EE]/20 rounded-full">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-[#22D3EE] rounded-full shadow-[0_0_20px_#22D3EE]" />
+               </motion.div>
+               
+               {/* Floating Widgets */}
+               <motion.div 
+                 animate={{ y: [-20, 20, -20] }}
+                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                 className="absolute top-[20%] right-[20%] w-36 h-24 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center p-4"
+               >
+                 <div className="w-8 h-8 rounded-full border border-[#22D3EE]/30 flex items-center justify-center mb-2">
+                   <div className="w-2 h-2 rounded-full bg-[#22D3EE] shadow-[0_0_10px_#22D3EE] animate-pulse" />
+                 </div>
+                 <span className="text-white/80 text-[11px] uppercase tracking-[0.2em] font-mono font-medium">Active</span>
+               </motion.div>
+
+               <motion.div 
+                 animate={{ y: [20, -20, 20] }}
+                 transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 }}
+                 className="absolute bottom-[25%] left-[10%] w-44 h-28 bg-black/40 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex items-center justify-center p-4 relative overflow-hidden"
+               >
+                 <div className="absolute inset-0 bg-gradient-to-tr from-[#6366F1]/10 to-transparent" />
+                 <div className="flex flex-col items-center relative z-10">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60 font-bold text-3xl tracking-tight">1.2<span className="text-xl">ms</span></span>
+                    <span className="text-[#6366F1] font-mono text-[9px] uppercase tracking-widest mt-1">Avg Latency</span>
+                 </div>
+               </motion.div>
+            </div>
+
+            <div className="relative z-10 max-w-md mb-auto">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.2, duration: 0.8 }}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#22D3EE]/30 bg-[#22D3EE]/10 text-[#22D3EE] text-[11px] font-mono uppercase tracking-widest mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
+                  Global Support
+                </div>
+                <h1 className="text-5xl lg:text-[64px] font-medium tracking-tighter leading-[1.05] mb-6" style={{ fontFamily: fonts.display }}>
+                  Start a <br />
+                  <span className="relative">
+                    <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#22D3EE] via-[#818cf8] to-[#c084fc] drop-shadow-[0_0_30px_rgba(34,211,238,0.4)]">Conversation.</span>
+                  </span>
+                </h1>
+                <p className="text-white/50 text-[16px] leading-[1.8] font-light mb-10 max-w-sm" style={{ fontFamily: fonts.body }}>
+                  Whether you're exploring our platform, need enterprise support, or want to discuss compatibility, our team is ready to help.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Social / Contact Pills */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={isInView ? { opacity: 1, y: 0 } : {}} 
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="relative z-10 flex flex-col gap-4 w-fit mt-12"
+            >
+              {[
+                { icon: Mail, text: "contact@fazamous.com", color: "hover:border-[#22D3EE]/50 hover:bg-[#22D3EE]/5 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)]", iconColor: "group-hover:text-[#22D3EE]" },
+                { icon: MessageSquare, text: "discord.gg/fazamous", color: "hover:border-[#6366F1]/50 hover:bg-[#6366F1]/5 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)]", iconColor: "group-hover:text-[#6366F1]" },
+                { icon: AtSign, text: "@fazamous_ai", color: "hover:border-white/50 hover:bg-white/5 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]", iconColor: "group-hover:text-white" }
+              ].map((item, i) => (
+                <a key={i} href="#" className={`flex items-center gap-4 px-5 py-3 rounded-2xl bg-white/[0.02] border border-white/5 transition-all duration-300 group backdrop-blur-md ${item.color}`}>
+                  <div className={`w-8 h-8 rounded-xl bg-white/5 flex items-center justify-center text-white/40 transition-colors duration-300 ${item.iconColor}`}>
+                    <item.icon size={14} />
+                  </div>
+                  <span className="text-[14px] font-medium text-white/50 group-hover:text-white transition-colors duration-300">{item.text}</span>
+                </a>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* ─── RIGHT COLUMN: Neon Accented Form ─── */}
+          <motion.div 
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col justify-center py-6 lg:py-0 w-full max-w-[520px] mx-auto lg:ml-auto lg:mr-0 relative"
+          >
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="text-center py-20"
+                >
+                  <div className="w-20 h-20 rounded-full bg-[#22D3EE]/10 border border-[#22D3EE]/30 flex items-center justify-center mx-auto mb-8 shadow-[0_0_40px_rgba(34,211,238,0.2)]">
+                    <Mail size={32} className="text-[#22D3EE]" />
+                  </div>
+                  <h3 className="text-3xl font-semibold mb-3" style={{ fontFamily: fonts.display }}>Message Sent</h3>
+                  <p className="text-white/50 text-[16px]">We'll be in touch shortly.</p>
+                </motion.div>
+              ) : (
+                <motion.form 
+                  onSubmit={handleSubmit} 
+                  className="flex flex-col gap-8 w-full" 
+                  style={{ fontFamily: fonts.body }}
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.4 } }
+                  }}
+                >
+                  
+                  {/* Name Row */}
+                  <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                    <div className="grid grid-cols-2 gap-6">
+                      <div className="flex flex-col gap-2">
+                        <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">First Name</label>
+                        <input 
+                          type="text" placeholder="Jane" required
+                          className="w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-[15px] text-white placeholder:text-white/20 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner focus:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">Last Name</label>
+                        <input 
+                          type="text" placeholder="Doe" required
+                          className="w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-[15px] text-white placeholder:text-white/20 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner focus:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Email */}
+                  <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col gap-2">
+                    <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">Email Address</label>
+                    <input 
+                      type="email" placeholder="jane@company.com" required
+                      className="w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-[15px] text-white placeholder:text-white/20 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner focus:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                    />
+                  </motion.div>
+
+                  {/* Phone */}
+                  <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col gap-2">
+                    <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">Phone Number</label>
+                    <div className="flex gap-4">
+                      <div className="relative w-[110px] flex-shrink-0">
+                        <select className="appearance-none w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl pl-5 pr-10 py-4 text-[15px] text-white outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner cursor-pointer">
+                          <option className="bg-[#111]">+1</option>
+                          <option className="bg-[#111]">+44</option>
+                          <option className="bg-[#111]">+91</option>
+                        </select>
+                        <ChevronDown size={14} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
+                      </div>
+                      <input 
+                        type="tel" placeholder="(555) 000-0000" required
+                        className="w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-[15px] text-white placeholder:text-white/20 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner focus:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Topic */}
+                  <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col gap-2">
+                    <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">Topic</label>
+                    <div className="relative w-full">
+                      <select className="appearance-none w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl pl-5 pr-10 py-4 text-[15px] text-white/80 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner cursor-pointer">
+                        <option className="bg-[#111]">General Inquiry</option>
+                        <option className="bg-[#111]">Enterprise Pilot</option>
+                        <option className="bg-[#111]">Technical Support</option>
+                        <option className="bg-[#111]">Partnership</option>
+                      </select>
+                      <ChevronDown size={16} className="absolute right-5 top-1/2 -translate-y-1/2 text-white/40 pointer-events-none" />
+                    </div>
+                  </motion.div>
+
+                  {/* Message */}
+                  <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="flex flex-col gap-2">
+                    <label className="text-[11px] font-mono uppercase tracking-widest text-white/50 pl-1">Message</label>
+                    <textarea 
+                      placeholder="Tell us about your project..." rows={4} required
+                      className="w-full bg-white/[0.02] hover:bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-[15px] text-white placeholder:text-white/20 outline-none focus:bg-white/[0.05] focus:border-[#22D3EE]/50 focus:ring-1 focus:ring-[#22D3EE]/50 transition-all shadow-inner resize-none focus:shadow-[0_0_20px_rgba(34,211,238,0.15)]"
+                    />
+                  </motion.div>
+
+                  {/* Checkbox & Submit */}
+                  <motion.div 
+                    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                    className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6"
+                  >
+                    <label className="flex items-center gap-4 cursor-pointer group">
+                      <div className={`w-5 h-5 rounded-[6px] border flex items-center justify-center transition-all duration-300 ${agree ? 'bg-[#22D3EE] border-[#22D3EE] shadow-[0_0_15px_rgba(34,211,238,0.4)]' : 'bg-transparent border-white/20 group-hover:border-white/40'}`}>
+                        {agree && <div className="w-2.5 h-2.5 bg-black rounded-sm" />}
+                      </div>
+                      <span className="text-[14px] text-white/50 group-hover:text-white/80 transition-colors">
+                        I agree to be contacted.
+                      </span>
+                    </label>
+
+                    <button 
+                      type="submit"
+                      className="group relative px-8 py-4 rounded-full bg-white text-black font-semibold tracking-wide flex items-center gap-3 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:shadow-[0_0_50px_rgba(34,211,238,0.4)] transition-all duration-500 hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#22D3EE] to-[#6366F1] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <span className="relative z-10 text-[14px] group-hover:text-white transition-colors duration-500">Send Message</span>
+                      <ArrowRight size={16} className="relative z-10 group-hover:text-white group-hover:translate-x-1 transition-all duration-500" />
+                    </button>
+                  </motion.div>
+
+                </motion.form>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* ─── Location Section ─── */}
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 pt-12 pb-24 px-6 md:px-12 max-w-[1200px] mx-auto"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Studio Text Card */}
+          <div className="relative group rounded-[40px] overflow-hidden aspect-[4/3] md:aspect-[3/2] border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] bg-gradient-to-br from-[#111] to-[#050505] flex items-center justify-center">
+            {/* Elegant Text Logo Placeholder */}
+            <h2 className="text-3xl md:text-4xl font-bold tracking-[0.3em] text-white/50 select-none transition-transform duration-1000 group-hover:scale-110" style={{ fontFamily: fonts.display }}>
+              FAZAMOUS
+            </h2>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-8 left-8">
+              <button className="px-6 py-3.5 rounded-full bg-black/80 backdrop-blur-xl border border-white/10 text-white text-[11px] font-bold tracking-widest uppercase flex items-center gap-3 hover:bg-white hover:text-black transition-all">
+                Our Studio <ExternalLink size={14} />
+              </button>
+            </div>
+          </div>
+
+          {/* Map Image Card */}
+          <div className="relative group rounded-[40px] overflow-hidden aspect-[4/3] md:aspect-[3/2] border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.5)] bg-[#050505]">
+            <img src="/map.png" alt="Fazamous Location" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute bottom-8 left-0 right-0 flex justify-center">
+              <button className="px-8 py-3.5 rounded-full bg-[#0A0A0A] backdrop-blur-xl border border-white/10 text-white text-[11px] font-bold tracking-widest uppercase flex items-center gap-3 hover:border-white/30 transition-all">
+                <MapPin size={14} className="text-[#22D3EE]" /> Open in Google Maps
+              </button>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ─── FAQ Section ─── */}
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 py-24 px-6 md:px-12 max-w-[800px] mx-auto"
+      >
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.02] text-white/50 text-[10px] font-mono uppercase tracking-widest mb-6 shadow-inner">
+            Common Questions
+          </div>
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4" style={{ fontFamily: fonts.display }}>
+            Contact Fazamous, <br className="md:hidden" />
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#22D3EE] to-[#6366F1]">Answered Honestly</span>
+          </h2>
+        </div>
+
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+          }}
+          className="flex flex-col gap-4"
+        >
+          {faqData.map((faq, index) => {
+            const isActive = activeFaq === index;
+            return (
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                key={index}
+                className={`overflow-hidden transition-all duration-500 rounded-3xl border backdrop-blur-xl cursor-pointer ${isActive ? 'bg-white/[0.04] border-white/20 shadow-[0_20px_40px_rgba(0,0,0,0.4)]' : 'bg-white/[0.02] border-white/5 hover:border-white/10 hover:bg-white/[0.03]'}`}
+                onClick={() => setActiveFaq(isActive ? null : index)}
+              >
+                <div className="px-6 py-6 md:px-8 flex items-center justify-between gap-4">
+                  <h3 className={`font-medium text-[15px] md:text-[16px] transition-colors duration-300 ${isActive ? 'text-[#22D3EE]' : 'text-white/80'}`}>
+                    {faq.question}
+                  </h3>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${isActive ? 'bg-[#22D3EE]/10 text-[#22D3EE]' : 'bg-white/5 text-white/40'}`}>
+                    <ChevronDown size={16} className={`transition-transform duration-500 ${isActive ? 'rotate-180' : ''}`} />
+                  </div>
+                </div>
+                
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                      <div className="px-6 pb-8 md:px-8 pt-0 flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+                        {index === 0 && (
+                          <div className="w-full md:w-1/3 aspect-[4/3] rounded-2xl overflow-hidden relative flex-shrink-0 bg-gradient-to-br from-[#1a1c23] to-[#0A0B0F] border border-white/10">
+                             {/* Abstract placeholder image to match our dark theme */}
+                             <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 30% 30%, #22D3EE, transparent 60%)' }} />
+                             <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-sm">
+                                  <div className="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse" />
+                                </div>
+                             </div>
+                          </div>
+                        )}
+                        <div className="flex flex-col gap-4">
+                          <p className="text-white/50 text-[14px] leading-relaxed font-light" style={{ fontFamily: fonts.body }}>
+                            {faq.answer}
+                          </p>
+                          {index === 0 && (
+                            <a href="#" className="text-[#22D3EE] text-[13px] font-medium flex items-center gap-2 hover:gap-3 transition-all w-fit">
+                              View more <ArrowRight size={14} />
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </motion.div>
+
+      {/* ─── CTA Banner ─── */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 40 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        className="relative z-10 py-16 px-6 md:px-12 max-w-[1200px] mx-auto mb-24"
+      >
+        <div className="relative rounded-[40px] overflow-hidden p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)]" style={{ background: "linear-gradient(135deg, rgba(34,211,238,0.1) 0%, rgba(99,102,241,0.1) 100%)", backdropFilter: "blur(40px)" }}>
+          
+          {/* Inner Glows */}
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#22D3EE]/20 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#6366F1]/20 blur-[100px] rounded-full pointer-events-none translate-x-1/4 translate-y-1/4" />
+          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#22D3EE]/50 to-transparent" />
+
+          <div className="relative z-10 max-w-lg">
+            <h4 className="text-[#22D3EE] text-[11px] font-mono uppercase tracking-[0.2em] mb-4">Fazamous</h4>
+            <h2 className="text-3xl md:text-[40px] font-semibold tracking-tight leading-[1.1] mb-4" style={{ fontFamily: fonts.display }}>
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-white/60 text-[14px] leading-[1.8] font-light" style={{ fontFamily: fonts.body }}>
+              Join forward-thinking companies that trust Fazamous to power their next-generation AI features. Let's build something extraordinary.
+            </p>
+          </div>
+
+          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 w-full md:w-auto">
+            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-semibold text-[14px] tracking-wide flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+              Start Your Journey <ArrowRight size={16} />
+            </button>
+            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] border border-white/10 text-white font-medium text-[14px] flex items-center justify-center hover:bg-white/[0.08] transition-all">
+              Explore Services
+            </button>
+            
+            <div className="md:absolute md:-bottom-8 md:right-0 mt-6 md:mt-0 text-center md:text-right">
+              <span className="block text-white/40 text-[10px] uppercase tracking-widest mb-1">Or reach us at</span>
+              <span className="text-[#22D3EE] font-mono text-[13px]">+971 545 132 807</span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <Footer />
     </main>
   );
 }

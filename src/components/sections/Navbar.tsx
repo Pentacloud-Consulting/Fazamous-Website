@@ -118,7 +118,7 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[600px] p-6 glass-card bg-[#0A0B0F]/90 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex gap-6"
+                      className="w-[600px] p-6 bg-black/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.8)] flex gap-6"
                     >
                       {/* Left side: Flagship Platform */}
                       <div className="w-1/3 flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">

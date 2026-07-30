@@ -99,7 +99,7 @@ export function Ecosystem() {
   const rightNodes = ecosystemNodes.slice(3, 6);
 
   return (
-    <section id="solutions" className="pt-0 pb-24 relative overflow-hidden bg-[#020202] z-10">
+    <section id="solutions" className="pt-16 pb-24 relative overflow-hidden bg-[#020202] z-10">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12" ref={ref}>
         {/* Header */}
         <div className="text-center mb-24 relative z-30">
