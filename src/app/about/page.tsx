@@ -129,7 +129,7 @@ export default function AboutPage() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
-    <main ref={containerRef} className="relative min-h-screen bg-[#05060A] text-white selection:bg-[#6366F1]/30 overflow-hidden" style={{ fontFamily: fonts.sans }}>
+    <main ref={containerRef} className="min-h-screen bg-[#04050a] text-white selection:bg-[#6FE5FF]/30 selection:text-white overflow-hidden" style={{ fontFamily: fonts.body }}>
       <Navbar />
 
       {/* ─── Global Background Atmosphere ─── */}
