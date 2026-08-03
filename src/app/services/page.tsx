@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { Contact } from "@/components/sections/Contact";
 
 // We can just use the products array from before.
 const products = [
@@ -346,6 +347,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <Contact />
       <Footer />
     </main>
   );

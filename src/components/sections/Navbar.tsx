@@ -52,11 +52,11 @@ export function Navbar() {
 
       <nav
         className={`
-          relative flex items-center justify-between w-full max-w-[1400px]
-          px-7 py-3.5 rounded-2xl
+          relative flex items-center justify-between w-full max-w-[1200px]
+          px-6 py-3 rounded-full
           transition-all duration-700 ease-out
           ${scrolled
-            ? "bg-[#0A0B0F]/60 backdrop-blur-3xl border border-white/[0.08] border-b-white/[0.12] shadow-[0_4px_40px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)]"
+            ? "bg-[#0A0B0F]/80 backdrop-blur-3xl border border-white/[0.1] border-b-white/[0.15] shadow-[0_8px_32px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)]"
             : "bg-transparent border border-transparent"
           }
         `}

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { Contact } from "@/components/sections/Contact";
 
 import { colors, fonts, heroEnter, stagger, hoverGlow, ease } from "@/styles/tokens";
 import { industries, products } from "@/lib/data";
@@ -197,9 +198,9 @@ export default function SolutionsPage() {
           </div>
         </section>
 
+        <Contact />
         <Footer />
       </div>
-
 
     </main>
   );

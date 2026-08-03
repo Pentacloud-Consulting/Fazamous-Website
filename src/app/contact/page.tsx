@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import { Contact } from "@/components/sections/Contact";
 import { fonts } from "@/styles/tokens";
 import { ArrowRight, Mail, MessageSquare, AtSign, ChevronDown, ExternalLink, MapPin } from "lucide-react";
 
@@ -448,45 +449,7 @@ export default function ContactPage() {
       </motion.div>
 
       {/* ─── CTA Banner ─── */}
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95, y: 40 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 py-16 px-6 md:px-12 max-w-[1200px] mx-auto mb-24"
-      >
-        <div className="relative rounded-[40px] overflow-hidden p-10 md:p-16 flex flex-col md:flex-row items-center justify-between gap-10 border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,0.6)]" style={{ background: "linear-gradient(135deg, rgba(34,211,238,0.1) 0%, rgba(99,102,241,0.1) 100%)", backdropFilter: "blur(40px)" }}>
-          
-          {/* Inner Glows */}
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#22D3EE]/20 blur-[100px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#6366F1]/20 blur-[100px] rounded-full pointer-events-none translate-x-1/4 translate-y-1/4" />
-          <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#22D3EE]/50 to-transparent" />
-
-          <div className="relative z-10 max-w-lg">
-            <h4 className="text-[#22D3EE] text-[11px] font-mono uppercase tracking-[0.2em] mb-4">Fazamous</h4>
-            <h2 className="text-3xl md:text-[40px] font-semibold tracking-tight leading-[1.1] mb-4" style={{ fontFamily: fonts.display }}>
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-white/60 text-[14px] leading-[1.8] font-light" style={{ fontFamily: fonts.body }}>
-              Join forward-thinking companies that trust Fazamous to power their next-generation AI features. Let's build something extraordinary.
-            </p>
-          </div>
-
-          <div className="relative z-10 flex flex-col sm:flex-row items-center gap-4 flex-shrink-0 w-full md:w-auto">
-            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-black font-semibold text-[14px] tracking-wide flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-              Start Your Journey <ArrowRight size={16} />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.04] border border-white/10 text-white font-medium text-[14px] flex items-center justify-center hover:bg-white/[0.08] transition-all">
-              Explore Services
-            </button>
-            
-            <div className="md:absolute md:-bottom-8 md:right-0 mt-6 md:mt-0 text-center md:text-right">
-              <span className="block text-white/40 text-[10px] uppercase tracking-widest mb-1">Or reach us at</span>
-              <span className="text-[#22D3EE] font-mono text-[13px]">+971 545 132 807</span>
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      <Contact />
 
       <Footer />
     </main>
