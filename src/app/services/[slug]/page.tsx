@@ -1,5 +1,7 @@
 import { industryData } from "@/data/industryData";
 import { IndustryServiceTemplate } from "@/components/templates/IndustryServiceTemplate";
+import Telecommunications from "@/Frontend/Services/Telecommunications/Telecommunications";
+import FinancialServices from "@/Frontend/Services/Financial Services/Financial Services";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
@@ -31,6 +33,14 @@ export default async function IndustryServicePage({ params }: { params: Promise<
 
   if (!industry) {
     notFound();
+  }
+
+  if (industry.slug === "telecommunications") {
+    return <Telecommunications />;
+  }
+
+  if (industry.slug === "financial-services") {
+    return <FinancialServices />;
   }
 
   return <IndustryServiceTemplate slug={industry.slug} />;

@@ -196,6 +196,7 @@ function Premium3DScene({ className }: { className?: string }) {
    ═══════════════════════════════════════════════════════════ */
 function OrbitalRing() {
   const [rotation, setRotation] = useState(0);
+  const [mounted, setMounted] = useState(false);
   const requestRef = useRef<number>(0);
   
   const animate = useCallback((time: number) => {
@@ -204,6 +205,7 @@ function OrbitalRing() {
   }, []);
   
   useEffect(() => {
+    setMounted(true);
     requestRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(requestRef.current);
   }, [animate]);
@@ -233,7 +235,7 @@ function OrbitalRing() {
       </svg>
 
       {/* Orbiting Labels */}
-      {labels.map((label, i) => {
+      {mounted && labels.map((label, i) => {
         const angleOffset = (i * 360) / labels.length;
         const currentGlobalAngle = (rotation + angleOffset) % 360;
         

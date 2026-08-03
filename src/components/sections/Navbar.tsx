@@ -118,10 +118,10 @@ export function Navbar() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="w-[600px] p-6 bg-black/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.8)] flex gap-6"
+                      className="w-[800px] p-6 bg-black/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.8)] flex gap-6"
                     >
                       {/* Left side: Flagship Platform */}
-                      <div className="w-1/3 flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
+                      <div className="w-1/4 flex flex-col p-4 rounded-xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-[#4EA8FF]/20 blur-3xl group-hover:bg-[#4EA8FF]/30 transition-colors pointer-events-none" />
                         <div className="w-10 h-10 rounded-lg bg-[#4EA8FF]/10 flex items-center justify-center mb-4">
                           <Rocket size={20} className="text-[#4EA8FF]" />
@@ -134,23 +134,32 @@ export function Navbar() {
                       </div>
 
                       {/* Right side: Industry Verticals Grid */}
-                      <div className="w-2/3">
+                      <div className="w-3/4">
                         <h4 className="text-white/40 text-[11px] uppercase tracking-widest font-mono mb-4 px-2">Industry Solutions</h4>
-                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-                          {industryData.map((ind) => (
+                        <div className="grid grid-cols-3 gap-x-4 gap-y-2">
+                          {industryData.map((ind) => {
+                            const isIndActive = pathname === `/services/${ind.slug}`;
+                            return (
                             <Link 
                               key={ind.slug} 
                               href={`/services/${ind.slug}`}
-                              className="group flex items-center gap-3 p-2 rounded-lg hover:bg-white/[0.04] transition-colors"
+                              className={`group flex items-center gap-3 p-2 rounded-lg transition-colors ${
+                                isIndActive ? "bg-white/[0.05] ring-1 ring-white/10" : "hover:bg-white/[0.04]"
+                              }`}
                             >
-                              <div className="w-6 h-6 rounded flex items-center justify-center bg-white/[0.02] border border-white/5 group-hover:scale-110 transition-transform">
+                              <div className={`w-6 h-6 flex-shrink-0 rounded flex items-center justify-center border transition-transform ${
+                                isIndActive ? "bg-white/[0.03] border-white/20" : "bg-white/[0.02] border-white/5 group-hover:scale-110"
+                              }`}>
                                 <ind.icon size={12} style={{ color: ind.color }} />
                               </div>
-                              <span className="text-[13px] font-medium text-white/70 group-hover:text-white transition-colors">
+                              <span className={`text-[13px] transition-colors ${
+                                isIndActive ? "font-semibold text-white" : "font-medium text-white/70 group-hover:text-white"
+                              }`}>
                                 {ind.name}
                               </span>
                             </Link>
-                          ))}
+                            )
+                          })}
                         </div>
                       </div>
                     </motion.div>
