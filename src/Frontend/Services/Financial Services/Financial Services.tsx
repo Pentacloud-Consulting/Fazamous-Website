@@ -38,35 +38,98 @@ const HeroSection = () => {
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-900/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 text-center mt-12">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }} 
-          animate={{ opacity: 1, scale: 1 }} 
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-xs font-bold text-green-400 uppercase tracking-widest mb-8"
-        >
-          <Landmark className="w-4 h-4" />
-          Banking & Finance
-        </motion.div>
-        
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl lg:text-[80px] font-bold leading-[1.1] mb-8 tracking-tight text-white"
-        >
-          Intelligent Finance.<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-300 to-teal-500">Uncompromised Security.</span>
-        </motion.h1>
+      <div className="max-w-7xl mx-auto px-6 relative z-10 mt-12 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="text-center lg:text-left">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ duration: 0.8 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-xs font-bold text-green-400 uppercase tracking-widest mb-8"
+          >
+            <Landmark className="w-4 h-4" />
+            Banking & Finance
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight text-white"
+          >
+            Intelligent Finance.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-300 to-teal-500">Uncompromised Security.</span>
+          </motion.h1>
 
-        <motion.p 
-          initial={{ opacity: 0, y: 30 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12"
-        >
-          Deploy military-grade AI to detect fraud in milliseconds, automate compliance, and deliver hyper-personalized banking experiences.
-        </motion.p>
+          <motion.p 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-12"
+          >
+            Deploy military-grade AI to detect fraud in milliseconds, automate compliance, and deliver hyper-personalized banking experiences.
+          </motion.p>
+        </div>
+
+        {/* Right Side: Looping Diagram */}
+        <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center">
+            {/* Core Center */}
+            <div className="absolute w-28 h-28 bg-[#050505] rounded-full border border-green-500/50 shadow-[0_0_50px_rgba(34,197,94,0.3)] z-20 flex items-center justify-center">
+                <Landmark className="w-10 h-10 text-green-400" />
+            </div>
+
+            {/* Orbiting Rings */}
+            {[1, 2, 3].map((ring, i) => (
+                <motion.div 
+                   key={i}
+                   animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
+                   transition={{ duration: 25 + i * 10, repeat: Infinity, ease: "linear" }}
+                   className="absolute rounded-full border border-white/5 border-t-green-500/30 border-b-teal-500/30 z-10"
+                   style={{ width: `${220 + i * 100}px`, height: `${220 + i * 100}px` }}
+                >
+                   {/* Nodes on rings */}
+                   {i === 0 && (
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-[#0a0a0a] border border-white/10 rounded-full flex items-center justify-center shadow-lg">
+                         <Wallet className="w-4 h-4 text-gray-300" />
+                      </div>
+                   )}
+                   {i === 1 && (
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-10 h-10 bg-[#0a0a0a] border border-blue-500/30 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+                         <Lock className="w-4 h-4 text-blue-400" />
+                      </div>
+                   )}
+                   {i === 2 && (
+                      <>
+                        <div className="absolute top-[15%] left-[15%] -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#0a0a0a] border border-green-500/40 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(34,197,94,0.3)]">
+                           <ShieldAlert className="w-5 h-5 text-green-400" />
+                        </div>
+                        <div className="absolute bottom-[15%] right-[15%] translate-x-1/2 translate-y-1/2 w-12 h-12 bg-[#0a0a0a] border border-teal-500/40 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(20,184,166,0.3)]">
+                           <Activity className="w-5 h-5 text-teal-400" />
+                        </div>
+                      </>
+                   )}
+                </motion.div>
+            ))}
+
+            {/* Glowing Particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{ 
+                    y: [0, -30, 0], 
+                    x: [0, i % 2 === 0 ? 20 : -20, 0],
+                    opacity: [0, 1, 0]
+                  }}
+                  transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                  className="absolute w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_10px_#4ade80]"
+                  style={{
+                    top: `${Math.random() * 60 + 20}%`,
+                    left: `${Math.random() * 60 + 20}%`,
+                  }}
+                />
+              ))}
+            </div>
+        </div>
       </div>
     </section>
   );
