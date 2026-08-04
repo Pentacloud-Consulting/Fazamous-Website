@@ -179,7 +179,7 @@ export const industryData = [
     icon: Box,
     color: "#F59E0B", // signal-amber
     metric: "Zero Disruptions",
-    products: ["SupplySync AI", "NexusFlow AI"],
+    products: ["SupplySync AI"],
     isNew: true,
     useCases: [
       { title: "Unified Intelligence Platform", elaboration: "Synchronize independent software and hardware systems across the entire global supply chain into a single pane of glass." },

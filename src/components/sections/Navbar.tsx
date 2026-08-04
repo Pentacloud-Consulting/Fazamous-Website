@@ -128,7 +128,7 @@ export function Navbar() {
                         </div>
                         <h4 className="text-white font-bold mb-2">Flagship Platform</h4>
                         <p className="text-white/50 text-[12px] leading-relaxed mb-6">The Intelligence Layer Behind Every Industry.</p>
-                        <Link href="/services/intelligent-platform" className="mt-auto flex items-center gap-2 text-[13px] font-semibold text-[#4EA8FF] hover:text-white transition-colors">
+                        <Link href="/services/intelligent-platform" className="hidden mt-auto items-center gap-2 text-[13px] font-semibold text-[#4EA8FF] hover:text-white transition-colors">
                           Explore Insights &rarr;
                         </Link>
                       </div>

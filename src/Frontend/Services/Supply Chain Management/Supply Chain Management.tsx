@@ -31,7 +31,7 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-xs font-bold text-[#f59e0b] uppercase tracking-widest mb-6 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
           >
             <Box className="w-4 h-4 animate-pulse" />
-            NexusFlow AI
+            SupplySync AI
           </motion.div>
           
           <motion.h1 
@@ -154,10 +154,10 @@ const HeroSection = () => {
                className="absolute left-0 right-0 h-32 bg-gradient-to-b from-transparent via-[#f59e0b]/10 to-transparent pointer-events-none z-30"
             />
             
-            {/* Center Nexus Core representation */}
+            {/* Center Core representation */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 bg-[#0a0a0c]/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full z-20 shadow-xl">
               <Cpu className="w-4 h-4 text-[#f59e0b] animate-pulse" />
-              <span className="text-xs font-bold text-white tracking-wider">NEXUS AI CORE</span>
+              <span className="text-xs font-bold text-white tracking-wider">FAZAMOUS AI CORE</span>
             </div>
           </div>
         </div>
@@ -198,7 +198,7 @@ const SynchronizationDiagramSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Hardware + Software <span className="text-[#f59e0b]">Fusion</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">NexusFlow AI breaks down silos by instantly translating telemetry from physical sensors and joining it with enterprise ERP data through a centralized intelligence layer.</p>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">SupplySync AI breaks down silos by instantly translating telemetry from physical sensors and joining it with enterprise ERP data through a centralized intelligence layer.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative p-6 md:p-8 bg-[#0c0c10] border border-white/5 rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
@@ -265,7 +265,7 @@ const SynchronizationDiagramSection = () => {
             ))}
           </div>
 
-          {/* Center Column: Nexus AI */}
+          {/* Center Column: FAZAMOUS AI */}
           <div className="flex items-center justify-center z-10 relative py-8 lg:py-0">
              <motion.div 
                 animate={{ scale: [1, 1.02, 1] }} 
@@ -282,7 +282,7 @@ const SynchronizationDiagramSection = () => {
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-[#f59e0b] to-orange-600 flex items-center justify-center shadow-2xl mb-3 relative z-10 border border-white/20">
                    <Network className="w-8 h-8 md:w-10 md:h-10 text-white" />
                 </div>
-                <span className="text-white font-bold text-xl md:text-2xl relative z-10">Nexus Core</span>
+                <span className="text-white font-bold text-xl md:text-2xl relative z-10">Fazamous Core</span>
                 <div className="flex items-center gap-2 mt-2 bg-black/50 px-3 py-1 rounded-full border border-white/5 relative z-10">
                    <Activity className="w-3 h-3 text-emerald-400" />
                    <span className="text-gray-300 text-[9px] md:text-[10px] font-mono tracking-widest uppercase">Intelligence Sync</span>
@@ -448,7 +448,7 @@ const AnomalyReroutingSection = () => {
         <div className="lg:w-1/2">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Dynamic <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] to-orange-500">Risk Mitigation</span></h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-10">
-            When weather anomalies or port congestions strike, NexusFlow AI doesn't just alert you. It autonomously calculates the most cost-effective alternative route and dispatches updates to logistics partners instantly.
+            When weather anomalies or port congestions strike, SupplySync AI doesn't just alert you. It autonomously calculates the most cost-effective alternative route and dispatches updates to logistics partners instantly.
           </p>
           
           <div className="flex flex-col gap-5">
@@ -518,7 +518,7 @@ const AnomalyReroutingSection = () => {
                    <div className="relative w-2 h-2">
                      <motion.div animate={{ scale: [1, 1.5, 1], opacity: [1, 0, 1] }} transition={{ duration: 2, repeat: Infinity }} className={`absolute inset-0 rounded-full ${anomalyActive ? 'bg-red-500' : 'bg-[#f59e0b]'}`} />
                    </div>
-                   <span className="text-xs font-bold text-white tracking-widest">NEXUS RADAR</span>
+                   <span className="text-xs font-bold text-white tracking-widest">FAZAMOUS RADAR</span>
                 </div>
                 <div className="text-[10px] font-mono text-gray-500 bg-[#1a1a24] border border-white/5 px-3 py-1.5 rounded-lg tracking-wider">LIVE SENSOR FEED</div>
              </div>
