@@ -327,7 +327,7 @@ const IndustryGridSection = () => {
                 return (
                    <div 
                       key={idx} 
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 origin-center"
+                      className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 origin-center ${isActive ? 'z-50' : 'z-20'}`}
                    >
                       <style>{`
                          @media (min-width: 768px) {
@@ -338,14 +338,14 @@ const IndustryGridSection = () => {
                          }
                       `}</style>
                       <div 
-                         className={`node-${idx} cursor-pointer transition-all duration-300 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 rounded-full border ${isActive ? 'bg-[#0a0a0a] scale-125 z-30 shadow-2xl' : 'bg-[#050505] hover:scale-110 z-20'}`} 
+                         className={`node-${idx} relative cursor-pointer transition-all duration-300 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 rounded-full border ${isActive ? 'bg-[#0a0a0a] scale-125 shadow-2xl' : 'bg-[#050505] hover:scale-110'}`} 
                          style={{ borderColor: isActive ? ind.color : 'rgba(255,255,255,0.1)', boxShadow: isActive ? `0 0 25px ${ind.color}50, inset 0 0 10px ${ind.color}30` : 'none' }}
                          onClick={() => setActiveIndex(idx)}
                       >
                          <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full transition-colors" style={{ backgroundColor: isActive ? ind.color : 'rgba(255,255,255,0.2)', boxShadow: isActive ? `0 0 15px ${ind.color}` : 'none' }} />
                          
                          {/* Name Tag (Desktop only on hover/active) */}
-                         <div className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 text-center transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'} pointer-events-none hidden md:block w-max max-w-[180px] bg-[#050505] border border-white/20 rounded-md py-1.5 px-3 z-50 shadow-xl`}>
+                         <div className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 text-center transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'} pointer-events-none hidden md:block w-max whitespace-nowrap bg-[#050505] border border-white/20 rounded-md py-1.5 px-3 shadow-xl`}>
                             <span className="text-[9px] font-bold text-white uppercase tracking-wider leading-tight">{ind.name}</span>
                          </div>
                       </div>

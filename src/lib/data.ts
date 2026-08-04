@@ -87,7 +87,7 @@ export const industries: Industry[] = [
   },
   {
     name: "Supply Chain Management (New)",
-    desc: "Unified Supply Chain Intelligence Platform that synchronizes independent software and hardware systems across the supply chain, provides real-time failure/warning alerts, detects anomalies, performs root cause analysis, predicts operational risks, and keeps all stakeholders informed through a centralized intelligence and monitoring platform.",
+    desc: "A unified platform syncing hardware and software systems. It provides real-time alerts, anomaly detection, and predictive risk monitoring.",
     icon: "Box",
     color: "#F97316",
     metric: "Zero Disruptions",

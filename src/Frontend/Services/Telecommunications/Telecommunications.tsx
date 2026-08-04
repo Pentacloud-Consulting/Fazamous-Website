@@ -10,13 +10,14 @@ import {
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
 import CTA from '@/Frontend/Home/CTA';
+import { motion } from 'framer-motion';
 export default function Telecommunications() {
   return (
     <div className="min-h-screen bg-[#03050a] text-white selection:bg-blue-500/30 font-sans overflow-x-hidden">
       <Navbar />
       
       {/* 1. Hero Section */}
-      <section className="relative pt-12 pb-12 lg:pt-16 lg:pb-8 max-w-7xl mx-auto px-6">
+      <section className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-gray-300 uppercase tracking-widest mb-4">
@@ -72,12 +73,28 @@ export default function Telecommunications() {
                            <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
                          </linearGradient>
                        </defs>
-                       <path d="M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20 L100,40 L0,40 Z" fill="url(#grad1)" />
-                       <path d="M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20" fill="none" stroke="#c084fc" strokeWidth="1.5" />
-                       <circle cx="20" cy="20" r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
-                       <circle cx="40" cy="35" r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
-                       <circle cx="60" cy="25" r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
-                       <circle cx="80" cy="10" r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20 L100,40 L0,40 Z",
+                           "M0,35 C10,35 10,12 20,12 C30,12 30,28 40,28 C50,28 50,15 60,15 C70,15 70,5 80,5 C90,5 90,25 100,25 L100,40 L0,40 Z",
+                           "M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20 L100,40 L0,40 Z"
+                         ] }}
+                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                         fill="url(#grad1)" 
+                       />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20",
+                           "M0,35 C10,35 10,12 20,12 C30,12 30,28 40,28 C50,28 50,15 60,15 C70,15 70,5 80,5 C90,5 90,25 100,25",
+                           "M0,35 C10,35 10,20 20,20 C30,20 30,35 40,35 C50,35 50,25 60,25 C70,25 70,10 80,10 C90,10 90,20 100,20"
+                         ] }}
+                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                         fill="none" stroke="#c084fc" strokeWidth="1.5" 
+                       />
+                       <motion.circle cx="20" animate={{ cy: [20, 12, 20] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
+                       <motion.circle cx="40" animate={{ cy: [35, 28, 35] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
+                       <motion.circle cx="60" animate={{ cy: [25, 15, 25] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
+                       <motion.circle cx="80" animate={{ cy: [10, 5, 10] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" className="shadow-[0_0_5px_#fff]" />
                      </svg>
                   </div>
                </div>
@@ -96,11 +113,27 @@ export default function Telecommunications() {
                            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
                          </linearGradient>
                        </defs>
-                       <path d="M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25 L100,40 L0,40 Z" fill="url(#grad2)" />
-                       <path d="M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25" fill="none" stroke="#93c5fd" strokeWidth="1.5" />
-                       <circle cx="25" cy="25" r="1.5" fill="#fff" />
-                       <circle cx="50" cy="35" r="1.5" fill="#fff" />
-                       <circle cx="75" cy="20" r="1.5" fill="#fff" />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25 L100,40 L0,40 Z",
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,15 100,15 L100,40 L0,40 Z",
+                           "M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25 L100,40 L0,40 Z"
+                         ] }}
+                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="url(#grad2)" 
+                       />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25",
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,15 100,15",
+                           "M0,15 C12,15 12,25 25,25 C37,25 37,35 50,35 C62,35 62,20 75,20 C87,20 87,25 100,25"
+                         ] }}
+                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="none" stroke="#93c5fd" strokeWidth="1.5" 
+                       />
+                       <motion.circle cx="25" animate={{ cy: [25, 35, 25] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="50" animate={{ cy: [35, 15, 35] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="75" animate={{ cy: [20, 30, 20] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
                      </svg>
                   </div>
                </div>
@@ -119,11 +152,27 @@ export default function Telecommunications() {
                            <stop offset="100%" stopColor="#c084fc" stopOpacity="0" />
                          </linearGradient>
                        </defs>
-                       <path d="M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20 L100,40 L0,40 Z" fill="url(#grad3)" />
-                       <path d="M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20" fill="none" stroke="#e879f9" strokeWidth="1.5" />
-                       <circle cx="25" cy="35" r="1.5" fill="#fff" />
-                       <circle cx="50" cy="15" r="1.5" fill="#fff" />
-                       <circle cx="75" cy="30" r="1.5" fill="#fff" />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20 L100,40 L0,40 Z",
+                           "M0,30 C12,30 12,20 25,20 C37,20 37,25 50,25 C62,25 62,15 75,15 C87,15 87,25 100,25 L100,40 L0,40 Z",
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20 L100,40 L0,40 Z"
+                         ] }}
+                         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="url(#grad3)" 
+                       />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20",
+                           "M0,30 C12,30 12,20 25,20 C37,20 37,25 50,25 C62,25 62,15 75,15 C87,15 87,25 100,25",
+                           "M0,25 C12,25 12,35 25,35 C37,35 37,15 50,15 C62,15 62,30 75,30 C87,30 87,20 100,20"
+                         ] }}
+                         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="none" stroke="#e879f9" strokeWidth="1.5" 
+                       />
+                       <motion.circle cx="25" animate={{ cy: [35, 20, 35] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="50" animate={{ cy: [15, 25, 15] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="75" animate={{ cy: [30, 15, 30] }} transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
                      </svg>
                   </div>
                </div>
@@ -142,11 +191,27 @@ export default function Telecommunications() {
                            <stop offset="100%" stopColor="#60a5fa" stopOpacity="0" />
                          </linearGradient>
                        </defs>
-                       <path d="M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30 L100,40 L0,40 Z" fill="url(#grad4)" />
-                       <path d="M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30" fill="none" stroke="#93c5fd" strokeWidth="1.5" />
-                       <circle cx="20" cy="15" r="1.5" fill="#fff" />
-                       <circle cx="50" cy="35" r="1.5" fill="#fff" />
-                       <circle cx="80" cy="20" r="1.5" fill="#fff" />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30 L100,40 L0,40 Z",
+                           "M0,15 C10,15 10,25 20,25 C35,25 35,20 50,20 C65,20 65,30 80,30 C90,30 90,15 100,15 L100,40 L0,40 Z",
+                           "M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30 L100,40 L0,40 Z"
+                         ] }}
+                         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="url(#grad4)" 
+                       />
+                       <motion.path 
+                         animate={{ d: [
+                           "M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30",
+                           "M0,15 C10,15 10,25 20,25 C35,25 35,20 50,20 C65,20 65,30 80,30 C90,30 90,15 100,15",
+                           "M0,25 C10,25 10,15 20,15 C35,15 35,35 50,35 C65,35 65,20 80,20 C90,20 90,30 100,30"
+                         ] }}
+                         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                         fill="none" stroke="#93c5fd" strokeWidth="1.5" 
+                       />
+                       <motion.circle cx="20" animate={{ cy: [15, 25, 15] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="50" animate={{ cy: [35, 20, 35] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
+                       <motion.circle cx="80" animate={{ cy: [20, 30, 20] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} r="1.5" fill="#fff" />
                      </svg>
                   </div>
                </div>
