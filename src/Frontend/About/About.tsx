@@ -13,7 +13,7 @@ import CTA from '@/Frontend/Home/CTA';
 // Section 1: Hero
 const HeroSection = () => {
   return (
-    <section className="relative pt-12 pb-24 lg:pt-20 lg:pb-32 flex items-center justify-center overflow-hidden bg-[#020202]">
+    <section className="relative pt-28 pb-24 lg:pt-36 lg:pb-32 flex items-center justify-center overflow-hidden bg-[#020202]">
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           

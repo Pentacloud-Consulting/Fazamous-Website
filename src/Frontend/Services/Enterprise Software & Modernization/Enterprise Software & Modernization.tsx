@@ -77,16 +77,16 @@ const HeroSection = () => {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: '100vh', opacity: [0, 1, 0] }}
             transition={{ 
-              duration: Math.random() * 5 + 5, 
+              duration: (i % 5) + 5, 
               repeat: Infinity, 
-              delay: Math.random() * 10,
+              delay: (i % 10) * 0.5,
               ease: "linear" 
             }}
             className="flex-1 text-[8px] font-mono text-[#8b5cf6] flex flex-col items-center justify-start gap-1"
             style={{ width: `${100/30}%` }}
           >
             {[...Array(10)].map((_, j) => (
-              <span key={j} style={{ opacity: 1 - (j * 0.1) }}>{Math.random() > 0.5 ? '1' : '0'}</span>
+              <span key={j} style={{ opacity: 1 - (j * 0.1) }}>{(i + j) % 2 === 0 ? '1' : '0'}</span>
             ))}
           </motion.div>
         ))}
