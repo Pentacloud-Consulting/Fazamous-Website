@@ -8,7 +8,7 @@ import { Search, ChevronDown, Rocket } from "lucide-react";
 import { industryData } from "@/data/industryData";
 
 const navLinks = [
-  { label: "Services", href: "/services", hasDropdown: true },
+  { label: "Industries", href: "/services", hasDropdown: true },
   { label: "Solutions", href: "/solutions" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -135,7 +135,7 @@ export function Navbar() {
 
                       {/* Right side: Industry Verticals Grid */}
                       <div className="w-3/4">
-                        <h4 className="text-white/40 text-[11px] uppercase tracking-widest font-mono mb-4 px-2">Industry Solutions</h4>
+                        <h4 className="text-white/40 text-[11px] uppercase tracking-widest font-mono mb-4 px-2">Industries</h4>
                         <div className="grid grid-cols-3 gap-x-4 gap-y-2">
                           {industryData.map((ind) => {
                             const isIndActive = pathname === `/services/${ind.slug}`;

@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Send, ShieldCheck, Activity } from "lucide-react";
+import { industryData } from "@/data/industryData";
 
 // Mini canvas for footer background mesh
 function FooterMesh() {
@@ -193,43 +194,31 @@ export function Footer() {
           </div>
 
           {/* Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Products",
-                links: [
-                  { name: "Insights", tag: "FLAGSHIP", href: "/services" },
-                  { name: "TriageAI", href: "/services" },
-                  { name: "Aegis", href: "/services" },
-                  { name: "DataPulse", href: "/services" },
-                  { name: "MedVision AI", href: "/services" }
-                ],
+                title: "Industries",
+                links: industryData.slice(0, 5).map(ind => ({
+                  name: ind.name,
+                  href: `/services/${ind.slug}`,
+                  tag: ind.isNew ? "NEW" : undefined
+                })),
               },
               {
-                title: "Solutions",
-                links: [
-                  { name: "Telecommunications", href: "/solutions" },
-                  { name: "Financial Services", href: "/solutions" },
-                  { name: "Healthcare", href: "/solutions" },
-                  { name: "Supply Chain", tag: "NEW", href: "/solutions" }
-                ],
+                title: "\u00A0",
+                links: industryData.slice(5, 10).map(ind => ({
+                  name: ind.name,
+                  href: `/services/${ind.slug}`,
+                  tag: ind.isNew ? "NEW" : undefined
+                })),
               },
               {
                 title: "Company",
                 links: [
                   { name: "About", href: "/about" },
-                  { name: "Services", href: "/services" },
+                  { name: "Industries", href: "/services" },
                   { name: "Contact", href: "/contact" },
                   { name: "Careers", tag: "HIRING", href: "/about" },
-                ],
-              },
-              {
-                title: "Resources",
-                links: [
-                  { name: "Documentation", href: "#" },
-                  { name: "API Reference", href: "#" },
-                  { name: "System Status", href: "#" },
-                  { name: "Security", href: "#" },
                 ],
               },
             ].map((group, gIdx) => (
@@ -239,8 +228,8 @@ export function Footer() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + gIdx * 0.1 }}
               >
-                <h4 className="text-[#00e5ff] text-[11px] font-mono uppercase tracking-[0.2em] mb-5 font-semibold flex items-center gap-1.5">
-                  <span className="w-1 h-1 rounded-full bg-[#00e5ff]" />
+                <h4 className="text-[#00e5ff] text-[11px] font-mono uppercase tracking-[0.2em] mb-5 font-semibold flex items-center gap-1.5 h-4">
+                  {group.title !== "\u00A0" && <span className="w-1 h-1 rounded-full bg-[#00e5ff]" />}
                   {group.title}
                 </h4>
                 
