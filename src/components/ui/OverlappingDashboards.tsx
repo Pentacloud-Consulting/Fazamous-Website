@@ -6,7 +6,6 @@ interface OverlappingDashboardsProps {
 }
 
 export function OverlappingDashboards({ activeHighlight = null }: OverlappingDashboardsProps) {
-  const [mounted, setMounted] = useState(false);
   const [trafficBars, setTrafficBars] = useState([30, 50, 40, 70, 55, 80, 65, 90, 75, 100]);
 
   // Mouse Parallax
@@ -31,7 +30,6 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
   };
 
   useEffect(() => {
-    setMounted(true);
     const interval = setInterval(() => {
       setTrafficBars((prev) =>
         prev.map((v) => Math.min(100, Math.max(20, v + Math.floor(Math.random() * 25) - 12)))
@@ -50,7 +48,6 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
   const trafficX = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
   const trafficY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
 
-  if (!mounted) return null;
 
   return (
     <div 
@@ -128,9 +125,9 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className={`
-          absolute left-1/2 -translate-x-1/2 top-0 w-[320px] rounded-[24px] bg-[#0A0B0F]/80 p-7 z-30 transition-all duration-500 overflow-hidden
-          shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-3xl border border-white/[0.08]
-          ${activeHighlight === 1 ? "border-[#4EA8FF]/50 shadow-[0_0_50px_rgba(78,168,255,0.2)] bg-[#0A0B0F]/90" : "hover:border-white/20"}
+          absolute left-1/2 -translate-x-1/2 top-0 w-[320px] rounded-[24px] bg-gradient-to-b from-[#0a0f1a]/95 to-[#02050a]/95 p-7 z-30 transition-all duration-500 overflow-hidden
+          shadow-[0_30px_60px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(255,255,255,0.05)] backdrop-blur-3xl border border-white/10
+          ${activeHighlight === 1 ? "border-[#4EA8FF]/60 shadow-[0_0_60px_rgba(78,168,255,0.25)] ring-1 ring-[#4EA8FF]/30" : "hover:border-white/30"}
         `}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent pointer-events-none" />
@@ -212,9 +209,9 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className={`
-          absolute left-[-2%] md:left-0 top-[380px] lg:top-[410px] w-[340px] lg:w-[350px] rounded-[24px] bg-[#0A0B0F]/80 p-7 z-20 transition-all duration-500 overflow-hidden
-          shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-3xl border border-white/[0.08]
-          ${activeHighlight === 0 ? "border-[#10B981]/50 shadow-[0_0_50px_rgba(16,185,129,0.2)] bg-[#0A0B0F]/90" : "hover:border-white/20"}
+          absolute left-[-2%] md:left-0 top-[380px] lg:top-[410px] w-[340px] lg:w-[350px] rounded-[24px] bg-gradient-to-tr from-[#02050a]/95 via-[#050a12]/95 to-[#050f1a]/95 p-7 z-20 transition-all duration-500 overflow-hidden
+          shadow-[0_30px_60px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-3xl border border-white/10
+          ${activeHighlight === 0 ? "border-[#10B981]/60 shadow-[0_0_60px_rgba(16,185,129,0.25)] ring-1 ring-[#10B981]/30" : "hover:border-white/30"}
         `}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent pointer-events-none" />
@@ -241,19 +238,19 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
                 <span className="text-white/50 uppercase tracking-wider">{item.label}</span>
                 <span className="text-white font-medium" style={{ color: item.color }}>{item.val}%</span>
               </div>
-              <div className="h-2 bg-white/[0.03] rounded-full overflow-hidden relative border border-white/[0.04]">
+              <div className="h-2 bg-black/50 rounded-full overflow-hidden relative border border-white/[0.05] shadow-inner">
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: `${item.val}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, delay: 0.4 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute top-0 left-0 bottom-0 rounded-full"
-                  style={{ backgroundColor: item.color }}
+                  className="absolute top-0 left-0 bottom-0 rounded-full shadow-[0_0_10px_currentColor]"
+                  style={{ backgroundColor: item.color, color: item.color }}
                 >
                    <motion.div 
                      animate={{ x: ["-100%", "200%"] }}
                      transition={{ repeat: Infinity, duration: 2.5, delay: i * 0.4, ease: "linear" }}
-                     className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent" 
+                     className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/60 to-transparent" 
                    />
                 </motion.div>
               </div>
@@ -287,9 +284,9 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className={`
-          absolute right-[-2%] md:right-0 top-[420px] lg:top-[440px] w-[260px] rounded-[24px] bg-[#0A0B0F]/80 p-6 z-10 transition-all duration-500 overflow-hidden
-          shadow-[0_20px_50px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-3xl border border-white/[0.08]
-          ${activeHighlight === 2 ? "border-[#8B5CF6]/50 shadow-[0_0_50px_rgba(139,92,246,0.25)] bg-[#0A0B0F]/90" : "hover:border-white/20"}
+          absolute right-[-2%] md:right-0 top-[420px] lg:top-[440px] w-[260px] rounded-[24px] bg-gradient-to-bl from-[#05020a]/95 via-[#0a0512]/95 to-[#020205]/95 p-6 z-10 transition-all duration-500 overflow-hidden
+          shadow-[0_30px_60px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-3xl border border-white/10
+          ${activeHighlight === 2 ? "border-[#8B5CF6]/60 shadow-[0_0_60px_rgba(139,92,246,0.25)] ring-1 ring-[#8B5CF6]/30" : "hover:border-white/30"}
         `}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent pointer-events-none" />
@@ -300,15 +297,15 @@ export function OverlappingDashboards({ activeHighlight = null }: OverlappingDas
         </div>
         
         {/* Dynamic Animated Bar Chart */}
-        <div className="flex justify-between gap-1.5 h-24 items-end pt-2">
+        <div className="flex justify-between gap-1 h-24 items-end pt-2">
             {trafficBars.map((val, i) => (
               <motion.div
                 key={i}
                 animate={{ height: `${val}%` }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="flex-1 bg-gradient-to-t from-[#8B5CF6]/30 via-[#4EA8FF]/60 to-[#00e5ff] hover:brightness-150 transition-all rounded-[2px] cursor-pointer shadow-[0_0_10px_rgba(78,168,255,0.3)] relative overflow-hidden"
+                className="flex-1 bg-gradient-to-t from-purple-600 via-blue-500 to-cyan-400 hover:brightness-125 transition-all rounded-sm cursor-pointer shadow-[0_0_15px_rgba(0,229,255,0.4)] relative overflow-hidden"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-white/40" />
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-white/80 blur-[1px]" />
               </motion.div>
             ))}
         </div>

@@ -91,9 +91,8 @@ export default function Contact() {
                     </div>
                     <h4 className="text-white font-bold text-sm">Email Us</h4>
                   </div>
-                  <div className="flex flex-col gap-1 text-xs text-gray-400">
-                    <a href="mailto:hello@fazamous.com" className="hover:text-white transition">hello@fazamous.com</a>
-                    <a href="mailto:info@fazamous.com" className="hover:text-white transition">info@fazamous.com</a>
+                  <div className="flex flex-col gap-1 text-xs text-gray-400 pl-14">
+                    <a href="mailto:founder@fazamous.com" className="hover:text-white transition">founder@fazamous.com</a>
                   </div>
                 </div>
 
@@ -105,9 +104,8 @@ export default function Contact() {
                     </div>
                     <h4 className="text-white font-bold text-sm">Call Us</h4>
                   </div>
-                  <div className="flex flex-col gap-1 text-xs text-gray-400">
-                    <p>+91 98765-43210</p>
-                    <p>+1 (703) 567-8902</p>
+                  <div className="flex flex-col gap-1 text-xs text-gray-400 pl-14">
+                    <a href="tel:+919103239586" className="hover:text-white transition">+91 9103239586</a>
                   </div>
                 </div>
 
@@ -119,7 +117,7 @@ export default function Contact() {
                     </div>
                     <h4 className="text-white font-bold text-sm">Business Hours</h4>
                   </div>
-                  <div className="flex flex-col gap-1 text-xs text-gray-400">
+                  <div className="flex flex-col gap-1 text-xs text-gray-400 pl-14">
                     <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
                     <p>Sunday: Closed</p>
                   </div>
@@ -133,8 +131,8 @@ export default function Contact() {
                     </div>
                     <h4 className="text-white font-bold text-sm">Quick Support</h4>
                   </div>
-                  <div className="flex flex-col gap-1 text-xs text-gray-400">
-                    <a href="mailto:support@fazamous.com" className="hover:text-white transition">support@fazamous.com</a>
+                  <div className="flex flex-col gap-1 text-xs text-gray-400 pl-14">
+                    <a href="mailto:founder@fazamous.com" className="hover:text-white transition">founder@fazamous.com</a>
                     <p>Response within 24 hours</p>
                   </div>
                 </div>

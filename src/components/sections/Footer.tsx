@@ -3,7 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Send, ShieldCheck, Activity } from "lucide-react";
+import { ArrowRight, Send, ShieldCheck, Activity, Phone, Mail } from "lucide-react";
 import { industryData } from "@/data/industryData";
 
 // Mini canvas for footer background mesh
@@ -32,7 +32,7 @@ function FooterMesh() {
     window.addEventListener("resize", resize);
 
     const dots: Array<{ x: number; y: number; vx: number; vy: number }> = [];
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 15; i++) {
       dots.push({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -57,11 +57,11 @@ function FooterMesh() {
           const dx = dots[i].x - dots[j].x;
           const dy = dots[i].y - dots[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 180) {
+          if (dist < 280) {
             ctx.beginPath();
             ctx.moveTo(dots[i].x, dots[i].y);
             ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = `rgba(0, 229, 255, ${(1 - dist / 180) * 0.05})`;
+            ctx.strokeStyle = `rgba(0, 229, 255, ${(1 - dist / 280) * 0.05})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -141,10 +141,27 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/50 text-sm leading-relaxed mb-8 max-w-sm font-light"
+              className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm font-light"
             >
               Building the future of Enterprise Intelligence. Autonomous systems, decision platforms, and AI agents for the world&apos;s most ambitious organizations.
             </motion.p>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.12 }}
+              className="flex flex-col gap-3 mb-8"
+            >
+              <div className="flex items-center gap-3 text-white/60 text-[13px] font-mono">
+                <Phone size={14} className="text-[#00e5ff]" />
+                <a href="tel:+919103239586" className="hover:text-white transition-colors">+91 9103239586</a>
+              </div>
+              <div className="flex items-center gap-3 text-white/60 text-[13px] font-mono">
+                <Mail size={14} className="text-[#00e5ff]" />
+                <a href="mailto:founder@fazamous.com" className="hover:text-white transition-colors">founder@fazamous.com</a>
+              </div>
+            </motion.div>
 
             {/* Live System Status Pill */}
             <motion.div 
@@ -168,15 +185,15 @@ export function Footer() {
                 Intelligence Briefing
               </p>
               
-              <form onSubmit={handleSubscribe} className="flex gap-2 max-w-md">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 max-w-md">
                 <div className="relative flex-1">
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="enter your email..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-white/20 focus:outline-none focus:border-[#00e5ff]/50 focus:bg-white/[0.05] transition-all font-mono"
+                    placeholder="Enter email..."
+                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-[#00e5ff]/50 focus:bg-white/[0.05] transition-all font-mono"
                   />
                 </div>
                 

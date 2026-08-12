@@ -97,7 +97,7 @@ function AICore() {
   return (
     <group ref={groupRef}>
       {/* Layer 1: Core Liquid Metal */}
-      <Sphere args={[1.0, 128, 128]}>
+      <Sphere args={[1.0, 32, 32]}>
         <MeshDistortMaterial
           color="#050814"
           envMapIntensity={3}
@@ -111,7 +111,7 @@ function AICore() {
       </Sphere>
 
       {/* Layer 2: Iridescent Shell */}
-      <Sphere args={[1.18, 64, 64]}>
+      <Sphere args={[1.18, 32, 32]}>
         <MeshDistortMaterial
           color="#00e5ff"
           emissive="#00e5ff"
@@ -126,7 +126,7 @@ function AICore() {
       </Sphere>
 
       {/* Layer 3: Cyan Wireframe Shell */}
-      <Sphere args={[1.38, 48, 48]}>
+      <Sphere args={[1.38, 16, 16]}>
         <MeshDistortMaterial
           color="#00e5ff"
           emissive="#00e5ff"
@@ -140,7 +140,7 @@ function AICore() {
       </Sphere>
 
       {/* Layer 4: Violet Outer Shell */}
-      <Sphere args={[1.58, 32, 32]}>
+      <Sphere args={[1.58, 16, 16]}>
         <MeshDistortMaterial
           color="#8b5cf6"
           emissive="#8b5cf6"
@@ -159,14 +159,13 @@ function AICore() {
       <AuroraRing radius={2.65} color="#00e5ff" speed={0.2} tilt={[0.4, -0.6, 0.8]} />
 
       {/* High Intensity Swarms */}
-      <ParticleSwarm count={2500} radius={1.8} spread={2.5} color="#00e5ff" size={0.015} rotSpeed={0.05} />
-      <ParticleSwarm count={1800} radius={2.5} spread={1.8} color="#8b5cf6" size={0.012} rotSpeed={-0.03} />
-      <ParticleSwarm count={1000} radius={3.2} spread={1.2} color="#ffffff" size={0.01} rotSpeed={0.02} />
+      <ParticleSwarm count={1000} radius={1.8} spread={2.5} color="#00e5ff" size={0.015} rotSpeed={0.05} />
+      <ParticleSwarm count={750} radius={2.5} spread={1.8} color="#8b5cf6" size={0.012} rotSpeed={-0.03} />
+      <ParticleSwarm count={500} radius={3.2} spread={1.2} color="#ffffff" size={0.01} rotSpeed={0.02} />
 
       {/* Dynamic Lighting */}
       <pointLight color="#00e5ff" intensity={25} distance={7} />
-      <pointLight color="#8b5cf6" intensity={20} distance={7} position={[0, 0, 2]} />
-      <pointLight color="#ff00ff" intensity={8} distance={5} position={[2, 1, -1]} />
+      <pointLight color="#8b5cf6" intensity={15} distance={7} position={[0, 0, 2]} />
     </group>
   );
 }

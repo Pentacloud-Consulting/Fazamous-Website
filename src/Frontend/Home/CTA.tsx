@@ -76,7 +76,7 @@ export default function CTA() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-4 text-white whitespace-nowrap"
+            className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight mb-4 text-white"
           >
             Ready to build <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70">the future?</span>
           </motion.h2>

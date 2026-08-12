@@ -318,7 +318,7 @@ const CoreValuesSection = () => {
             <Globe className="w-8 h-8 text-white mb-4 relative z-10" />
             <h3 className="text-xl font-bold text-white mb-2 relative z-10">Global Scalability</h3>
             <p className="text-xs text-gray-400 leading-relaxed relative z-10">
-              Handle millions of requests globally.
+              Handle millions of requests globally with our distributed edge architecture, ensuring zero downtime, secure data isolation, and sub-50ms latency across all continents.
             </p>
           </div>
         </motion.div>
@@ -341,7 +341,7 @@ const CoreValuesSection = () => {
             <Lightbulb className="w-8 h-8 text-yellow-400 mb-4 relative z-10" />
             <h3 className="text-xl font-bold text-white mb-2 relative z-10">Continuous Innovation</h3>
             <p className="text-xs text-gray-400 leading-relaxed relative z-10">
-              Constantly pushing the boundaries of AI research and generative technologies.
+              Constantly pushing the boundaries of AI research and generative technologies. We pioneer novel architectures to keep your enterprise ahead of the curve.
             </p>
           </div>
         </motion.div>
@@ -403,10 +403,10 @@ const TeamSection = () => {
              { role: "Computer Vision", name: "Visual Recognition", desc: "Extracting insights from images & video.", icon: Cpu },
              { role: "Data Science", name: "Predictive Analytics", desc: "Forecasting trends with deep learning.", icon: Activity },
              { role: "Automation", name: "Workflow Agents", desc: "Executing complex multi-step tasks.", icon: Bot },
-             { role: "NLP Architecture", name: "Language Models", desc: "Crafting human-like text generation.", icon: MessageSquare },
-             { role: "Computer Vision", name: "Visual Recognition", desc: "Extracting insights from images & video.", icon: Cpu },
-             { role: "Data Science", name: "Predictive Analytics", desc: "Forecasting trends with deep learning.", icon: Activity },
-             { role: "Automation", name: "Workflow Agents", desc: "Executing complex multi-step tasks.", icon: Bot }
+             { role: "Security", name: "Risk Intelligence", desc: "Mapping threats with advanced neural networks.", icon: Shield },
+             { role: "Data Engineering", name: "ETL Pipelines", desc: "Structuring fragmented enterprise data.", icon: Database },
+             { role: "Conversational AI", name: "Virtual Agents", desc: "Deploying intelligent autonomous agents.", icon: Users },
+             { role: "Infrastructure", name: "Cloud Edge", desc: "Scaling globally with sub-ms latency.", icon: Globe }
            ].map((member, i) => (
              <div key={i} className="w-[280px] flex-shrink-0 bg-[#050505] border border-white/10 rounded-2xl p-6 flex flex-col items-center text-center group hover:bg-[#0a0a0a] transition-colors relative overflow-hidden">
                 {/* Scanner animation on hover */}

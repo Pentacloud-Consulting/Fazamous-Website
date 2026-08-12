@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { OverlappingDashboards } from "@/components/ui/OverlappingDashboards";
 
@@ -13,17 +13,11 @@ export function AutonomousSystems() {
 
   const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const y2 = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const [mounted, setMounted] = useState(false);
   const [activeHighlight, setActiveHighlight] = useState<number | null>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <section ref={containerRef} className="py-12 relative overflow-hidden bg-[#030303]">
@@ -51,7 +45,7 @@ export function AutonomousSystems() {
       />
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* ── LEFT: Content ── */}
           <div className="max-w-xl">
@@ -69,7 +63,7 @@ export function AutonomousSystems() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-8 pb-2"
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
             >
               Beyond <span className="text-gradient-accent">Automation.</span>
             </motion.h2>
@@ -78,13 +72,13 @@ export function AutonomousSystems() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/50 text-[15px] leading-[1.8] mb-12 font-light"
+              className="text-white/50 text-[15px] leading-[1.8] mb-8 font-light"
             >
               Our systems learn, adapt, and execute complex workflows entirely on their own, requiring human intervention only for high-level strategic alignment. We are replacing rigid rule-based automation with fluid, self-correcting intelligence.
             </motion.p>
 
             {/* Features List with interactive focus */}
-            <div className="flex flex-col gap-5 mb-12">
+            <div className="flex flex-col gap-3 mb-8">
               {[
                 { title: "Self-optimizing Resource Allocation", desc: "Dynamically shifts compute and capital based on real-time needs.", targetIndex: 0 },
                 { title: "Predictive Maintenance Protocols", desc: "Identifies systemic failures weeks before they materialize.", targetIndex: 1 },
@@ -100,7 +94,7 @@ export function AutonomousSystems() {
                     onMouseEnter={() => setActiveHighlight(item.targetIndex)}
                     onMouseLeave={() => setActiveHighlight(null)}
                     className={`
-                      p-4 rounded-2xl border transition-all duration-500 cursor-pointer flex items-start gap-4
+                      p-3 rounded-2xl border transition-all duration-500 cursor-pointer flex items-start gap-4
                       ${isActive 
                         ? "bg-white/[0.04] border-[#4EA8FF]/40 shadow-[0_0_25px_rgba(78,168,255,0.15)] translate-x-2" 
                         : "bg-white/[0.01] border-white/[0.05] hover:border-white/20 hover:bg-white/[0.02]"
@@ -147,7 +141,7 @@ export function AutonomousSystems() {
           </div>
 
           {/* ── RIGHT: Futuristic Animated Parallax Dashboards ── */}
-          <div className="relative h-[620px] lg:h-[720px] w-full perspective-[2000px]">
+          <div className="relative h-[500px] lg:h-[600px] w-full perspective-[2000px]">
             <OverlappingDashboards activeHighlight={activeHighlight} />
           </div>
 

@@ -25,14 +25,14 @@ export function Industries() {
   const activeIndustry = industryData[activeIndex];
 
   return (
-    <section id="industries" className="py-24 relative overflow-hidden bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
+    <section id="industries" className="py-12 md:py-16 relative overflow-hidden bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-tr from-[#22D3EE]/[0.03] via-[#6366F1]/[0.03] to-transparent blur-[200px] pointer-events-none" />
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header */}
-        <div className="mb-16 md:mb-24">
+        <div className="mb-10 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -49,7 +49,7 @@ export function Industries() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2 text-white"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-white"
             style={{ fontFamily: fonts.display }}
           >
             Empowering <span className="text-white/40">Every Sector.</span>
@@ -81,7 +81,7 @@ export function Industries() {
                   <div 
                     key={industry.id}
                     onMouseEnter={() => setActiveIndex(idx)}
-                    className="relative py-4 pl-8 cursor-pointer group flex items-center justify-between"
+                    className="relative py-3 pl-8 cursor-pointer group flex items-center justify-between"
                   >
                     {/* Active line indicator */}
                     {isActive && (
@@ -115,8 +115,8 @@ export function Industries() {
           </div>
 
           {/* Right Column: Detail Panel */}
-          <div className="col-span-7 relative min-h-[450px]">
-             <div className="sticky top-32 glass-card rounded-[32px] border border-white/[0.08] p-10 xl:p-14 bg-[#12141C] overflow-hidden">
+          <div className="col-span-7 relative min-h-[350px]">
+             <div className="sticky top-32 glass-card rounded-[32px] border border-white/[0.08] p-8 xl:p-10 bg-[#12141C] overflow-hidden">
                 <AnimatePresence mode="wait">
                    <motion.div
                      key={activeIndustry.id}
@@ -126,7 +126,7 @@ export function Industries() {
                      transition={{ duration: 0.2 }}
                      className="relative z-10 flex flex-col h-full"
                    >
-                     <div className="flex justify-between items-start mb-8">
+                     <div className="flex justify-between items-start mb-6">
                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/[0.02] border border-white/[0.05]">
                          <activeIndustry.icon size={28} style={{ color: activeIndustry.color }} />
                        </div>
@@ -137,15 +137,15 @@ export function Industries() {
                        </div>
                      </div>
 
-                     <h3 className="text-4xl font-bold text-white mb-6 tracking-tight leading-tight" style={{ fontFamily: fonts.display }}>
+                     <h3 className="text-4xl font-bold text-white mb-4 tracking-tight leading-tight" style={{ fontFamily: fonts.display }}>
                        {activeIndustry.name}
                      </h3>
 
-                     <p className="text-white/50 text-[16px] leading-[1.8] font-light mb-12 max-w-lg">
+                     <p className="text-white/50 text-[16px] leading-[1.8] font-light mb-8 max-w-lg">
                        {activeIndustry.desc}
                      </p>
 
-                     <div className="mt-auto pt-8 border-t border-white/[0.06] flex items-center justify-between">
+                     <div className="mt-auto pt-6 border-t border-white/[0.06] flex items-center justify-between">
                        <div className="flex flex-col gap-1">
                           <span className="text-white/30 text-[10px] font-mono uppercase tracking-widest">Powered By</span>
                           <div className="flex items-center gap-2">

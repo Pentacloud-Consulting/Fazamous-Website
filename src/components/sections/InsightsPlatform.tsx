@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { Search } from "lucide-react";
 
@@ -33,7 +33,6 @@ function CountUp({ target }: { target: number }) {
 
   React.useEffect(() => {
     if (!isInView) return;
-    let start = 0;
     const duration = 2000;
     const startTime = Date.now();
     
@@ -117,7 +116,7 @@ export function InsightsPlatform() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={containerRef} id="platforms" className="pt-24 pb-0 relative overflow-hidden bg-[#050505]">
+    <section ref={containerRef} id="platforms" className="pt-16 pb-0 relative overflow-hidden bg-[#050505]">
       <GridBackground />
       
       {/* Background ambient */}
@@ -125,42 +124,47 @@ export function InsightsPlatform() {
       
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
-        <div ref={sectionRef} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 glass-pill mb-6 border-glow"
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-[#4EA8FF] shadow-[0_0_8px_#4EA8FF] animate-pulse" />
-            <span className="text-white/30 uppercase tracking-widest text-[10px] font-mono">Platform Core</span>
-          </motion.div>
+        <div ref={sectionRef} className="flex flex-col md:flex-row items-start md:items-end justify-between w-full max-w-[1200px] mx-auto mb-8 gap-6">
           
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight pb-4"
-          >
-            Decision <span className="text-gradient">Intelligence.</span>
-          </motion.h2>
+          {/* Left Text Content */}
+          <div className="flex flex-col items-start text-left max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 glass-pill mb-4 border-glow"
+            >
+              <div className="w-1.5 h-1.5 rounded-full bg-[#4EA8FF] shadow-[0_0_8px_#4EA8FF] animate-pulse" />
+              <span className="text-white/30 uppercase tracking-widest text-[10px] font-mono">Platform Core</span>
+            </motion.div>
+            
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight pb-3"
+            >
+              Decision <span className="text-gradient">Intelligence.</span>
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/40 leading-[1.8] text-[15px] mb-8 font-light max-w-2xl"
-          >
-            Transform raw data streams into autonomous decisions. INSIGHTS leverages our proprietary knowledge graph to empower enterprise leaders with real-time situational awareness and predictive modeling.
-          </motion.p>
-          
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white/40 leading-[1.8] text-[14px] md:text-[15px] font-light max-w-xl"
+            >
+              Transform raw data streams into autonomous decisions. INSIGHTS leverages our proprietary knowledge graph to empower enterprise leaders with real-time situational awareness and predictive modeling.
+            </motion.p>
+          </div>
+
+          {/* Right Button */}
           <motion.a
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
             href="#"
             whileHover={{ scale: 1.05 }}
-            className="group inline-flex items-center gap-3 px-6 py-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 rounded-full text-white text-[13px] font-medium tracking-wide transition-all duration-300"
+            className="shrink-0 group inline-flex items-center gap-3 px-6 py-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 rounded-full text-white text-[13px] font-medium tracking-wide transition-all duration-300 md:mb-4"
           >
             Discover INSIGHTS
             <span className="w-5 h-5 rounded-full bg-[#4EA8FF] text-black flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -202,7 +206,7 @@ export function InsightsPlatform() {
                 </div>
 
                 {/* Content grid */}
-                <div className="relative z-10 p-6 md:p-8 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 min-h-[450px] md:min-h-[550px]">
+                <div className="relative z-10 p-4 md:p-6 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 min-h-[300px] md:min-h-[350px]">
                   
                   {/* Left sidebar - Stats */}
                   <div className="md:col-span-3 flex flex-col gap-5">
@@ -211,7 +215,7 @@ export function InsightsPlatform() {
                       { label: "Decisions/sec", value: 2400, prefix: ">", color: "text-emerald-400", bg: "bg-emerald-400/[0.03]", border: "border-emerald-400/10", glow: "shadow-[0_0_20px_rgba(16,185,129,0.05)]" },
                       { label: "Confidence", value: 99, suffix: ".8%", color: "text-violet-400", bg: "bg-violet-400/[0.03]", border: "border-violet-400/10", glow: "shadow-[0_0_20px_rgba(139,92,246,0.05)]" },
                     ].map((stat, i) => (
-                      <div key={i} className={`glass-card hover:border-white/15 hover:bg-white/[0.03] relative rounded-2xl border ${stat.border} ${stat.bg} ${stat.glow} p-5 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}>
+                      <div key={i} className={`glass-card hover:border-white/15 hover:bg-white/[0.03] relative rounded-2xl border ${stat.border} ${stat.bg} ${stat.glow} p-4 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}>
                         {/* Hover flare */}
                         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl light-sweep" />
                         <div className="absolute top-0 right-0 w-16 h-16 bg-white/[0.05] rounded-bl-full translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500" />
@@ -233,8 +237,8 @@ export function InsightsPlatform() {
                           {[1,2,3,4,5].map(i => (
                             <motion.div 
                               key={i} 
-                              animate={{ height: [Math.random()*20+10, Math.random()*40+20, Math.random()*20+10] }}
-                              transition={{ repeat: Infinity, duration: 1.5 + Math.random(), ease: "easeInOut" }}
+                              animate={{ height: [10 + (i*7)%20, 20 + (i*11)%40, 10 + (i*13)%20] }}
+                              transition={{ repeat: Infinity, duration: 1.5 + (i*0.3)%1, ease: "easeInOut" }}
                               className="w-1.5 rounded-full bg-white/[0.1]"
                             />
                           ))}

@@ -80,7 +80,7 @@ export function UseCases() {
   const laserTop = useTransform(scrollYProgress, [0.15, 0.85], ["0%", "100%"]);
 
   return (
-    <section id="process" ref={containerRef} className="py-12 relative overflow-hidden bg-[#030303]">
+    <section id="process" ref={containerRef} className="py-10 relative overflow-hidden bg-[#030303]">
       {/* Background ambient gradient glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-br from-[#00e5ff]/[0.02] via-[#8B5CF6]/[0.02] to-transparent blur-[220px] pointer-events-none" />
 
@@ -98,7 +98,7 @@ export function UseCases() {
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -115,7 +115,7 @@ export function UseCases() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2 text-white"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-white"
           >
             From Insight to <span className="text-gradient-accent">Autonomous Action.</span>
           </motion.h2>
@@ -148,7 +148,7 @@ export function UseCases() {
           </div>
 
           {/* Steps */}
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-5">
             {steps.map((item, idx) => {
               const Icon = item.icon;
               const isHovered = activeStep === idx;
@@ -184,7 +184,7 @@ export function UseCases() {
                     whileHover={{ scale: 1.02, x: 6 }}
                     transition={{ duration: 0.3 }}
                     className={`
-                      glass-card rounded-[24px] p-7 md:p-9 border relative overflow-hidden transition-all duration-500
+                      glass-card rounded-[24px] p-5 md:p-6 border relative overflow-hidden transition-all duration-500
                       ${isHovered 
                         ? "border-white/30 bg-white/[0.04] shadow-[0_20px_50px_rgba(0,0,0,0.8)]" 
                         : "border-white/[0.08] hover:border-white/20"
@@ -208,7 +208,7 @@ export function UseCases() {
 
                     <div className="relative z-10">
                       {/* Top Header */}
-                      <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-4">
                           <div 
                             className="w-12 h-12 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110"
@@ -240,7 +240,7 @@ export function UseCases() {
                       </div>
 
                       {/* Description */}
-                      <p className="text-white/50 text-[14px] leading-relaxed font-light mb-5 group-hover:text-white/80 transition-colors">
+                      <p className="text-white/50 text-[14px] leading-relaxed font-light mb-4 group-hover:text-white/80 transition-colors">
                         {item.desc}
                       </p>
 

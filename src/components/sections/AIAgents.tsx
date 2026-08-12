@@ -63,7 +63,6 @@ const agents = [
 function LiveTime() {
   const [time, setTime] = useState("");
   useEffect(() => {
-    setTime(new Date().toISOString().slice(11, 19) + " UTC");
     const int = setInterval(() => setTime(new Date().toISOString().slice(11, 19) + " UTC"), 1000);
     return () => clearInterval(int);
   }, []);
@@ -77,7 +76,7 @@ export function AIAgents() {
   const active = agents.find(a => a.id === activeAgent)!;
 
   return (
-    <section className="py-24 relative overflow-hidden bg-[#050505]">
+    <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505]">
       {/* Grid Background */}
       <div className="absolute inset-0 pointer-events-none opacity-10"
         style={{
@@ -99,7 +98,7 @@ export function AIAgents() {
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -114,7 +113,7 @@ export function AIAgents() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-6 pb-2"
+            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-3"
           >
             Multi-Agent <span className="text-gradient">Orchestration.</span>
           </motion.h2>
@@ -128,10 +127,10 @@ export function AIAgents() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* ── LEFT: Agent Selector ── */}
-          <div className="lg:col-span-5 flex flex-col gap-4 relative z-20">
+          <div className="lg:col-span-5 flex flex-col gap-3 relative z-20 h-full">
             {agents.map((agent, idx) => {
               const isActive = activeAgent === agent.id;
               
@@ -143,7 +142,7 @@ export function AIAgents() {
                   transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
                   onClick={() => setActiveAgent(agent.id)}
                   className={`
-                    group glass-card relative flex items-center gap-5 p-5 rounded-3xl text-left transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:border-white/15 hover:bg-white/[0.03]
+                    group glass-card relative flex flex-1 items-center gap-4 p-4 rounded-3xl text-left transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:border-white/15 hover:bg-white/[0.03]
                     ${isActive
                       ? "bg-white/[0.04] shadow-2xl border-white/15"
                       : ""
@@ -168,7 +167,7 @@ export function AIAgents() {
 
                   {/* Icon Box */}
                   <div className={`
-                    w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-500 relative z-10
+                    w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 relative z-10
                     ${isActive ? "shadow-lg" : "text-white/40"}
                   `}
                   style={{
@@ -195,9 +194,9 @@ export function AIAgents() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-7 relative z-10"
+            className="lg:col-span-7 relative z-10 h-full"
           >
-            <div className="glass-card rounded-[32px] overflow-hidden min-h-[500px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] flex flex-col relative bg-[#080808]/80 backdrop-blur-3xl">
+            <div className="glass-card rounded-[32px] overflow-hidden h-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] flex flex-col relative bg-[#080808]/80 backdrop-blur-3xl">
               
               {/* Top accent line */}
               <div 
@@ -231,11 +230,11 @@ export function AIAgents() {
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="p-8 md:p-12 flex-1 flex flex-col"
+                  className="p-5 md:p-6 flex-1 flex flex-col"
                 >
-                  <div className="flex flex-col items-center text-center mb-12 relative">
+                  <div className="flex flex-col items-center text-center mb-6 relative">
                     {/* Pulsing visual core */}
-                    <div className="relative w-28 h-28 flex items-center justify-center mb-8">
+                    <div className="relative w-24 h-24 flex items-center justify-center mb-6">
                       <motion.div
                         animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0, 0.3] }}
                         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
@@ -248,7 +247,7 @@ export function AIAgents() {
                         className="absolute inset-0 rounded-full border border-white"
                         style={{ borderColor: active.color }}
                       />
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
+                      <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
                         style={{ 
                           backgroundColor: `${active.color}15`,
                           border: `1px solid ${active.color}40`,
@@ -267,7 +266,7 @@ export function AIAgents() {
                   </div>
 
                   {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-3 md:gap-6 mb-12">
+                  <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
                     {Object.entries(active.metrics).map(([key, value]) => (
                       <div key={key} className="flex flex-col items-center justify-center text-center p-5 rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-colors duration-300">
                         <div className="text-2xl md:text-3xl font-mono text-white mb-2 tracking-tight">{value}</div>
@@ -287,11 +286,11 @@ export function AIAgents() {
                         <motion.div
                           key={i}
                           animate={{
-                            height: ["20%", `${20 + Math.random() * 80}%`, "20%"],
+                            height: ["20%", `${20 + ((i * 47) % 80)}%`, "20%"],
                           }}
                           transition={{
                             repeat: Infinity,
-                            duration: 1 + Math.random(),
+                            duration: 1 + (((i * 19) % 100) / 100),
                             delay: i * 0.05,
                             ease: "easeInOut",
                           }}
