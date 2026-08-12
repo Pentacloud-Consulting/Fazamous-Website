@@ -354,8 +354,8 @@ const CoreValuesSection = () => {
 const ImpactSection = () => {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-[#020202] to-[#050714] border-t border-white/5 relative">
-      <div className="max-w-6xl mx-auto px-5 md:px-6 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 md:divide-x divide-white/5 border-y border-white/5 py-10 md:py-12">
+      <div className="max-w-6xl mx-auto px-3 md:px-6 relative z-10">
+        <div className="grid grid-cols-4 divide-x divide-white/5 border-y border-white/5 py-8 md:py-12">
           {[
             { value: "50M+", label: "API Calls Daily" },
             { value: "99.9%", label: "Uptime SLA" },
@@ -368,10 +368,10 @@ const ImpactSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center justify-center text-center px-2 md:px-4"
+              className="flex flex-col items-center justify-center text-center px-1 md:px-4"
             >
-              <h4 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-1.5 md:mb-2 tracking-tighter">{stat.value}</h4>
-              <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-widest font-semibold">{stat.label}</p>
+              <h4 className="text-[17px] sm:text-2xl md:text-5xl font-black text-white mb-1 md:mb-2 tracking-tighter">{stat.value}</h4>
+              <p className="text-[8px] sm:text-[10px] md:text-xs text-gray-500 uppercase tracking-wider md:tracking-widest font-semibold leading-tight md:leading-normal">{stat.label}</p>
             </motion.div>
           ))}
         </div>
