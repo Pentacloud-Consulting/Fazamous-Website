@@ -7,8 +7,8 @@ import {
   ChevronLeft, ChevronRight, CheckCircle2,
   Phone, Globe, Zap, Cpu, Database
 } from 'lucide-react';
-import { Navbar } from '@/components/sections/Navbar';
-import { Footer } from '@/components/sections/Footer';
+import { Navbar } from '@/components/Top-bottom/Navbar';
+import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/CTA';
 import { motion } from 'framer-motion';
 export default function Telecommunications() {

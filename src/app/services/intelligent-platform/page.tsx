@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, BrainCircuit } from "lucide-react";
 import { colors, fonts } from "@/styles/tokens";
-import { Navbar } from "@/components/sections/Navbar";
-import { Footer } from "@/components/sections/Footer";
+import { Navbar } from "@/components/Top-bottom/Navbar";
+import { Footer } from "@/components/Top-bottom/Footer";
 import { industryData } from "@/data/industryData";
 
 export default function IntelligentPlatformPage() {

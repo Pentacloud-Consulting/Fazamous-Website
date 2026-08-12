@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Navbar } from "@/components/sections/Navbar";
-import { Footer } from "@/components/sections/Footer";
+import { Navbar } from "@/components/Top-bottom/Navbar";
+import { Footer } from "@/components/Top-bottom/Footer";
 import { Contact } from "@/components/sections/Contact";
 import { Globe, Layers, Shield, Zap, Database, Cpu, Network, Activity, BarChart, Server, Wallet, Lock, ShieldAlert } from "lucide-react";
 import { industries, products } from "@/lib/data";
 
 // 1. Hero Section
 const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   return (
     <section className="relative pt-36 pb-20 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-[#020202] z-0"></div>
@@ -77,7 +80,7 @@ const HeroSection = () => {
            
            {/* Glowing Particles */}
            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
-              {[...Array(5)].map((_, i) => (
+              {mounted && [...Array(5)].map((_, i) => (
                 <motion.div
                   key={i}
                   animate={{ 
@@ -165,6 +168,9 @@ const ArchitectureSection = () => {
 
 // 4. Bento Grid (Platform Features)
 const PlatformFeaturesSection = () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   return (
     <section className="py-24 bg-[#020202] max-w-7xl mx-auto px-6">
       <div className="mb-16">
@@ -223,7 +229,7 @@ const PlatformFeaturesSection = () => {
            <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
               <div className="absolute top-6 right-6 w-24 h-24 opacity-60">
-                 {[...Array(6)].map((_, i) => (
+                 {mounted && [...Array(6)].map((_, i) => (
                    <motion.div 
                      key={i}
                      animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
@@ -252,7 +258,7 @@ const PlatformFeaturesSection = () => {
            <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
               <div className="absolute top-8 right-8 w-44 h-20 flex items-end gap-2 opacity-60">
-                 {[40, 70, 30, 90, 50, 100, 60, 80].map((height, i) => (
+                 {mounted && [40, 70, 30, 90, 50, 100, 60, 80].map((height, i) => (
                     <motion.div
                       key={i}
                       animate={{ height: [`${height}%`, `${Math.random()*100 + 20}%`, `${height}%`] }}

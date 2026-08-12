@@ -7,8 +7,8 @@ import {
   Landmark, Activity, Wallet, Percent, 
   TrendingUp, Fingerprint, Zap
 } from 'lucide-react';
-import { Navbar } from '@/components/sections/Navbar';
-import { Footer } from '@/components/sections/Footer';
+import { Navbar } from '@/components/Top-bottom/Navbar';
+import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/CTA';
 
 // Section 1: Hero (Data Stream / Money Flow)

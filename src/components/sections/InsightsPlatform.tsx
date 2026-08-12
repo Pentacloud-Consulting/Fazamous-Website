@@ -33,14 +33,15 @@ function CountUp({ target }: { target: number }) {
 
   React.useEffect(() => {
     if (!isInView) return;
-    const duration = 2000;
+    const duration = 1500;
     const startTime = Date.now();
+    const startValue = count;
     
     const tick = () => {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * target));
+      setCount(Math.round(startValue + (target - startValue) * eased));
       if (progress < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -103,6 +104,8 @@ function PremiumCard({ children, className = "", delay = 0 }: { children: React.
 
 export function InsightsPlatform() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeTimeframe, setActiveTimeframe] = React.useState("24H");
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -115,6 +118,23 @@ export function InsightsPlatform() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
+  const chartDataMap: Record<string, number[]> = {
+    "1H": [45, 50, 48, 55, 52, 60, 58, 65, 62, 70, 68, 75, 72, 80, 78, 85, 82, 90, 88, 95, 92, 100, 98, 95],
+    "24H": [18, 25, 20, 32, 28, 45, 35, 55, 48, 65, 58, 80, 72, 88, 82, 95, 85, 92, 88, 98, 90, 100, 95, 98],
+    "7D": [60, 65, 62, 70, 68, 75, 72, 80, 78, 85, 82, 90, 88, 95, 92, 100, 95, 98, 90, 85, 88, 92, 85, 90],
+    "30D": [40, 45, 42, 50, 48, 55, 52, 60, 58, 65, 62, 70, 68, 75, 72, 80, 78, 85, 82, 90, 88, 95, 92, 100]
+  };
+
+  const statsMap: Record<string, { models: number, decisions: number, confidence: number }> = {
+    "1H": { models: 115, decisions: 2800, confidence: 99 },
+    "24H": { models: 127, decisions: 2400, confidence: 99 },
+    "7D": { models: 142, decisions: 2150, confidence: 98 },
+    "30D": { models: 156, decisions: 1950, confidence: 97 }
+  };
+
+  const currentChartData = chartDataMap[activeTimeframe];
+  const currentStats = statsMap[activeTimeframe];
+
   return (
     <section ref={containerRef} id="platforms" className="pt-16 pb-0 relative overflow-hidden bg-[#050505]">
       <GridBackground />
@@ -124,7 +144,7 @@ export function InsightsPlatform() {
       
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
-        <div ref={sectionRef} className="flex flex-col md:flex-row items-start md:items-end justify-between w-full max-w-[1200px] mx-auto mb-8 gap-6">
+        <div ref={sectionRef} className="flex flex-col md:flex-row items-start md:items-end justify-between w-full max-w-[1000px] mx-auto mb-8 gap-6">
           
           {/* Left Text Content */}
           <div className="flex flex-col items-start text-left max-w-2xl">
@@ -177,7 +197,7 @@ export function InsightsPlatform() {
 
         {/* Dashboard Mockup */}
         <div style={{ perspective: "1000px" }} className="mb-8 z-20 relative">
-          <motion.div style={{ scale, y, rotateX }} className="relative mx-auto w-full max-w-[1200px]">
+          <motion.div style={{ scale, y, rotateX }} className="relative mx-auto w-full max-w-[1000px]">
             <PremiumCard className="p-3 md:p-4">
               <div className="rounded-2xl bg-[#030303] border border-white/[0.05] overflow-hidden relative">
                 
@@ -211,9 +231,9 @@ export function InsightsPlatform() {
                   {/* Left sidebar - Stats */}
                   <div className="md:col-span-3 flex flex-col gap-5">
                     {[
-                      { label: "Active Models", value: 127, color: "text-[#4EA8FF]", bg: "bg-[#4EA8FF]/[0.03]", border: "border-[#4EA8FF]/10", glow: "shadow-[0_0_20px_rgba(78,168,255,0.05)]" },
-                      { label: "Decisions/sec", value: 2400, prefix: ">", color: "text-emerald-400", bg: "bg-emerald-400/[0.03]", border: "border-emerald-400/10", glow: "shadow-[0_0_20px_rgba(16,185,129,0.05)]" },
-                      { label: "Confidence", value: 99, suffix: ".8%", color: "text-violet-400", bg: "bg-violet-400/[0.03]", border: "border-violet-400/10", glow: "shadow-[0_0_20px_rgba(139,92,246,0.05)]" },
+                      { label: "Active Models", value: currentStats.models, color: "text-[#4EA8FF]", bg: "bg-[#4EA8FF]/[0.03]", border: "border-[#4EA8FF]/10", glow: "shadow-[0_0_20px_rgba(78,168,255,0.05)]" },
+                      { label: "Decisions/sec", value: currentStats.decisions, prefix: ">", color: "text-emerald-400", bg: "bg-emerald-400/[0.03]", border: "border-emerald-400/10", glow: "shadow-[0_0_20px_rgba(16,185,129,0.05)]" },
+                      { label: "Confidence", value: currentStats.confidence, suffix: ".8%", color: "text-violet-400", bg: "bg-violet-400/[0.03]", border: "border-violet-400/10", glow: "shadow-[0_0_20px_rgba(139,92,246,0.05)]" },
                     ].map((stat, i) => (
                       <div key={i} className={`glass-card hover:border-white/15 hover:bg-white/[0.03] relative rounded-2xl border ${stat.border} ${stat.bg} ${stat.glow} p-4 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}>
                         {/* Hover flare */}
@@ -262,16 +282,20 @@ export function InsightsPlatform() {
                       </div>
                       <div className="flex bg-black/40 p-1 rounded-lg border border-white/[0.05] backdrop-blur-md">
                         {["1H", "24H", "7D", "30D"].map(t => (
-                          <span key={t} className={`px-3 py-1.5 rounded-md text-[10px] font-mono font-medium transition-all ${t === "24H" ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80 cursor-pointer"}`}>{t}</span>
+                          <button
+                            key={t}
+                            onClick={() => setActiveTimeframe(t)}
+                            className={`px-3 py-1.5 rounded-md text-[10px] font-mono font-medium transition-all ${t === activeTimeframe ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80 cursor-pointer"}`}
+                          >
+                            {t}
+                          </button>
                         ))}
                       </div>
                     </div>
                     
                     {/* Animated chart bars */}
                     <div className="flex-1 flex items-end justify-between gap-1.5 md:gap-2.5 relative z-10 mt-auto">
-                      {[
-                        18, 25, 20, 32, 28, 45, 35, 55, 48, 65, 58, 80, 72, 88, 82, 95, 85, 92, 88, 98, 90, 100, 95, 98
-                      ].map((val, i) => (
+                      {currentChartData.map((val, i) => (
                         <div key={i} className="flex-1 flex flex-col justify-end group/bar h-full">
                           {/* Value tooltip on hover */}
                           <div className="opacity-0 group-hover/bar:opacity-100 transition-opacity mb-2 text-center">
@@ -280,9 +304,8 @@ export function InsightsPlatform() {
                           
                           <motion.div
                             initial={{ height: 0 }}
-                            whileInView={{ height: `${val}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.2, delay: i * 0.02, ease: [0.22, 1, 0.36, 1] }}
+                            animate={isInView ? { height: `${val}%` } : { height: 0 }}
+                            transition={{ duration: 0.8, delay: i * 0.015, ease: [0.22, 1, 0.36, 1] }}
                             className="w-full rounded-t-sm bg-gradient-to-t from-[#4EA8FF]/[0.15] to-[#4EA8FF]/40 border-t border-[#4EA8FF]/50 relative overflow-hidden"
                           >
                             <div className="absolute inset-0 bg-gradient-to-b from-white/[0.15] to-transparent opacity-0 group-hover/bar:opacity-100 transition-opacity" />

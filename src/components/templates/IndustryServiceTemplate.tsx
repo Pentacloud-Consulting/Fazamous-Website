@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, BarChart, ShieldAlert } from "lucide-react";
 import { colors, fonts } from "@/styles/tokens";
-import { Navbar } from "@/components/sections/Navbar";
-import { Footer } from "@/components/sections/Footer";
+import { Navbar } from "@/components/Top-bottom/Navbar";
+import { Footer } from "@/components/Top-bottom/Footer";
 
 import { industryData } from "@/data/industryData";
 import { notFound } from "next/navigation";

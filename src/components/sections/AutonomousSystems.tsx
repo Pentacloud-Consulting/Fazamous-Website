@@ -20,32 +20,34 @@ export function AutonomousSystems() {
   const [activeHighlight, setActiveHighlight] = useState<number | null>(null);
 
   return (
-    <section ref={containerRef} className="py-12 relative overflow-hidden bg-[#030303]">
+    <section ref={containerRef} className="py-12 relative bg-[#030303]">
       {/* Background parallax ambient lighting */}
-      <motion.div
-        style={{ y: y1 }}
-        className="absolute top-[20%] right-0 w-[900px] h-[900px] rounded-full bg-[#4EA8FF]/[0.03] blur-[220px] pointer-events-none translate-x-1/3"
-      />
-      <motion.div
-        style={{ y: y2 }}
-        className="absolute bottom-0 left-0 w-[700px] h-[700px] rounded-full bg-violet-600/[0.025] blur-[180px] pointer-events-none -translate-x-1/4"
-      />
-      
-      {/* Grid Pattern with subtle radial glow */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-25"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 75% 50%, rgba(78, 168, 255, 0.08) 0%, transparent 60%),
-            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '100% 100%, 60px 60px, 60px 60px',
-        }}
-      />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <motion.div
+          style={{ y: y1 }}
+          className="absolute top-[20%] right-0 w-[900px] h-[900px] rounded-full bg-[#4EA8FF]/[0.03] blur-[220px] translate-x-1/3"
+        />
+        <motion.div
+          style={{ y: y2 }}
+          className="absolute bottom-0 left-0 w-[700px] h-[700px] rounded-full bg-violet-600/[0.025] blur-[180px] -translate-x-1/4"
+        />
+        
+        {/* Grid Pattern with subtle radial glow */}
+        <div 
+          className="absolute inset-0 opacity-25"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 75% 50%, rgba(78, 168, 255, 0.08) 0%, transparent 60%),
+              linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: '100% 100%, 60px 60px, 60px 60px',
+          }}
+        />
+      </div>
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
           
           {/* ── LEFT: Content ── */}
           <div className="max-w-xl">
@@ -78,7 +80,7 @@ export function AutonomousSystems() {
             </motion.p>
 
             {/* Features List with interactive focus */}
-            <div className="flex flex-col gap-3 mb-8">
+            <div className="flex flex-col gap-16 md:gap-32 my-12 md:my-20 pb-12 lg:pb-32">
               {[
                 { title: "Self-optimizing Resource Allocation", desc: "Dynamically shifts compute and capital based on real-time needs.", targetIndex: 0 },
                 { title: "Predictive Maintenance Protocols", desc: "Identifies systemic failures weeks before they materialize.", targetIndex: 1 },
@@ -89,12 +91,14 @@ export function AutonomousSystems() {
                   <motion.div
                     key={item.title}
                     initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 + idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ margin: "-40% 0px -40% 0px", once: false }}
+                    onViewportEnter={() => setActiveHighlight(item.targetIndex)}
+                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                     onMouseEnter={() => setActiveHighlight(item.targetIndex)}
                     onMouseLeave={() => setActiveHighlight(null)}
                     className={`
-                      p-3 rounded-2xl border transition-all duration-500 cursor-pointer flex items-start gap-4
+                      p-5 md:p-6 rounded-3xl border transition-all duration-500 cursor-pointer flex items-start gap-4 md:gap-6
                       ${isActive 
                         ? "bg-white/[0.04] border-[#4EA8FF]/40 shadow-[0_0_25px_rgba(78,168,255,0.15)] translate-x-2" 
                         : "bg-white/[0.01] border-white/[0.05] hover:border-white/20 hover:bg-white/[0.02]"
@@ -102,19 +106,19 @@ export function AutonomousSystems() {
                     `}
                   >
                     <div className={`
-                      w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 mt-0.5 transition-all duration-500
+                      w-10 h-10 md:w-12 md:h-12 rounded-xl border flex items-center justify-center shrink-0 mt-0.5 transition-all duration-500
                       ${isActive
                         ? "bg-[#4EA8FF] border-[#4EA8FF] text-black shadow-[0_0_15px_#4EA8FF]"
                         : "border-white/[0.1] bg-white/[0.03] text-white/40"
                       }
                     `}>
-                      <span className="font-mono text-xs font-bold">{idx + 1}</span>
+                      <span className="font-mono text-sm md:text-base font-bold">{idx + 1}</span>
                     </div>
                     <div>
-                      <h4 className={`text-[15px] font-medium transition-colors duration-300 ${isActive ? "text-[#4EA8FF]" : "text-white/90"}`}>
+                      <h4 className={`text-base md:text-lg font-medium transition-colors duration-300 ${isActive ? "text-[#4EA8FF]" : "text-white/90"}`}>
                         {item.title}
                       </h4>
-                      <p className="text-[13px] text-white/40 leading-relaxed font-light mt-0.5">{item.desc}</p>
+                      <p className="text-sm md:text-base text-white/40 leading-relaxed font-light mt-1.5">{item.desc}</p>
                     </div>
                   </motion.div>
                 );
@@ -141,8 +145,10 @@ export function AutonomousSystems() {
           </div>
 
           {/* ── RIGHT: Futuristic Animated Parallax Dashboards ── */}
-          <div className="relative h-[500px] lg:h-[600px] w-full perspective-[2000px]">
-            <OverlappingDashboards activeHighlight={activeHighlight} />
+          <div className="relative mt-8 lg:mt-0 h-full">
+            <div className="lg:sticky lg:top-32 relative h-[600px] lg:h-[650px] w-full perspective-[2000px]">
+              <OverlappingDashboards activeHighlight={activeHighlight} />
+            </div>
           </div>
 
         </div>

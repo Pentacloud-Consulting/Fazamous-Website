@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ChevronDown, Rocket } from "lucide-react";
+import { Search, ChevronDown, Rocket, Menu, X } from "lucide-react";
 import { industryData } from "@/data/industryData";
 
 const navLinks = [
@@ -17,6 +17,8 @@ const navLinks = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
@@ -44,7 +46,7 @@ export function Navbar() {
         opacity: hidden ? 0 : 1,
       }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-[100] flex justify-center px-5 pt-5"
+      className="fixed top-0 left-0 right-0 z-[100] flex flex-col items-center px-4 sm:px-5 pt-4 sm:pt-5"
     >
       {/* Vignette / Ambient Glow */}
       <div className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-[#0A0B0F]/90 via-[#0A0B0F]/40 to-transparent pointer-events-none -z-10" />
@@ -179,16 +181,112 @@ export function Navbar() {
             <Search size={15} strokeWidth={1.5} />
           </button>
 
-          <motion.a
-            href="/contact"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="relative overflow-hidden ml-1 px-5 py-2 rounded-full text-[13px] font-medium bg-white text-[#0A0B0F] shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.3),0_0_15px_rgba(99,102,241,0.2)] transition-shadow duration-500"
+          <Link href="/contact" className="hidden sm:block">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="relative overflow-hidden ml-1 px-5 py-2 rounded-full text-[13px] font-medium bg-white text-[#0A0B0F] shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.3),0_0_15px_rgba(99,102,241,0.2)] transition-shadow duration-500 cursor-pointer"
+            >
+              <span className="relative z-10">Request Demo</span>
+            </motion.div>
+          </Link>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden flex items-center justify-center w-9 h-9 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors ml-1"
+            aria-label="Toggle Menu"
           >
-            <span className="relative z-10">Request Demo</span>
-          </motion.a>
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: "auto", marginTop: 12 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full max-w-[1200px] overflow-hidden md:hidden px-1"
+          >
+            <div className="bg-[#0A0B0F]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-6 flex flex-col shadow-[0_8px_32px_rgba(0,0,0,0.8)] relative overflow-hidden">
+              {/* Internal glow for mobile menu */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#6366F1]/10 blur-[80px] pointer-events-none rounded-full"></div>
+              
+              {/* Top Row: Solutions, About, Contact */}
+              <div className="flex items-center justify-between relative z-10 pb-6 mb-4 border-b border-white/10">
+                {navLinks.filter(l => !l.hasDropdown).map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`text-[15px] font-medium transition-colors ${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                })}
+              </div>
+
+              {/* Industries Accordion */}
+              {navLinks.filter(l => l.hasDropdown).map((link) => (
+                <div key={link.label} className="flex flex-col relative z-10 mb-4">
+                  <button
+                    onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                    className={`flex items-center justify-between text-[17px] font-semibold py-2 transition-colors ${mobileIndustriesOpen ? "text-white" : "text-white/60 hover:text-white"}`}
+                  >
+                    {link.label}
+                    <ChevronDown size={18} className={`transition-transform duration-300 ${mobileIndustriesOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {mobileIndustriesOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-col gap-4 pl-3 pt-4 border-l border-white/10 mt-2 mb-2 ml-1">
+                          {industryData.map((ind) => (
+                            <Link
+                              key={ind.slug}
+                              href={`/services/${ind.slug}`}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileIndustriesOpen(false);
+                              }}
+                              className="flex items-center gap-4 text-sm text-white/50 hover:text-white transition-colors"
+                            >
+                              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/[0.03] border border-white/10 shrink-0">
+                                <ind.icon size={14} style={{ color: ind.color }} />
+                              </div>
+                              <span className="text-[14px] leading-tight">{ind.name}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+              
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3.5 mt-2 rounded-xl bg-white text-[#0A0B0F] text-center font-bold text-sm shadow-[0_0_15px_rgba(255,255,255,0.1)] relative z-10"
+              >
+                Request Demo
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

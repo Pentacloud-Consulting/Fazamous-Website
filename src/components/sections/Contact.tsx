@@ -100,7 +100,7 @@ export function Contact() {
           >
             {/* Primary Glowing White Pill Button */}
             <motion.button
-              onClick={() => window.location.href = "mailto:contact@fazamous.com"}
+              onClick={() => window.location.href = "/contact"}
               whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(0, 229, 255, 0.6)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
@@ -112,13 +112,13 @@ export function Contact() {
 
             {/* Secondary Glass Border Button */}
             <motion.button
-              onClick={() => window.location.href = "mailto:sales@fazamous.com"}
+              onClick={() => window.location.href = "/solutions"}
               whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.3)", backgroundColor: "rgba(255,255,255,0.05)" }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
               className="px-8 py-3.5 rounded-full bg-white/[0.02] border border-white/15 text-white font-mono font-medium text-[12px] tracking-wider uppercase backdrop-blur-md transition-all cursor-pointer"
             >
-              Enterprise Sales
+              Explore Solutions
             </motion.button>
           </motion.div>
 

@@ -8,8 +8,8 @@ import {
   Search, ShieldCheck, CheckCircle2, Zap,
   RefreshCw, UserCheck
 } from 'lucide-react';
-import { Navbar } from '@/components/sections/Navbar';
-import { Footer } from '@/components/sections/Footer';
+import { Navbar } from '@/components/Top-bottom/Navbar';
+import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/CTA';
 
 // Section 1: Hero (2-Column Layout with AI Diagram)

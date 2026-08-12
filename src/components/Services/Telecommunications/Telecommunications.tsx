@@ -7,7 +7,7 @@ import {
   ChevronLeft, ChevronRight, CheckCircle2,
   Phone, Globe, Zap, Cpu, Database
 } from 'lucide-react';
-import { Navbar } from '@/components/sections/Navbar';
+import { Navbar } from '@/components/Top-bottom/Navbar';
 
 export default function Telecommunications() {
   return (

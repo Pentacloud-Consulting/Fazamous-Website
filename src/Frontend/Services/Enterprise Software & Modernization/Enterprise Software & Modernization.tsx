@@ -7,8 +7,8 @@ import {
   Workflow, CheckCircle, Database, Server, 
   Cpu, Rocket, GitPullRequest, CloudCog, ShieldAlert, LineChart, Scan
 } from 'lucide-react';
-import { Navbar } from '@/components/sections/Navbar';
-import { Footer } from '@/components/sections/Footer';
+import { Navbar } from '@/components/Top-bottom/Navbar';
+import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/CTA';
 
 // Custom Typewriter Component for Code Blocks

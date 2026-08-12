@@ -1,7 +1,7 @@
 "use client";
 
 import { SplashScreen } from "@/components/sections/SplashScreen";
-import { Navbar } from "@/components/sections/Navbar";
+import { Navbar } from "@/components/Top-bottom/Navbar";
 import { Hero, TrustStrip } from "@/components/sections/Hero";
 import { InsightsPlatform } from "@/components/sections/InsightsPlatform";
 import { Ecosystem } from "@/components/sections/Ecosystem";
@@ -12,7 +12,7 @@ import { Industries } from "@/components/sections/Industries";
 import { UseCases } from "@/components/sections/UseCases";
 import { About } from "@/components/sections/About";
 import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
+import { Footer } from "@/components/Top-bottom/Footer";
 
 export default function Home() {
   return (
