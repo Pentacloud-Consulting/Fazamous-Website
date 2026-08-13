@@ -136,7 +136,7 @@ export function InsightsPlatform() {
   const currentStats = statsMap[activeTimeframe];
 
   return (
-    <section ref={containerRef} id="platforms" className="pt-16 pb-0 relative overflow-hidden bg-[#050505]">
+    <section ref={containerRef} id="platforms" className="pt-10 md:pt-16 pb-0 relative overflow-hidden bg-[#050505]">
       <GridBackground />
       
       {/* Background ambient */}
@@ -162,7 +162,7 @@ export function InsightsPlatform() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight pb-3"
+              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight pb-2 md:pb-3"
             >
               Decision <span className="text-gradient">Intelligence.</span>
             </motion.h2>
@@ -171,7 +171,7 @@ export function InsightsPlatform() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/40 leading-[1.8] text-[14px] md:text-[15px] font-light max-w-xl"
+              className="text-white/40 leading-[1.6] md:leading-[1.8] text-[13px] md:text-[15px] font-light max-w-xl"
             >
               Transform raw data streams into autonomous decisions. INSIGHTS leverages our proprietary knowledge graph to empower enterprise leaders with real-time situational awareness and predictive modeling.
             </motion.p>
@@ -184,11 +184,11 @@ export function InsightsPlatform() {
             transition={{ duration: 0.6, delay: 0.3 }}
             href="#"
             whileHover={{ scale: 1.05 }}
-            className="shrink-0 group inline-flex items-center gap-3 px-6 py-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 rounded-full text-white text-[13px] font-medium tracking-wide transition-all duration-300 md:mb-4"
+            className="shrink-0 group inline-flex items-center gap-2 md:gap-3 px-5 py-2.5 md:px-6 md:py-3 bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 rounded-full text-white text-[11px] md:text-[13px] font-medium tracking-wide transition-all duration-300 md:mb-4"
           >
             Discover INSIGHTS
-            <span className="w-5 h-5 rounded-full bg-[#4EA8FF] text-black flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <span className="w-4 h-4 md:w-5 md:h-5 rounded-full bg-[#4EA8FF] text-black flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="scale-[0.8] md:scale-100">
                 <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
               </svg>
             </span>
@@ -207,21 +207,21 @@ export function InsightsPlatform() {
                 />
 
                 {/* Toolbar */}
-                <div className="relative h-14 border-b border-white/[0.05] flex items-center px-6 gap-4 bg-[#0a0a0a]/50 backdrop-blur-md z-10">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-white/[0.1] hover:bg-red-500/80 transition-colors" />
-                    <div className="w-3 h-3 rounded-full bg-white/[0.1] hover:bg-amber-500/80 transition-colors" />
-                    <div className="w-3 h-3 rounded-full bg-white/[0.1] hover:bg-green-500/80 transition-colors" />
+                <div className="relative h-12 md:h-14 border-b border-white/[0.05] flex items-center px-4 md:px-6 gap-2 md:gap-4 bg-[#0a0a0a]/50 backdrop-blur-md z-10">
+                  <div className="flex gap-1.5 md:gap-2">
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/[0.1] hover:bg-red-500/80 transition-colors" />
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/[0.1] hover:bg-amber-500/80 transition-colors" />
+                    <div className="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-white/[0.1] hover:bg-green-500/80 transition-colors" />
                   </div>
                   <div className="flex-1 flex justify-center">
-                    <div className="h-6 w-80 bg-white/[0.03] border border-white/[0.05] rounded-lg flex items-center px-3 gap-2">
-                      <Search size={12} className="text-white/20" />
-                      <span className="text-[10px] text-white/20 font-mono">fazamous.ai/insights/dash-v4</span>
+                    <div className="h-5 md:h-6 w-48 md:w-80 bg-white/[0.03] border border-white/[0.05] rounded-lg flex items-center px-2 md:px-3 gap-1 md:gap-2 overflow-hidden">
+                      <Search size={10} className="text-white/20 shrink-0" />
+                      <span className="text-[8px] md:text-[10px] text-white/20 font-mono truncate">fazamous.ai/insights/dash-v4</span>
                     </div>
                   </div>
-                  <div className="flex gap-3">
-                    <div className="w-6 h-6 rounded-md bg-white/[0.03] border border-white/[0.05]" />
-                    <div className="w-6 h-6 rounded-md bg-white/[0.03] border border-white/[0.05]" />
+                  <div className="flex gap-2 md:gap-3">
+                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-white/[0.03] border border-white/[0.05]" />
+                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-md bg-white/[0.03] border border-white/[0.05]" />
                   </div>
                 </div>
 
@@ -229,29 +229,29 @@ export function InsightsPlatform() {
                 <div className="relative z-10 p-4 md:p-6 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 min-h-[300px] md:min-h-[350px]">
                   
                   {/* Left sidebar - Stats */}
-                  <div className="md:col-span-3 flex flex-col gap-5">
+                  <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-1 md:flex md:flex-col gap-3 md:gap-5">
                     {[
                       { label: "Active Models", value: currentStats.models, color: "text-[#4EA8FF]", bg: "bg-[#4EA8FF]/[0.03]", border: "border-[#4EA8FF]/10", glow: "shadow-[0_0_20px_rgba(78,168,255,0.05)]" },
                       { label: "Decisions/sec", value: currentStats.decisions, prefix: ">", color: "text-emerald-400", bg: "bg-emerald-400/[0.03]", border: "border-emerald-400/10", glow: "shadow-[0_0_20px_rgba(16,185,129,0.05)]" },
                       { label: "Confidence", value: currentStats.confidence, suffix: ".8%", color: "text-violet-400", bg: "bg-violet-400/[0.03]", border: "border-violet-400/10", glow: "shadow-[0_0_20px_rgba(139,92,246,0.05)]" },
                     ].map((stat, i) => (
-                      <div key={i} className={`glass-card hover:border-white/15 hover:bg-white/[0.03] relative rounded-2xl border ${stat.border} ${stat.bg} ${stat.glow} p-4 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}>
+                      <div key={i} className={`glass-card hover:border-white/15 hover:bg-white/[0.03] relative rounded-2xl border ${stat.border} ${stat.bg} ${stat.glow} p-3 md:p-4 overflow-hidden group hover:scale-[1.02] transition-transform duration-300`}>
                         {/* Hover flare */}
                         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl light-sweep" />
-                        <div className="absolute top-0 right-0 w-16 h-16 bg-white/[0.05] rounded-bl-full translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500" />
+                        <div className="absolute top-0 right-0 w-12 h-12 md:w-16 md:h-16 bg-white/[0.05] rounded-bl-full translate-x-full -translate-y-full group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500" />
                         
-                        <div className="text-[10px] text-white/40 uppercase tracking-widest mb-3 font-mono flex items-center gap-2">
-                          <div className={`w-1.5 h-1.5 rounded-full ${stat.color} opacity-50`} />
-                          {stat.label}
+                        <div className="text-[7px] sm:text-[9px] md:text-[10px] text-white/40 uppercase tracking-widest mb-2 md:mb-3 font-mono flex items-center gap-1.5 md:gap-2">
+                          <div className={`w-1 h-1 md:w-1.5 md:h-1.5 rounded-full ${stat.color} opacity-50`} />
+                          <span className="truncate">{stat.label}</span>
                         </div>
-                        <div className={`text-3xl md:text-4xl font-medium ${stat.color} font-mono tracking-tight`}>
+                        <div className={`text-lg sm:text-2xl md:text-4xl font-medium ${stat.color} font-mono tracking-tight`}>
                           <AnimatedNumber value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
                         </div>
                       </div>
                     ))}
                     
                     {/* Small map / node visualization placeholder */}
-                    <div className="flex-1 min-h-[120px] rounded-2xl border border-white/[0.05] bg-white/[0.01] p-4 flex flex-col">
+                    <div className="flex-1 min-h-full md:min-h-[120px] rounded-2xl border border-white/[0.05] bg-white/[0.01] p-3 md:p-4 flex flex-col">
                        <span className="text-[9px] text-white/30 uppercase tracking-wider font-mono mb-auto">Global Nodes</span>
                        <div className="relative w-full h-16 flex items-center justify-center gap-3">
                           {[1,2,3,4,5].map(i => (
@@ -267,7 +267,7 @@ export function InsightsPlatform() {
                   </div>
 
                   {/* Main chart area */}
-                  <div className="md:col-span-9 rounded-2xl border border-white/[0.05] bg-gradient-to-br from-white/[0.02] to-transparent p-6 flex flex-col relative overflow-hidden group">
+                  <div className="md:col-span-9 rounded-2xl border border-white/[0.05] bg-gradient-to-br from-white/[0.02] to-transparent p-4 md:p-6 flex flex-col relative overflow-hidden group min-h-[240px] md:min-h-[auto] mt-2 md:mt-0">
                     {/* Chart Grid Lines */}
                     <div className="absolute inset-0 pointer-events-none flex flex-col justify-between p-6 pb-12 opacity-20">
                       {[1,2,3,4,5].map(i => (
@@ -275,17 +275,17 @@ export function InsightsPlatform() {
                       ))}
                     </div>
 
-                    <div className="flex justify-between items-start mb-12 relative z-10">
+                    <div className="flex justify-between items-start mb-8 md:mb-12 relative z-10">
                       <div>
-                        <span className="text-[11px] text-[#4EA8FF] font-mono uppercase tracking-widest block mb-1">Intelligence Output</span>
-                        <span className="text-white text-sm">Real-time prediction confidence</span>
+                        <span className="text-[9px] md:text-[11px] text-[#4EA8FF] font-mono uppercase tracking-widest block mb-1">Intelligence Output</span>
+                        <span className="text-white/80 md:text-white text-xs md:text-sm">Real-time prediction confidence</span>
                       </div>
                       <div className="flex bg-black/40 p-1 rounded-lg border border-white/[0.05] backdrop-blur-md">
                         {["1H", "24H", "7D", "30D"].map(t => (
                           <button
                             key={t}
                             onClick={() => setActiveTimeframe(t)}
-                            className={`px-3 py-1.5 rounded-md text-[10px] font-mono font-medium transition-all ${t === activeTimeframe ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80 cursor-pointer"}`}
+                            className={`px-2 py-1 md:px-3 md:py-1.5 rounded-md text-[8px] md:text-[10px] font-mono font-medium transition-all ${t === activeTimeframe ? "bg-white/10 text-white shadow-sm" : "text-white/40 hover:text-white/80 cursor-pointer"}`}
                           >
                             {t}
                           </button>
@@ -294,7 +294,7 @@ export function InsightsPlatform() {
                     </div>
                     
                     {/* Animated chart bars */}
-                    <div className="flex-1 flex items-end justify-between gap-1.5 md:gap-2.5 relative z-10 mt-auto">
+                    <div className="flex-1 flex items-end justify-between gap-1 md:gap-2.5 relative z-10 mt-auto">
                       {currentChartData.map((val, i) => (
                         <div key={i} className="flex-1 flex flex-col justify-end group/bar h-full">
                           {/* Value tooltip on hover */}

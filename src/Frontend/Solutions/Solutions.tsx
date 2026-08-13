@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Top-bottom/Navbar";
 import { Footer } from "@/components/Top-bottom/Footer";
-import { Contact } from "@/components/sections/Contact";
-import { Globe, Layers, Shield, Zap, Database, Cpu, Network, Activity, BarChart, Server, Wallet, Lock, ShieldAlert } from "lucide-react";
+import CTA from "@/Frontend/Home/Contact";
+import { Globe, Layers, Shield, Zap, Database, Cpu, Network, Activity, BarChart, Server, Wallet, Lock, ShieldAlert, FileText, Settings, ArrowRight } from "lucide-react";
 import { industries, products } from "@/lib/data";
 
 // 1. Hero Section
@@ -14,22 +14,22 @@ const HeroSection = () => {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative pt-36 pb-20 px-6 overflow-hidden">
+    <section className="relative pt-28 md:pt-36 pb-12 md:pb-20 px-6 overflow-hidden">
       <div className="absolute inset-0 bg-[#020202] z-0"></div>
       
       {/* Background Grid */}
       <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-900/20 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
         <div className="text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest mb-8"
+            className="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] md:text-xs font-bold text-blue-400 uppercase tracking-widest mb-6 md:mb-8"
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-3 h-3 md:w-4 md:h-4" />
             Global Enterprise Solutions
           </motion.div>
           
@@ -37,7 +37,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight text-white"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-5 md:mb-8 tracking-tight text-white"
           >
             Intelligence Across<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">Every Sector.</span>
@@ -47,23 +47,24 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-12"
+            className="text-gray-400 text-[13px] sm:text-[15px] md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 md:mb-12"
           >
             Ten industries. Eleven purpose-built platforms. One unified architecture engineered to solve high-stakes challenges wherever they emerge.
           </motion.p>
         </div>
 
         {/* Right Side: Animated Data Core */}
-        <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center">
-           {/* Central Server */}
-           <motion.div 
-             animate={{ y: [-10, 10, -10] }}
-             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-             className="relative z-20 w-32 h-32 bg-[#050505] border border-blue-500/50 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.3)] flex flex-col items-center justify-center"
-           >
-             <Server className="w-10 h-10 text-blue-400 mb-2" />
-             <span className="text-[10px] text-blue-400 font-bold tracking-widest text-center mt-2">FAZAMOUS<br/>CORE</span>
-           </motion.div>
+        <div className="relative w-full h-[320px] md:h-[500px] flex items-center justify-center">
+           <div className="relative flex items-center justify-center w-full h-full scale-[0.65] sm:scale-[0.8] md:scale-100">
+             {/* Central Server */}
+             <motion.div 
+               animate={{ y: [-10, 10, -10] }}
+               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+               className="relative z-20 w-32 h-32 bg-[#050505] border border-blue-500/50 rounded-2xl shadow-[0_0_50px_rgba(59,130,246,0.3)] flex flex-col items-center justify-center"
+             >
+               <Server className="w-10 h-10 text-blue-400 mb-2" />
+               <span className="text-[10px] text-blue-400 font-bold tracking-widest text-center mt-2">FAZAMOUS<br/>CORE</span>
+             </motion.div>
 
            {/* Orbital Rings */}
            {[...Array(3)].map((_, i) => (
@@ -78,25 +79,26 @@ const HeroSection = () => {
              </motion.div>
            ))}
            
-           {/* Glowing Particles */}
-           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
-              {mounted && [...Array(5)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ 
-                    y: [0, -30, 0], 
-                    x: [0, i % 2 === 0 ? 20 : -20, 0],
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-                  className="absolute w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]"
-                  style={{
-                    top: `${Math.random() * 60 + 20}%`,
-                    left: `${Math.random() * 60 + 20}%`,
-                  }}
-                />
-              ))}
-            </div>
+            {/* Glowing Particles */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
+               {mounted && [...Array(5)].map((_, i) => (
+                 <motion.div
+                   key={i}
+                   animate={{ 
+                     y: [0, -30, 0], 
+                     x: [0, i % 2 === 0 ? 20 : -20, 0],
+                     opacity: [0, 1, 0]
+                   }}
+                   transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
+                   className="absolute w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]"
+                   style={{
+                     top: `${Math.random() * 60 + 20}%`,
+                     left: `${Math.random() * 60 + 20}%`,
+                   }}
+                 />
+               ))}
+             </div>
+           </div>
         </div>
       </div>
     </section>
@@ -130,14 +132,14 @@ const TickerSection = () => {
 // 3. Architecture Flow
 const ArchitectureSection = () => {
   return (
-    <section className="py-24 bg-[#030408] border-b border-white/5 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Unified <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Architecture</span></h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-lg">One cohesive platform powering bespoke solutions across all industries.</p>
+    <section className="py-12 md:py-24 bg-[#030408] border-b border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 md:px-6">
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-white">Unified <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Architecture</span></h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-[13px] md:text-lg px-4 md:px-0">One cohesive platform powering bespoke solutions across all industries.</p>
         </div>
 
-        <div className="relative flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto">
+        <div className="relative flex flex-col md:flex-row items-center justify-between max-w-5xl mx-auto gap-4 md:gap-0">
            {/* Line connecting them */}
            <div className="absolute top-1/2 left-0 w-full h-1 bg-white/5 -translate-y-1/2 hidden md:block">
               <motion.div 
@@ -152,12 +154,12 @@ const ArchitectureSection = () => {
              { title: "AI Processing", icon: Cpu, desc: "Real-time inference and fine-tuned predictive modeling." },
              { title: "Action & APIs", icon: Network, desc: "Deploy automated workflows and scalable integrations globally." }
            ].map((step, i) => (
-             <div key={i} className="relative z-10 w-full md:w-72 bg-[#0a0a0a] border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center group hover:border-blue-500/50 transition-colors my-4 md:my-0 shadow-xl">
-               <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(59,130,246,0.1)]">
-                 <step.icon className="w-8 h-8 text-blue-400 icon-draw-animation" />
+             <div key={i} className="relative z-10 w-full md:w-72 bg-[#0a0a0a] border border-white/10 rounded-[20px] md:rounded-3xl p-6 md:p-8 flex flex-col items-center text-center group hover:border-blue-500/50 transition-colors shadow-xl">
+               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500/10 flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                 <step.icon className="w-5 h-5 md:w-8 md:h-8 text-blue-400 icon-draw-animation" />
                </div>
-               <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-               <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+               <h3 className="text-lg md:text-xl font-bold text-white mb-1.5 md:mb-2">{step.title}</h3>
+               <p className="text-gray-500 text-[11px] md:text-sm leading-relaxed">{step.desc}</p>
              </div>
            ))}
         </div>
@@ -172,24 +174,24 @@ const PlatformFeaturesSection = () => {
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="py-24 bg-[#020202] max-w-7xl mx-auto px-6">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Platform <span className="text-blue-500">Capabilities</span></h2>
+    <section className="py-12 md:py-24 bg-[#020202] max-w-7xl mx-auto px-5 md:px-6">
+      <div className="mb-10 md:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-white">Platform <span className="text-blue-500">Capabilities</span></h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 auto-rows-[180px] md:auto-rows-[200px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 auto-rows-[150px] md:auto-rows-[200px]">
         {/* Box 1: Elastic Scaling */}
         <div className="relative rounded-3xl p-[1px] overflow-hidden group md:col-span-2">
            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, #60a5fa 100%)` }} />
-           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
+           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-5 md:p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
-              <div className="absolute top-6 right-6 w-36 h-20 flex flex-col gap-2 opacity-60">
+              <div className="absolute top-5 md:top-6 right-5 md:right-6 w-28 h-16 md:w-36 md:h-20 flex flex-col gap-1.5 md:gap-2 opacity-60">
                  {[1,2,3,4].map(i => (
                     <motion.div 
                        key={i}
                        animate={{ width: ["40%", "100%", "40%"], opacity: [0.3, 1, 0.3] }}
                        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
-                       className="h-3 bg-blue-500/20 rounded-full border border-blue-500/40 relative overflow-hidden"
+                       className="h-2 md:h-3 bg-blue-500/20 rounded-full border border-blue-500/40 relative overflow-hidden"
                     >
                        <motion.div animate={{ x: ["-100%", "300%"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.2 }} className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50" />
                     </motion.div>
@@ -197,9 +199,9 @@ const PlatformFeaturesSection = () => {
               </div>
               
               <div className="mt-auto z-10 w-4/5 md:w-3/5">
-                 <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center mb-3 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.15)]"><Layers className="w-4 h-4 text-blue-400" /></div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Elastic Scaling</h3>
-                 <p className="text-gray-500 text-xs md:text-sm leading-relaxed">Auto-scales compute instantly to handle millions of requests without degradation.</p>
+                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-blue-500/10 flex items-center justify-center mb-2 md:mb-3 border border-blue-500/20 shadow-[0_0_15px_rgba(59,130,246,0.15)]"><Layers className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-400" /></div>
+                 <h3 className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-2">Elastic Scaling</h3>
+                 <p className="text-gray-500 text-[11px] md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none">Auto-scales compute instantly to handle millions of requests without degradation.</p>
               </div>
            </div>
         </div>
@@ -207,18 +209,18 @@ const PlatformFeaturesSection = () => {
         {/* Box 2: Zero-Trust */}
         <div className="relative rounded-3xl p-[1px] overflow-hidden group md:col-span-1">
            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, #c084fc 100%)` }} />
-           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
+           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-5 md:p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
-              <div className="absolute top-1/2 right-6 -translate-y-1/2 w-24 h-24 flex items-center justify-center opacity-70">
+              <div className="absolute top-4 right-4 md:top-1/2 md:right-6 md:-translate-y-1/2 w-16 h-16 md:w-24 md:h-24 flex items-center justify-center opacity-70">
                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} className="absolute inset-0 rounded-full border border-dashed border-purple-500/30" />
-                 <motion.div animate={{ rotate: -360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute inset-3 rounded-full border border-purple-500/20 border-t-purple-500/80" />
-                 <Shield className="w-6 h-6 text-purple-400 z-10 relative" />
+                 <motion.div animate={{ rotate: -360 }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute inset-2 md:inset-3 rounded-full border border-purple-500/20 border-t-purple-500/80" />
+                 <Shield className="w-4 h-4 md:w-6 md:h-6 text-purple-400 z-10 relative" />
               </div>
 
               <div className="mt-auto z-10 w-3/4">
-                 <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center mb-3 border border-purple-500/20 shadow-[0_0_15px_rgba(192,132,252,0.15)]"><ShieldAlert className="w-4 h-4 text-purple-400" /></div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Zero-Trust</h3>
-                 <p className="text-gray-500 text-xs md:text-sm leading-relaxed">End-to-end robust encryption at every layer.</p>
+                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-purple-500/10 flex items-center justify-center mb-2 md:mb-3 border border-purple-500/20 shadow-[0_0_15px_rgba(192,132,252,0.15)]"><ShieldAlert className="w-3.5 h-3.5 md:w-4 md:h-4 text-purple-400" /></div>
+                 <h3 className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-2">Zero-Trust</h3>
+                 <p className="text-gray-500 text-[11px] md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none">End-to-end robust encryption at every layer.</p>
               </div>
            </div>
         </div>
@@ -226,15 +228,15 @@ const PlatformFeaturesSection = () => {
         {/* Box 3: Edge Deployment */}
         <div className="relative rounded-3xl p-[1px] overflow-hidden group md:col-span-1">
            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, #34d399 100%)` }} />
-           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
+           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-5 md:p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
-              <div className="absolute top-6 right-6 w-24 h-24 opacity-60">
+              <div className="absolute top-4 md:top-6 right-4 md:right-6 w-16 h-16 md:w-24 md:h-24 opacity-60">
                  {mounted && [...Array(6)].map((_, i) => (
                    <motion.div 
                      key={i}
                      animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
                      transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                     className="absolute w-1.5 h-1.5 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399]"
+                     className="absolute w-1 md:w-1.5 h-1 md:h-1.5 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399]"
                      style={{ top: `${20 + Math.random()*60}%`, left: `${20 + Math.random()*60}%` }}
                    />
                  ))}
@@ -245,9 +247,9 @@ const PlatformFeaturesSection = () => {
               </div>
 
               <div className="mt-auto z-10 w-3/4">
-                 <div className="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 border border-emerald-500/20 shadow-[0_0_15px_rgba(52,211,153,0.15)]"><Globe className="w-4 h-4 text-emerald-400" /></div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Edge Node</h3>
-                 <p className="text-gray-500 text-xs md:text-sm leading-relaxed">Deploy AI models anywhere globally.</p>
+                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-2 md:mb-3 border border-emerald-500/20 shadow-[0_0_15px_rgba(52,211,153,0.15)]"><Globe className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-400" /></div>
+                 <h3 className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-2">Edge Node</h3>
+                 <p className="text-gray-500 text-[11px] md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none">Deploy AI models anywhere globally.</p>
               </div>
            </div>
         </div>
@@ -255,9 +257,9 @@ const PlatformFeaturesSection = () => {
         {/* Box 4: Advanced Analytics */}
         <div className="relative rounded-3xl p-[1px] overflow-hidden group md:col-span-2">
            <div className="absolute inset-[-100%] animate-[spin_3s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, #facc15 100%)` }} />
-           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-6 flex flex-col justify-between overflow-hidden">
+           <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-5 md:p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
-              <div className="absolute top-8 right-8 w-44 h-20 flex items-end gap-2 opacity-60">
+              <div className="absolute top-5 md:top-8 right-5 md:right-8 w-28 h-12 md:w-44 md:h-20 flex items-end gap-1.5 md:gap-2 opacity-60">
                  {mounted && [40, 70, 30, 90, 50, 100, 60, 80].map((height, i) => (
                     <motion.div
                       key={i}
@@ -271,9 +273,9 @@ const PlatformFeaturesSection = () => {
               </div>
 
               <div className="mt-auto z-10 w-4/5 md:w-3/5">
-                 <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-3 border border-yellow-500/20 shadow-[0_0_15px_rgba(250,204,21,0.15)]"><BarChart className="w-4 h-4 text-yellow-400" /></div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Deep Analytics</h3>
-                 <p className="text-gray-500 text-xs md:text-sm leading-relaxed">Real-time deep insights and comprehensive visual data pipelines.</p>
+                 <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center mb-2 md:mb-3 border border-yellow-500/20 shadow-[0_0_15px_rgba(250,204,21,0.15)]"><BarChart className="w-3.5 h-3.5 md:w-4 md:h-4 text-yellow-400" /></div>
+                 <h3 className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-2">Deep Analytics</h3>
+                 <p className="text-gray-500 text-[11px] md:text-sm leading-relaxed line-clamp-2 md:line-clamp-none">Real-time deep insights and comprehensive visual data pipelines.</p>
               </div>
            </div>
         </div>
@@ -287,21 +289,21 @@ const IndustryGridSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-24 bg-[#030408] border-y border-white/5 relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-[#030408] border-y border-white/5 relative overflow-hidden">
        {/* Background Grid */}
        <div className="absolute inset-0 z-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
        
-       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
+       <div className="max-w-7xl mx-auto px-5 md:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-8 md:gap-16">
           
           {/* Left Side: The Animated Diagram */}
-          <div className="w-full lg:w-1/2 flex items-center justify-center relative h-[350px] md:h-[450px]">
+          <div className="w-full lg:w-1/2 flex items-center justify-center relative h-[280px] sm:h-[350px] md:h-[450px]">
              {/* Central Hub */}
-             <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute w-[240px] h-[240px] md:w-[300px] md:h-[300px] rounded-full border border-white/5" />
-             <motion.div animate={{ rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full border border-white/10 border-dashed" />
+             <motion.div animate={{ rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute w-[200px] h-[200px] md:w-[300px] md:h-[300px] rounded-full border border-white/5" />
+             <motion.div animate={{ rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute w-[140px] h-[140px] md:w-[220px] md:h-[220px] rounded-full border border-white/10 border-dashed" />
              
-             <div className="absolute w-16 h-16 md:w-20 md:h-20 bg-[#050505] rounded-full flex flex-col items-center justify-center border border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.2)] z-20">
-                <Globe className="w-5 h-5 md:w-6 md:h-6 text-blue-400 mb-1" />
-                <span className="text-[6px] md:text-[8px] text-blue-400 font-bold tracking-widest uppercase">Global</span>
+             <div className="absolute w-14 h-14 md:w-20 md:h-20 bg-[#050505] rounded-full flex flex-col items-center justify-center border border-blue-500/50 shadow-[0_0_30px_rgba(59,130,246,0.2)] z-20">
+                <Globe className="w-4 h-4 md:w-6 md:h-6 text-blue-400 mb-0.5 md:mb-1" />
+                <span className="text-[5px] md:text-[8px] text-blue-400 font-bold tracking-widest uppercase">Global</span>
              </div>
 
              {/* Connection Line */}
@@ -326,7 +328,7 @@ const IndustryGridSection = () => {
               {/* Orbital Industry Nodes */}
              {industries.map((ind, idx) => {
                 const angle = (idx / industries.length) * 360;
-                const radiusMobile = 120;
+                const radiusMobile = 100;
                 const radiusDesktop = 150;
                 const isActive = activeIndex === idx;
 
@@ -344,11 +346,11 @@ const IndustryGridSection = () => {
                          }
                       `}</style>
                       <div 
-                         className={`node-${idx} relative cursor-pointer transition-all duration-300 flex items-center justify-center w-8 h-8 md:w-12 md:h-12 rounded-full border ${isActive ? 'bg-[#0a0a0a] scale-125 shadow-2xl' : 'bg-[#050505] hover:scale-110'}`} 
+                         className={`node-${idx} relative cursor-pointer transition-all duration-300 flex items-center justify-center w-7 h-7 md:w-12 md:h-12 rounded-full border ${isActive ? 'bg-[#0a0a0a] scale-125 shadow-2xl' : 'bg-[#050505] hover:scale-110'}`} 
                          style={{ borderColor: isActive ? ind.color : 'rgba(255,255,255,0.1)', boxShadow: isActive ? `0 0 25px ${ind.color}50, inset 0 0 10px ${ind.color}30` : 'none' }}
                          onClick={() => setActiveIndex(idx)}
                       >
-                         <div className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 rounded-full transition-colors" style={{ backgroundColor: isActive ? ind.color : 'rgba(255,255,255,0.2)', boxShadow: isActive ? `0 0 15px ${ind.color}` : 'none' }} />
+                         <div className="w-2 h-2 md:w-3.5 md:h-3.5 rounded-full transition-colors" style={{ backgroundColor: isActive ? ind.color : 'rgba(255,255,255,0.2)', boxShadow: isActive ? `0 0 15px ${ind.color}` : 'none' }} />
                          
                          {/* Name Tag (Desktop only on hover/active) */}
                          <div className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 text-center transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-0'} pointer-events-none hidden md:block w-max whitespace-nowrap bg-[#050505] border border-white/20 rounded-md py-1.5 px-3 shadow-xl`}>
@@ -362,12 +364,12 @@ const IndustryGridSection = () => {
 
           {/* Right Side: Information Panel */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
-             <div className="mb-10 text-center lg:text-left">
-               <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Tailored by <span className="text-blue-500">Industry</span></h2>
-               <p className="text-gray-400 text-lg">Select an industry node on the global map to view bespoke solutions and capabilities.</p>
+             <div className="mb-6 md:mb-10 text-center lg:text-left">
+               <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-white">Tailored by <span className="text-blue-500">Industry</span></h2>
+               <p className="text-gray-400 text-[13px] md:text-lg">Select an industry node on the global map to view bespoke solutions and capabilities.</p>
              </div>
 
-             <div className="relative min-h-[250px] md:min-h-[280px] flex items-center w-full">
+             <div className="relative min-h-[180px] md:min-h-[280px] flex items-center w-full">
                <AnimatePresence mode="wait">
                   <motion.div 
                      key={activeIndex}
@@ -380,20 +382,20 @@ const IndustryGridSection = () => {
                      {/* Rotating border gradient */}
                      <div className="absolute inset-[-100%] animate-[spin_4s_linear_infinite] opacity-60 z-0" style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, ${industries[activeIndex].color} 100%)` }} />
                      
-                     <div className="w-full relative z-10 bg-[#0a0a0a] rounded-[23px] p-8 md:p-12 flex flex-col justify-center">
+                     <div className="w-full relative z-10 bg-[#0a0a0a] rounded-[23px] p-6 md:p-12 flex flex-col justify-center">
                          {/* Background Glow */}
                          <div className="absolute top-0 right-0 w-64 h-64 -translate-y-1/2 translate-x-1/2 blur-[100px] opacity-20 pointer-events-none" style={{ backgroundColor: industries[activeIndex].color }} />
 
                          {industries[activeIndex].isNew && (
-                            <span className="absolute top-6 right-6 text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full text-amber-500 bg-amber-500/10 border border-amber-500/30">New</span>
+                            <span className="absolute top-4 md:top-6 right-4 md:right-6 text-[8px] md:text-[10px] uppercase tracking-wider font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full text-amber-500 bg-amber-500/10 border border-amber-500/30">New</span>
                          )}
-                         <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6 relative z-10">
-                           <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border" style={{ backgroundColor: `${industries[activeIndex].color}15`, borderColor: `${industries[activeIndex].color}40`, boxShadow: `0 0 20px ${industries[activeIndex].color}20` }}>
-                              <Activity className="w-6 h-6" style={{ color: industries[activeIndex].color }} />
+                         <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 mb-4 md:mb-6 relative z-10">
+                           <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center shrink-0 border" style={{ backgroundColor: `${industries[activeIndex].color}15`, borderColor: `${industries[activeIndex].color}40`, boxShadow: `0 0 20px ${industries[activeIndex].color}20` }}>
+                              <Activity className="w-5 h-5 md:w-6 md:h-6" style={{ color: industries[activeIndex].color }} />
                            </div>
-                           <h3 className="text-2xl md:text-3xl font-bold text-white">{industries[activeIndex].name}</h3>
+                           <h3 className="text-xl md:text-3xl font-bold text-white">{industries[activeIndex].name}</h3>
                          </div>
-                         <p className="text-gray-400 text-base md:text-lg leading-relaxed relative z-10">{industries[activeIndex].desc}</p>
+                         <p className="text-gray-400 text-[12px] md:text-lg leading-relaxed relative z-10">{industries[activeIndex].desc}</p>
                      </div>
                   </motion.div>
                </AnimatePresence>
@@ -407,13 +409,13 @@ const IndustryGridSection = () => {
 // 6. Product Map
 const ProductMapSection = () => {
   return (
-    <section className="py-24 max-w-[1400px] mx-auto px-6 relative">
-       <div className="text-center mb-16 relative z-10">
-         <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Product <span className="text-indigo-500">Matrix</span></h2>
-         <p className="text-gray-400 max-w-xl mx-auto text-lg">Every Fazamous platform is engineered to integrate natively across multiple industries.</p>
+    <section className="py-12 md:py-24 max-w-[1400px] mx-auto px-5 md:px-6 relative">
+       <div className="text-center mb-10 md:mb-16 relative z-10">
+         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-white">Product <span className="text-indigo-500">Matrix</span></h2>
+         <p className="text-gray-400 max-w-xl mx-auto text-[13px] md:text-lg px-2 md:px-0">Every Fazamous platform is engineered to integrate natively across multiple industries.</p>
        </div>
 
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 auto-rows-[270px] lg:auto-rows-[250px] relative z-10">
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 auto-rows-auto md:auto-rows-[270px] lg:auto-rows-[250px] relative z-10">
           {products.map((product, idx) => {
              // Dynamic Masonry Layout Mapping
              let spanClasses = "col-span-1 row-span-1";
@@ -430,21 +432,21 @@ const ProductMapSection = () => {
                    
                    <div className="flex flex-col h-full relative z-10">
                       
-                      {/* Diagram for Box 1 (Insights) */}
+                       {/* Diagram for Box 1 (Insights) */}
                       {idx === 0 && (
-                         <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-[0.25] pointer-events-none flex items-center justify-center z-0">
-                            <motion.div animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0, 0.8] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-10 rounded-full border border-blue-500" />
+                         <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 opacity-[0.25] pointer-events-none flex items-center justify-center z-0">
+                            <motion.div animate={{ scale: [1, 1.8, 1], opacity: [0.8, 0, 0.8] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute inset-8 md:inset-10 rounded-full border border-blue-500" />
                             <motion.div animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute inset-0 rounded-full border-2 border-dashed border-blue-400/30 border-t-blue-400/80" />
-                            <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-12 rounded-full border border-blue-400/40" />
-                            <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center shadow-[0_0_30px_#3b82f6]">
-                               <Network className="w-8 h-8 text-blue-400" />
+                            <motion.div animate={{ rotate: -360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-10 md:inset-12 rounded-full border border-blue-400/40" />
+                            <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-blue-500/20 flex items-center justify-center shadow-[0_0_30px_#3b82f6]">
+                               <Network className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
                             </div>
                          </div>
                       )}
 
                       {/* Diagram for Box 5 (DataPulse) */}
                       {idx === 4 && (
-                         <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-40 opacity-[0.25] pointer-events-none flex flex-col justify-between z-0">
+                         <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-32 md:w-72 md:h-40 opacity-[0.25] pointer-events-none flex flex-col justify-between z-0">
                             {[0, 1, 2, 3].map((i) => (
                                <div key={i} className="w-full h-1 bg-amber-500/20 rounded-full overflow-hidden relative">
                                   <motion.div 
@@ -456,31 +458,31 @@ const ProductMapSection = () => {
                                </div>
                             ))}
                             <div className="absolute inset-0 flex items-center justify-center">
-                               <div className="w-20 h-20 rounded-xl border border-amber-500/30 bg-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.2)]">
-                                  <Database className="w-10 h-10 text-amber-500" />
+                               <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl border border-amber-500/30 bg-[#050505] flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.2)]">
+                                  <Database className="w-8 h-8 md:w-10 md:h-10 text-amber-500" />
                                </div>
                             </div>
                          </div>
                       )}
-                      <div className="flex justify-between items-start mb-3">
-                         <span className="text-2xl lg:text-3xl font-black opacity-20 group-hover:opacity-100 transition-opacity" style={{ color: product.color }}>{product.id}</span>
+                      <div className="flex justify-between items-start mb-2 md:mb-3">
+                         <span className="text-xl md:text-2xl lg:text-3xl font-black opacity-20 group-hover:opacity-100 transition-opacity" style={{ color: product.color }}>{product.id}</span>
                          {product.isComingSoon && (
-                            <span className="text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-500">Soon</span>
+                            <span className="text-[8px] md:text-[9px] uppercase tracking-wider font-bold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-500">Soon</span>
                          )}
                       </div>
                       
-                      <h3 className="text-xl lg:text-2xl font-bold text-white mb-1 lg:mb-2">{product.title}</h3>
-                      <p className="text-[9px] lg:text-[10px] uppercase tracking-wider font-bold mb-3 lg:mb-4" style={{ color: product.color }}>{product.subtitle}</p>
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 lg:mb-2">{product.title}</h3>
+                      <p className="text-[8px] md:text-[9px] lg:text-[10px] uppercase tracking-wider font-bold mb-2 md:mb-3 lg:mb-4" style={{ color: product.color }}>{product.subtitle}</p>
                       
-                      <p className={`text-gray-400 text-xs lg:text-sm leading-relaxed ${spanClasses.includes('row-span-2') ? 'mb-6 lg:mb-8' : 'mb-3 lg:mb-4'}`}>
+                      <p className={`text-gray-400 text-[11px] md:text-xs lg:text-sm leading-relaxed ${spanClasses.includes('row-span-2') ? 'mb-4 md:mb-6 lg:mb-8' : 'mb-3 lg:mb-4'}`}>
                          {spanClasses.includes('row-span-2') ? product.details : product.desc}
                       </p>
                       
                       <div className="mt-auto grid grid-cols-3 gap-2 border-t border-white/5 pt-3 lg:pt-4">
                          {product.metrics.map(m => (
-                            <div key={m.label} className="text-center">
-                               <div className="text-white font-bold text-xs lg:text-sm">{m.value}</div>
-                               <div className="text-gray-500 text-[8px] lg:text-[9px] uppercase tracking-wider mt-1">{m.label}</div>
+                            <div key={m.label} className="text-center flex flex-col justify-end">
+                               <div className="text-white font-bold text-[11px] md:text-xs lg:text-sm">{m.value}</div>
+                               <div className="text-gray-500 text-[7.5px] md:text-[8px] lg:text-[9px] uppercase tracking-wider mt-1">{m.label}</div>
                             </div>
                          ))}
                       </div>
@@ -504,7 +506,8 @@ export default function Solutions() {
       <PlatformFeaturesSection />
       <IndustryGridSection />
       <ProductMapSection />
-      <Contact />
+      {/* --- Section 6: Contact / CTA --- */}
+      <CTA />
       <Footer />
       
       {/* 3D and Animation Utilities */}

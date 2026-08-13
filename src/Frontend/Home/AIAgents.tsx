@@ -12,7 +12,7 @@ const agents = [
     metrics: { accuracy: "99.2%", latency: "340ms", tasks: "12.8k" },
     color: "#4EA8FF",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 12h4l3-9 5 18 3-9h5" />
       </svg>
     )
@@ -25,7 +25,7 @@ const agents = [
     metrics: { accuracy: "98.7%", latency: "120ms", tasks: "45.2k" },
     color: "#10B981",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     )
@@ -38,7 +38,7 @@ const agents = [
     metrics: { accuracy: "99.9%", latency: "8ms", tasks: "1.2M" },
     color: "#F43F5E",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <path d="M3 9h18M9 21V9" />
       </svg>
@@ -52,7 +52,7 @@ const agents = [
     metrics: { accuracy: "97.5%", latency: "850ms", tasks: "3.4k" },
     color: "#8B5CF6",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8" />
         <line x1="21" y1="21" x2="16.65" y2="16.65" />
       </svg>
@@ -76,7 +76,7 @@ export function AIAgents() {
   const active = agents.find(a => a.id === activeAgent)!;
 
   return (
-    <section className="py-12 md:py-16 relative overflow-hidden bg-[#050505]">
+    <section className="py-8 md:py-16 relative overflow-hidden bg-[#050505]">
       {/* Grid Background */}
       <div className="absolute inset-0 pointer-events-none opacity-10"
         style={{
@@ -121,16 +121,16 @@ export function AIAgents() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/40 max-w-xl mx-auto text-[15px] leading-relaxed font-light"
+            className="text-white/40 max-w-xl mx-auto text-[13px] md:text-[15px] leading-relaxed font-light px-4 md:px-0"
           >
             Specialized AI agent swarms that collaborate, reason, and execute complex strategies thousands of times faster than humanly possible.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6 lg:gap-8 items-stretch">
           
           {/* ── LEFT: Agent Selector ── */}
-          <div className="lg:col-span-5 flex flex-col gap-3 relative z-20 h-full">
+          <div className="lg:col-span-5 flex flex-col gap-2.5 md:gap-3 relative z-20 h-full">
             {agents.map((agent, idx) => {
               const isActive = activeAgent === agent.id;
               
@@ -142,7 +142,7 @@ export function AIAgents() {
                   transition={{ duration: 0.6, delay: 0.3 + idx * 0.1 }}
                   onClick={() => setActiveAgent(agent.id)}
                   className={`
-                    group glass-card relative flex flex-1 items-center gap-4 p-4 rounded-3xl text-left transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:border-white/15 hover:bg-white/[0.03]
+                    group glass-card relative flex flex-1 items-center gap-3 md:gap-4 p-3 md:p-4 rounded-2xl md:rounded-3xl text-left transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:border-white/15 hover:bg-white/[0.03]
                     ${isActive
                       ? "bg-white/[0.04] shadow-2xl border-white/15"
                       : ""
@@ -167,7 +167,7 @@ export function AIAgents() {
 
                   {/* Icon Box */}
                   <div className={`
-                    w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 relative z-10
+                    w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center shrink-0 transition-all duration-500 relative z-10
                     ${isActive ? "shadow-lg" : "text-white/40"}
                   `}
                   style={{
@@ -179,10 +179,10 @@ export function AIAgents() {
                   </div>
                   
                   <div className="relative z-10">
-                    <h4 className={`text-[17px] font-medium mb-1 transition-colors ${isActive ? 'text-white' : 'text-white/70'}`}>
+                    <h4 className={`text-[14px] md:text-[17px] font-medium mb-0.5 md:mb-1 transition-colors ${isActive ? 'text-white' : 'text-white/70'}`}>
                       {agent.name}
                     </h4>
-                    <p className="text-[13px] text-white/40 font-light">{agent.role}</p>
+                    <p className="text-[11px] md:text-[13px] text-white/40 font-light">{agent.role}</p>
                   </div>
                 </motion.button>
               );
@@ -194,9 +194,9 @@ export function AIAgents() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="lg:col-span-7 relative z-10 h-full"
+            className="lg:col-span-7 relative z-10 h-full mt-2 lg:mt-0"
           >
-            <div className="glass-card rounded-[32px] overflow-hidden h-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] flex flex-col relative bg-[#080808]/80 backdrop-blur-3xl">
+            <div className="glass-card rounded-2xl md:rounded-[32px] overflow-hidden h-full shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] flex flex-col relative bg-[#080808]/80 backdrop-blur-3xl">
               
               {/* Top accent line */}
               <div 
@@ -205,7 +205,7 @@ export function AIAgents() {
               />
 
               {/* Header bar */}
-              <div className="px-8 py-5 border-b border-white/[0.04] flex items-center justify-between bg-white/[0.01]">
+              <div className="px-4 md:px-8 py-3 md:py-5 border-b border-white/[0.04] flex items-center justify-between bg-white/[0.01]">
                 <div className="flex items-center gap-3">
                   <div className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50" style={{ backgroundColor: active.color }} />
@@ -232,9 +232,9 @@ export function AIAgents() {
                   transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                   className="p-5 md:p-6 flex-1 flex flex-col"
                 >
-                  <div className="flex flex-col items-center text-center mb-6 relative">
+                  <div className="flex flex-col items-center text-center mb-5 md:mb-6 relative">
                     {/* Pulsing visual core */}
-                    <div className="relative w-24 h-24 flex items-center justify-center mb-6">
+                    <div className="relative w-16 h-16 md:w-24 md:h-24 flex items-center justify-center mb-4 md:mb-6">
                       <motion.div
                         animate={{ scale: [1, 1.8, 1], opacity: [0.3, 0, 0.3] }}
                         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
@@ -247,7 +247,7 @@ export function AIAgents() {
                         className="absolute inset-0 rounded-full border border-white"
                         style={{ borderColor: active.color }}
                       />
-                      <div className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+                      <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg"
                         style={{ 
                           backgroundColor: `${active.color}15`,
                           border: `1px solid ${active.color}40`,
@@ -258,30 +258,30 @@ export function AIAgents() {
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-medium text-white mb-3 tracking-tight">{active.name}</h3>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/[0.03] border border-white/[0.05]">
-                       <span className="text-[10px] font-mono uppercase tracking-widest" style={{ color: active.color }}>{active.status}</span>
+                    <h3 className="text-xl md:text-3xl font-medium text-white mb-2 md:mb-3 tracking-tight">{active.name}</h3>
+                    <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 py-1 md:px-3 md:py-1 rounded-md bg-white/[0.03] border border-white/[0.05]">
+                       <span className="text-[8px] md:text-[10px] font-mono uppercase tracking-widest" style={{ color: active.color }}>{active.status}</span>
                        <span className="w-1 h-1 rounded-full bg-white animate-pulse" style={{ backgroundColor: active.color }} />
                     </div>
                   </div>
 
                   {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-3 md:gap-4 mb-6">
+                  <div className="grid grid-cols-3 gap-2 md:gap-4 mb-5 md:mb-6">
                     {Object.entries(active.metrics).map(([key, value]) => (
-                      <div key={key} className="flex flex-col items-center justify-center text-center p-5 rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-colors duration-300">
-                        <div className="text-2xl md:text-3xl font-mono text-white mb-2 tracking-tight">{value}</div>
-                        <div className="text-[9px] text-white/30 uppercase tracking-[0.15em] font-mono capitalize">{key}</div>
+                      <div key={key} className="flex flex-col items-center justify-center text-center p-3 md:p-5 rounded-xl md:rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] transition-colors duration-300">
+                        <div className="text-[17px] md:text-3xl font-mono text-white mb-1 md:mb-2 tracking-tight">{value}</div>
+                        <div className="text-[7px] md:text-[9px] text-white/30 uppercase tracking-[0.1em] md:tracking-[0.15em] font-mono capitalize">{key}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Activity visualization */}
                   <div className="mt-auto">
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="text-[9px] text-white/30 font-mono uppercase tracking-widest">Live Activity Stream</span>
-                      <span className="text-[9px] text-white/30 font-mono">100ms interval</span>
+                    <div className="flex justify-between items-center mb-3 md:mb-4">
+                      <span className="text-[7px] md:text-[9px] text-white/30 font-mono uppercase tracking-widest">Live Activity Stream</span>
+                      <span className="text-[7px] md:text-[9px] text-white/30 font-mono">100ms interval</span>
                     </div>
-                    <div className="flex justify-between gap-1 h-12 items-end">
+                    <div className="flex justify-between gap-[2px] md:gap-1 h-8 md:h-12 items-end">
                       {[...Array(40)].map((_, i) => (
                         <motion.div
                           key={i}

@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Section 1: Hero (Biometric Grid / DNA Helix)
 const HeroSection = () => {
@@ -22,7 +22,7 @@ const HeroSection = () => {
         backgroundSize: '100% 100%, 40px 40px, 40px 40px',
       }}></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-12 mt-12">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-12 mt-4 sm:mt-12">
         
         {/* Left Side: Information */}
         <div className="lg:w-1/2 text-left">
@@ -30,9 +30,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-xs font-bold text-[#00e5ff] uppercase tracking-widest mb-8 shadow-[0_0_20px_rgba(0,229,255,0.2)]"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[9px] sm:text-xs font-bold text-[#00e5ff] uppercase tracking-widest mb-4 sm:mb-8 shadow-[0_0_20px_rgba(0,229,255,0.2)]"
           >
-            <HeartPulse className="w-4 h-4 animate-pulse" />
+            <HeartPulse className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
             MedVision AI
           </motion.div>
           
@@ -40,7 +40,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] mb-8 tracking-tight text-white"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] mb-4 sm:mb-8 tracking-tight text-white"
           >
             Predictive Healthcare.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00e5ff] via-[#4db8ff] to-[#3b82f6]">Unprecedented Accuracy.</span>
@@ -50,14 +50,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed mb-12"
+            className="text-gray-400 text-[13px] sm:text-lg md:text-xl max-w-xl leading-relaxed mb-4 sm:mb-12"
           >
             Ingest complex medical histories, genomics, and real-time biometrics to predict disease onset long before clinical symptoms appear. Empower clinicians with AI-driven intelligence.
           </motion.p>
         </div>
 
         {/* Right Side: Looping Diagram */}
-        <div className="lg:w-1/2 w-full relative h-[400px] lg:h-[500px] perspective-1000 flex items-center justify-center mt-12 lg:mt-0">
+        <div className="lg:w-1/2 w-full relative h-[300px] sm:h-[400px] lg:h-[500px] perspective-1000 flex items-center justify-center -mt-8 sm:mt-12 lg:mt-0 transform scale-[0.75] sm:scale-100 origin-center">
           
           {/* Glowing Pulse Rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
@@ -161,19 +161,19 @@ const HeroSection = () => {
 // Section 2: Clinical Metrics Ticker
 const MetricsTickerSection = () => {
   return (
-    <section className="py-12 bg-gradient-to-r from-[#020408] via-[#05101a] to-[#020408] border-y border-white/5 overflow-hidden">
+    <section className="py-6 sm:py-12 bg-gradient-to-r from-[#020408] via-[#05101a] to-[#020408] border-y border-white/5 overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 px-8 items-center"
+          className="flex gap-8 sm:gap-16 px-4 sm:px-8 items-center"
         >
           {[...Array(2)].map((_, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3"><Activity className="w-6 h-6 text-[#00e5ff]" /><span className="text-2xl font-black text-white">99.8% DIAGNOSTIC ACCURACY</span></div>
-              <div className="flex items-center gap-3"><Database className="w-6 h-6 text-blue-500" /><span className="text-2xl font-black text-white">50M+ PATIENT RECORDS PROCESSED</span></div>
-              <div className="flex items-center gap-3"><Zap className="w-6 h-6 text-yellow-500" /><span className="text-2xl font-black text-white">&lt;200ms REAL-TIME INFERENCE</span></div>
-              <div className="flex items-center gap-3"><Lock className="w-6 h-6 text-emerald-500" /><span className="text-2xl font-black text-white">HIPAA COMPLIANT</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Activity className="w-4 h-4 sm:w-6 sm:h-6 text-[#00e5ff]" /><span className="text-sm sm:text-2xl font-black text-white">99.8% DIAGNOSTIC ACCURACY</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Database className="w-4 h-4 sm:w-6 sm:h-6 text-blue-500" /><span className="text-sm sm:text-2xl font-black text-white">50M+ PATIENT RECORDS PROCESSED</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Zap className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-500" /><span className="text-sm sm:text-2xl font-black text-white">&lt;200ms REAL-TIME INFERENCE</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Lock className="w-4 h-4 sm:w-6 sm:h-6 text-emerald-500" /><span className="text-sm sm:text-2xl font-black text-white">HIPAA COMPLIANT</span></div>
             </React.Fragment>
           ))}
         </motion.div>
@@ -185,17 +185,17 @@ const MetricsTickerSection = () => {
 // Section 3: Diagnostic Data Pipeline (Interactive Diagram)
 const PipelineSection = () => {
   return (
-    <section className="py-24 relative bg-[#010204] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Clinical <span className="text-[#00e5ff]">Data Pipeline</span></h2>
-          <p className="text-gray-400 max-w-xl mx-auto">Transforming unstructured EHR data, wearables, and genomics into actionable clinical intelligence.</p>
+    <section className="py-12 sm:py-24 relative bg-[#010204] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10 sm:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 text-white">Clinical <span className="text-[#00e5ff]">Data Pipeline</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-base max-w-xl mx-auto">Transforming unstructured EHR data, wearables, and genomics into actionable clinical intelligence.</p>
         </div>
 
-        <div className="relative w-full max-w-4xl mx-auto bg-gradient-to-b from-[#050810] to-[#020408] rounded-3xl border border-white/5 p-6 md:p-8 shadow-2xl flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-8">
+        <div className="relative w-full max-w-4xl mx-auto bg-gradient-to-b from-[#050810] to-[#020408] rounded-2xl sm:rounded-3xl border border-white/5 p-4 sm:p-6 md:p-8 shadow-2xl flex flex-col md:flex-row items-stretch justify-between gap-4 sm:gap-6 md:gap-8">
           
           {/* Data Sources */}
-          <div className="flex flex-col justify-center gap-4 z-10 w-full md:w-1/3">
+          <div className="flex flex-row md:flex-col justify-center gap-2 sm:gap-4 z-10 w-full md:w-1/3">
             {[
               { icon: FileText, label: "EHR Notes", color: "text-blue-400", border: "border-blue-500/20", glow: "shadow-[0_0_15px_rgba(59,130,246,0.1)]" },
               { icon: Dna, label: "Genomics", color: "text-purple-400", border: "border-purple-500/20", glow: "shadow-[0_0_15px_rgba(168,85,247,0.1)]" },
@@ -204,12 +204,12 @@ const PipelineSection = () => {
               <motion.div 
                 key={i}
                 whileHover={{ scale: 1.05 }}
-                className={`w-full p-4 rounded-xl border ${item.border} bg-[#0a1020] flex items-center gap-4 ${item.glow} transition-transform cursor-pointer relative group`}
+                className={`flex-1 w-full p-2 sm:p-4 rounded-xl border ${item.border} bg-[#0a1020] flex flex-col md:flex-row items-center justify-center md:justify-start gap-1 sm:gap-4 ${item.glow} transition-transform cursor-pointer relative group text-center md:text-left`}
               >
-                <div className={`p-2 rounded-lg bg-black/50 ${item.border} border`}>
-                  <item.icon className={`w-5 h-5 ${item.color}`} />
+                <div className={`p-1.5 sm:p-2 rounded-lg bg-black/50 ${item.border} border mb-1 md:mb-0`}>
+                  <item.icon className={`w-3 h-3 sm:w-5 sm:h-5 ${item.color}`} />
                 </div>
-                <span className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">{item.label}</span>
+                <span className="text-[9px] sm:text-sm font-semibold text-gray-200 group-hover:text-white transition-colors leading-tight">{item.label}</span>
                 
                 {/* Outgoing data pulse (Desktop only) */}
                 <motion.div 
@@ -222,17 +222,17 @@ const PipelineSection = () => {
           </div>
 
           {/* Central AI Engine */}
-          <div className="relative z-10 flex items-center justify-center w-full md:w-1/3 my-6 md:my-0">
-             <div className="relative w-40 h-40 rounded-2xl bg-[#0a1020] border border-[#00e5ff]/30 shadow-[0_0_40px_rgba(0,229,255,0.15)] flex flex-col items-center justify-center group overflow-hidden">
+          <div className="relative z-10 flex items-center justify-center w-full md:w-1/3 my-4 sm:my-6 md:my-0">
+             <div className="relative w-28 h-28 sm:w-40 sm:h-40 rounded-2xl bg-[#0a1020] border border-[#00e5ff]/30 shadow-[0_0_40px_rgba(0,229,255,0.15)] flex flex-col items-center justify-center group overflow-hidden">
                 <motion.div animate={{ rotate: 360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute inset-0 rounded-2xl border border-dashed border-[#00e5ff]/30" />
-                <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity }} className="absolute w-20 h-20 bg-[#00e5ff]/20 rounded-full blur-xl" />
-                <Brain className="w-10 h-10 text-[#00e5ff] relative z-10 mb-2 drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
-                <span className="text-[10px] font-bold text-white tracking-widest relative z-10">MEDVISION AI</span>
+                <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity }} className="absolute w-12 h-12 sm:w-20 sm:h-20 bg-[#00e5ff]/20 rounded-full blur-xl" />
+                <Brain className="w-6 h-6 sm:w-10 sm:h-10 text-[#00e5ff] relative z-10 mb-1 sm:mb-2 drop-shadow-[0_0_10px_rgba(0,229,255,0.8)]" />
+                <span className="text-[8px] sm:text-[10px] font-bold text-white tracking-widest relative z-10">MEDVISION AI</span>
              </div>
           </div>
 
           {/* Output Predictions */}
-          <div className="flex flex-col justify-center gap-4 z-10 w-full md:w-1/3">
+          <div className="flex flex-row md:flex-col justify-center gap-2 sm:gap-4 z-10 w-full md:w-1/3">
             {[
               { icon: Microscope, label: "Disease Risk", desc: "99% Confidence", color: "text-red-400", border: "border-red-500/30", glow: "shadow-[0_0_15px_rgba(239,68,68,0.1)]" },
               { icon: Stethoscope, label: "Care Plan", desc: "Optimized Route", color: "text-[#00e5ff]", border: "border-[#00e5ff]/30", glow: "shadow-[0_0_15px_rgba(0,229,255,0.1)]" }
@@ -240,7 +240,7 @@ const PipelineSection = () => {
               <motion.div 
                 key={i}
                 whileHover={{ scale: 1.05 }}
-                className={`w-full p-5 rounded-xl border ${item.border} bg-[#0a1020] ${item.glow} flex flex-col gap-2 transition-transform cursor-pointer relative group`}
+                className={`flex-1 w-full p-2 sm:p-5 rounded-xl border ${item.border} bg-[#0a1020] ${item.glow} flex flex-col items-center md:items-start justify-center md:justify-start gap-1 sm:gap-2 transition-transform cursor-pointer relative group text-center md:text-left`}
               >
                 {/* Incoming data pulse (Desktop only) */}
                 <motion.div 
@@ -249,13 +249,13 @@ const PipelineSection = () => {
                   className="absolute -left-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-white hidden md:block"
                 />
 
-                <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg bg-black/50 ${item.border} border`}>
-                    <item.icon className={`w-5 h-5 ${item.color}`} />
+                <div className="flex flex-col md:flex-row items-center gap-1 sm:gap-3">
+                  <div className={`p-1.5 sm:p-2 rounded-lg bg-black/50 ${item.border} border mb-0.5 md:mb-0`}>
+                    <item.icon className={`w-3 h-3 sm:w-5 sm:h-5 ${item.color}`} />
                   </div>
-                  <span className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">{item.label}</span>
+                  <span className="text-[9px] sm:text-sm font-semibold text-gray-200 group-hover:text-white transition-colors leading-tight">{item.label}</span>
                 </div>
-                <div className="text-xs text-gray-500 font-mono ml-12">{item.desc}</div>
+                <div className="text-[8px] sm:text-xs text-gray-500 font-mono mt-0.5 md:mt-0 md:ml-12 leading-tight">{item.desc}</div>
               </motion.div>
             ))}
           </div>
@@ -269,29 +269,29 @@ const PipelineSection = () => {
 // Section 4: Use Cases Grid (Hover Cards)
 const UseCasesSection = () => {
   return (
-    <section className="py-24 max-w-5xl mx-auto px-6">
-      <div className="mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Intelligent <span className="text-gray-500">Applications</span></h2>
+    <section className="py-12 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 text-white">Intelligent <span className="text-gray-500">Applications</span></h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[auto]">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 auto-rows-[auto]">
         
         {/* Card 1: Disease Prediction (Spans 2 cols) */}
-        <div className="group relative rounded-2xl md:col-span-2 min-h-[220px]">
-          <div className="absolute -inset-[2px] rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="group relative rounded-xl sm:rounded-2xl col-span-2 min-h-[130px] sm:min-h-[220px]">
+          <div className="absolute -inset-[2px] rounded-[14px] sm:rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
              <motion.div className="absolute inset-[-100%]" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(96,165,250,1) 100%)' }} />
           </div>
-          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-2xl p-6 flex flex-col justify-between overflow-hidden transition-colors">
+          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col justify-between overflow-hidden transition-colors">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-xl bg-[#0a1020] border border-blue-500/20 flex items-center justify-center mb-6">
-                <Microscope className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform" />
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#0a1020] border border-blue-500/20 flex items-center justify-center mb-3 sm:mb-6">
+                <Microscope className="w-4 h-4 sm:w-6 sm:h-6 text-blue-400 group-hover:scale-110 transition-transform" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Disease Prediction</h3>
-              <p className="text-gray-400 text-sm max-w-md">Predict disease onset long before clinical symptoms appear using historical and genomic data.</p>
+              <h3 className="text-sm sm:text-2xl font-bold text-white mb-1 sm:mb-2">Disease Prediction</h3>
+              <p className="text-gray-400 text-[10px] sm:text-sm max-w-md leading-tight sm:leading-normal">Predict disease onset long before clinical symptoms appear using historical and genomic data.</p>
             </div>
             {/* Decorative visual */}
-            <div className="absolute right-0 bottom-0 w-full h-1/2 pointer-events-none overflow-hidden rounded-br-2xl">
+            <div className="absolute right-0 bottom-0 w-full h-1/2 pointer-events-none overflow-hidden rounded-br-xl sm:rounded-br-2xl">
               <svg className="absolute right-0 bottom-0 w-full h-full opacity-20 group-hover:opacity-40 transition-opacity" preserveAspectRatio="none">
                 <motion.path d="M 0 100 Q 50 50 100 100 T 200 100 T 300 50 T 400 100" fill="none" stroke="#60a5fa" strokeWidth="1.5" animate={{ x: [-100, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} />
               </svg>
@@ -300,21 +300,21 @@ const UseCasesSection = () => {
         </div>
 
         {/* Card 2: Predictive Analytics (Spans 2 rows) */}
-        <div className="group relative rounded-2xl md:row-span-2 min-h-[220px]">
-          <div className="absolute -inset-[2px] rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="group relative rounded-xl sm:rounded-2xl col-span-1 md:row-span-2 min-h-[160px] sm:min-h-[220px]">
+          <div className="absolute -inset-[2px] rounded-[14px] sm:rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
              <motion.div className="absolute inset-[-100%]" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(16,185,129,1) 100%)' }} />
           </div>
-          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-2xl p-6 flex flex-col justify-between overflow-hidden transition-colors">
+          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-xl sm:rounded-2xl p-4 sm:p-6 flex flex-col justify-between overflow-hidden transition-colors">
              <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
              <div className="relative z-10">
-               <div className="w-12 h-12 rounded-xl bg-[#0a1020] border border-emerald-500/20 flex items-center justify-center mb-6">
-                 <Activity className="w-6 h-6 text-emerald-400 group-hover:scale-110 transition-transform" />
+               <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#0a1020] border border-emerald-500/20 flex items-center justify-center mb-3 sm:mb-6">
+                 <Activity className="w-4 h-4 sm:w-6 sm:h-6 text-emerald-400 group-hover:scale-110 transition-transform" />
                </div>
-               <h3 className="text-xl font-bold text-white mb-2">Predictive Analytics</h3>
-               <p className="text-gray-400 text-sm">Forecast hospital admission volumes and seasonal trends to optimize operations.</p>
+               <h3 className="text-sm sm:text-xl font-bold text-white mb-1 sm:mb-2 leading-tight">Predictive Analytics</h3>
+               <p className="text-gray-400 text-[10px] sm:text-sm leading-tight sm:leading-normal">Forecast hospital admission volumes and seasonal trends.</p>
              </div>
              {/* Bar chart visual */}
-             <div className="relative w-full h-24 flex items-end justify-between gap-1 mt-8 z-10 px-1 opacity-50 group-hover:opacity-100 transition-opacity">
+             <div className="relative w-full h-12 sm:h-24 flex items-end justify-between gap-0.5 sm:gap-1 mt-4 sm:mt-8 z-10 px-1 opacity-50 group-hover:opacity-100 transition-opacity">
                 {[40, 70, 45, 90, 60, 100].map((h, i) => (
                   <motion.div key={i} className="w-full bg-emerald-500/20 rounded-t" animate={{ height: [`${h/2}%`, `${h}%`, `${h/2}%`] }} transition={{ duration: 2 + i*0.2, repeat: Infinity }} />
                 ))}
@@ -323,58 +323,58 @@ const UseCasesSection = () => {
         </div>
 
         {/* Card 3: Medical Risk (Standard) */}
-        <div className="group relative rounded-2xl min-h-[220px]">
-          <div className="absolute -inset-[2px] rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="group relative rounded-xl sm:rounded-2xl col-span-1 min-h-[130px] sm:min-h-[220px]">
+          <div className="absolute -inset-[2px] rounded-[14px] sm:rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
              <motion.div className="absolute inset-[-100%]" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(168,85,247,1) 100%)' }} />
           </div>
-          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-2xl p-6 overflow-hidden transition-colors flex flex-col justify-between">
-            <div className="w-12 h-12 rounded-xl bg-[#0a1020] border border-purple-500/20 flex items-center justify-center mb-6">
-              <Shield className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform" />
+          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-xl sm:rounded-2xl p-4 sm:p-6 overflow-hidden transition-colors flex flex-col justify-between">
+            <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#0a1020] border border-purple-500/20 flex items-center justify-center mb-3 sm:mb-6">
+              <Shield className="w-4 h-4 sm:w-6 sm:h-6 text-purple-400 group-hover:scale-110 transition-transform" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-2">Medical Risk</h3>
-              <p className="text-gray-400 text-sm">Empower clinicians with highly accurate, data-backed second opinions.</p>
+              <h3 className="text-sm sm:text-xl font-bold text-white mb-1 sm:mb-2 leading-tight">Medical Risk</h3>
+              <p className="text-gray-400 text-[10px] sm:text-sm leading-tight sm:leading-normal">Empower clinicians with highly accurate, data-backed second opinions.</p>
             </div>
           </div>
         </div>
 
         {/* Card 4: Continuous Monitoring (Standard) */}
-        <div className="group relative rounded-2xl min-h-[220px]">
-          <div className="absolute -inset-[2px] rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="group relative rounded-xl sm:rounded-2xl col-span-2 md:col-span-1 min-h-[130px] sm:min-h-[220px]">
+          <div className="absolute -inset-[2px] rounded-[14px] sm:rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
              <motion.div className="absolute inset-[-100%]" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(236,72,153,1) 100%)' }} />
           </div>
-          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-2xl p-6 overflow-hidden transition-colors flex flex-col justify-between">
-            <div className="absolute right-[-20px] top-[-20px] w-24 h-24 bg-pink-500/10 rounded-full blur-xl group-hover:bg-pink-500/20 transition-colors" />
-            <div className="relative z-10 w-12 h-12 rounded-xl bg-[#0a1020] border border-pink-500/20 flex items-center justify-center mb-6">
-              <HeartPulse className="w-6 h-6 text-pink-400 group-hover:scale-110 transition-transform" />
+          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-xl sm:rounded-2xl p-4 sm:p-6 overflow-hidden transition-colors flex flex-col justify-between">
+            <div className="absolute right-[-20px] top-[-20px] w-16 h-16 sm:w-24 sm:h-24 bg-pink-500/10 rounded-full blur-xl group-hover:bg-pink-500/20 transition-colors" />
+            <div className="relative z-10 w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#0a1020] border border-pink-500/20 flex items-center justify-center mb-3 sm:mb-6">
+              <HeartPulse className="w-4 h-4 sm:w-6 sm:h-6 text-pink-400 group-hover:scale-110 transition-transform" />
             </div>
             <div className="relative z-10">
-              <h3 className="text-xl font-bold text-white mb-2">Vitals Sync</h3>
-              <p className="text-gray-400 text-sm">Analyze streaming data from wearables to detect anomalies instantly.</p>
+              <h3 className="text-sm sm:text-xl font-bold text-white mb-1 sm:mb-2 leading-tight">Vitals Sync</h3>
+              <p className="text-gray-400 text-[10px] sm:text-sm leading-tight sm:leading-normal">Analyze streaming data from wearables to detect anomalies instantly.</p>
             </div>
           </div>
         </div>
 
         {/* Card 5: Clinical Intelligence (Spans 3 cols) */}
-        <div className="group relative rounded-2xl md:col-span-3 min-h-[180px]">
-          <div className="absolute -inset-[2px] rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+        <div className="group relative rounded-xl sm:rounded-2xl col-span-2 md:col-span-3 min-h-[140px] sm:min-h-[180px]">
+          <div className="absolute -inset-[2px] rounded-[14px] sm:rounded-[18px] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
              <motion.div className="absolute inset-[-100%]" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} style={{ background: 'conic-gradient(from 0deg, transparent 70%, rgba(0,229,255,1) 100%)' }} />
           </div>
-          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between overflow-hidden transition-colors">
+          <div className="relative w-full h-full bg-[#050810] border border-white/5 group-hover:border-transparent rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between overflow-hidden transition-colors">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,229,255,0.05),transparent)]" />
-            <div className="relative z-10 w-full md:w-2/3 mb-6 md:mb-0">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#0a1020] border border-[#00e5ff]/20 flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-[#00e5ff] group-hover:scale-110 transition-transform" />
+            <div className="relative z-10 w-full md:w-2/3 mb-4 sm:mb-6 md:mb-0">
+              <div className="flex items-center gap-3 sm:gap-4 mb-2 sm:mb-4">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#0a1020] border border-[#00e5ff]/20 flex items-center justify-center shrink-0">
+                  <FileText className="w-4 h-4 sm:w-6 sm:h-6 text-[#00e5ff] group-hover:scale-110 transition-transform" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Clinical Intelligence</h3>
+                <h3 className="text-sm sm:text-2xl font-bold text-white leading-tight">Clinical Intelligence</h3>
               </div>
-              <p className="text-gray-400 text-sm">Extract structured insights from unstructured EHR notes automatically, drastically reducing administrative burden.</p>
+              <p className="text-gray-400 text-[10px] sm:text-sm leading-tight sm:leading-normal">Extract structured insights from unstructured EHR notes automatically, drastically reducing administrative burden.</p>
             </div>
-            <div className="relative z-10 w-full md:w-1/3 flex justify-start md:justify-end">
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="w-24 h-24 border border-dashed border-[#00e5ff]/30 rounded-full flex items-center justify-center">
-                <div className="w-16 h-16 border border-[#00e5ff]/10 rounded-full flex items-center justify-center">
-                  <div className="w-8 h-8 bg-[#00e5ff]/20 rounded-full animate-pulse" />
+            <div className="relative z-10 w-full md:w-1/3 flex justify-center md:justify-end">
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="w-16 h-16 sm:w-24 sm:h-24 border border-dashed border-[#00e5ff]/30 rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 sm:w-16 sm:h-16 border border-[#00e5ff]/10 rounded-full flex items-center justify-center">
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 bg-[#00e5ff]/20 rounded-full animate-pulse" />
                 </div>
               </motion.div>
             </div>
@@ -389,39 +389,39 @@ const UseCasesSection = () => {
 // Section 5: Real-Time Patient Monitoring Dashboard Mockup
 const DashboardMockupSection = () => {
   return (
-    <section className="py-24 relative bg-gradient-to-b from-[#010204] to-[#03060c] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
+    <section className="py-12 sm:py-24 relative bg-gradient-to-b from-[#010204] to-[#03060c] overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-6 sm:gap-16">
         
-        <div className="lg:w-1/2 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+        <div className="lg:w-1/2 relative z-10 w-full">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-6 text-white leading-tight">
             Real-Time <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
               Anomaly Detection
             </span>
           </h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10">
+          <p className="text-gray-400 text-[13px] sm:text-lg leading-relaxed mb-6 sm:mb-10">
             Continuous analysis of streaming telemetry data from ICU monitors and wearables allows MedVision AI to identify critical patient deterioration hours before traditional alarms trigger.
           </p>
-          <div className="flex flex-col gap-4">
-            <div className="flex items-start gap-5 p-5 rounded-2xl bg-[#050810] border border-white/5 hover:border-pink-500/30 transition-colors shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(236,72,153,0.15)] group-hover:scale-110 transition-transform"><Activity className="w-6 h-6 text-pink-500"/></div>
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-5 p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#050810] border border-white/5 hover:border-pink-500/30 transition-colors shadow-lg group">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(236,72,153,0.15)] group-hover:scale-110 transition-transform mb-1 sm:mb-0"><Activity className="w-4 h-4 sm:w-6 sm:h-6 text-pink-500"/></div>
               <div>
-                <h4 className="text-white font-bold mb-1 text-lg">Sub-second Latency</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">Process high-frequency vitals data without delay, enabling instant clinical response and intervention.</p>
+                <h4 className="text-white font-bold mb-0.5 sm:mb-1 text-[11px] sm:text-lg">Sub-second Latency</h4>
+                <p className="text-[9px] sm:text-sm text-gray-500 leading-tight sm:leading-relaxed">Process high-frequency vitals data without delay.</p>
               </div>
             </div>
-            <div className="flex items-start gap-5 p-5 rounded-2xl bg-[#050810] border border-white/5 hover:border-[#00e5ff]/30 transition-colors shadow-lg group">
-              <div className="w-12 h-12 rounded-xl bg-[#00e5ff]/10 border border-[#00e5ff]/20 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(0,229,255,0.15)] group-hover:scale-110 transition-transform"><Shield className="w-6 h-6 text-[#00e5ff]"/></div>
+            <div className="flex flex-col sm:flex-row items-start gap-2 sm:gap-5 p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#050810] border border-white/5 hover:border-[#00e5ff]/30 transition-colors shadow-lg group">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#00e5ff]/10 border border-[#00e5ff]/20 flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(0,229,255,0.15)] group-hover:scale-110 transition-transform mb-1 sm:mb-0"><Shield className="w-4 h-4 sm:w-6 sm:h-6 text-[#00e5ff]"/></div>
               <div>
-                <h4 className="text-white font-bold mb-1 text-lg">False Alarm Reduction</h4>
-                <p className="text-sm text-gray-500 leading-relaxed">Context-aware alerting algorithms successfully reduce hospital alarm fatigue by up to 85%.</p>
+                <h4 className="text-white font-bold mb-0.5 sm:mb-1 text-[11px] sm:text-lg">False Alarm Reduction</h4>
+                <p className="text-[9px] sm:text-sm text-gray-500 leading-tight sm:leading-relaxed">Context-aware alerting reduces hospital alarm fatigue by up to 85%.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Animated Dashboard UI */}
-        <div className="lg:w-1/2 w-full perspective-1000 relative">
+        <div className="lg:w-1/2 w-full perspective-1000 relative transform scale-[0.85] sm:scale-100 origin-center -mt-4 sm:mt-0">
           {/* Background Glow */}
           <div className="absolute inset-0 bg-pink-500/10 blur-[100px] rounded-full" />
           
@@ -516,13 +516,13 @@ const DashboardMockupSection = () => {
 // Section 6: Security & Compliance
 const ComplianceSection = () => {
   return (
-    <section className="py-24 max-w-5xl mx-auto px-6 overflow-hidden">
-      <div className="relative rounded-3xl overflow-hidden p-[1px] group shadow-2xl">
+    <section className="py-12 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 overflow-hidden">
+      <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden p-[1px] group shadow-2xl">
         {/* Animated Border Gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00e5ff]/50 to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
         
         {/* Main Card Container */}
-        <div className="relative bg-[#050810] rounded-[23px] p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 overflow-hidden w-full h-full">
+        <div className="relative bg-[#050810] rounded-[23px] p-5 sm:p-8 md:p-12 flex flex-col md:flex-row items-center gap-6 sm:gap-10 overflow-hidden w-full h-full">
           
           {/* Subtle Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_20%,transparent_100%)] pointer-events-none" />
@@ -533,7 +533,7 @@ const ComplianceSection = () => {
 
           {/* Left: Shield & Lock Visual */}
           <div className="md:w-5/12 flex justify-center relative z-10 perspective-1000">
-            <div className="relative w-64 h-64 flex items-center justify-center">
+            <div className="relative w-64 h-64 flex items-center justify-center transform scale-[0.6] sm:scale-100 -my-10 sm:my-0 origin-center">
                {/* Concentric rotating rings */}
                <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute inset-0 rounded-full border border-dashed border-[#00e5ff]/30" />
                <motion.div animate={{ rotate: -360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute inset-4 rounded-full border border-blue-500/20" />
@@ -554,32 +554,32 @@ const ComplianceSection = () => {
 
           {/* Right: Content */}
           <div className="md:w-7/12 relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[10px] font-mono text-[#00e5ff] mb-8 uppercase tracking-widest shadow-[0_0_15px_rgba(0,229,255,0.1)] backdrop-blur-md">
-              <Shield className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[8px] sm:text-[10px] font-mono text-[#00e5ff] mb-4 sm:mb-8 uppercase tracking-widest shadow-[0_0_15px_rgba(0,229,255,0.1)] backdrop-blur-md">
+              <Shield className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               Enterprise Grade Security
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-5 text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-5 text-white leading-tight">
               Uncompromising <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
                 Patient Data Privacy.
               </span>
             </h2>
             
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-gray-400 text-[13px] sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-xl">
               Built from the ground up to comply with global healthcare data standards. Your patient data is isolated, strictly encrypted in transit and at rest, and completely auditable.
             </p>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4">
               {[
                 { name: 'HIPAA Compliant', icon: Shield },
                 { name: 'SOC 2 Type II', icon: CheckCircle2 },
                 { name: 'End-to-End Encryption', icon: Lock },
                 { name: 'Zero-Trust Architecture', icon: Activity }
               ].map((badge, i) => (
-                <div key={i} className="flex items-center gap-2.5 px-4 py-2 rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.06] hover:border-[#00e5ff]/30 transition-all cursor-default group backdrop-blur-sm">
-                  <badge.icon className="w-4 h-4 text-gray-500 group-hover:text-[#00e5ff] transition-colors" />
-                  <span className="text-sm text-gray-300 font-semibold group-hover:text-white transition-colors">{badge.name}</span>
+                <div key={i} className="flex items-center gap-1.5 sm:gap-2.5 px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.06] hover:border-[#00e5ff]/30 transition-all cursor-default group backdrop-blur-sm">
+                  <badge.icon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 group-hover:text-[#00e5ff] transition-colors shrink-0" />
+                  <span className="text-[9px] sm:text-sm text-gray-300 font-semibold group-hover:text-white transition-colors truncate">{badge.name}</span>
                 </div>
               ))}
             </div>

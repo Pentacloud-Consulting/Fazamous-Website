@@ -279,7 +279,7 @@ function OrbitalRing() {
               }}
             >
               <span 
-                className={`text-[12px] md:text-[13px] font-mono tracking-wider px-3 py-1 rounded-full border transition-all duration-300 ${
+                className={`hidden sm:inline text-[11px] md:text-[13px] font-mono tracking-wider px-2.5 md:px-3 py-0.5 md:py-1 rounded-full border transition-all duration-300 ${
                   isHighlighted 
                     ? 'text-white font-bold bg-[#03050c]/90 border-[#00e5ff] shadow-[0_0_20px_rgba(0,229,255,0.5)]' 
                     : 'text-white/40 font-light bg-black/40 border-white/10'
@@ -307,7 +307,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen flex items-center overflow-hidden pt-36 pb-16 bg-[#020203]">
+    <section ref={sectionRef} className="relative w-full min-h-screen flex items-center overflow-hidden pt-24 md:pt-36 pb-10 md:pb-16 bg-[#020203]">
       
       {/* ═══ CUSTOM IMAGE BACKGROUND ═══ */}
       <div 
@@ -325,7 +325,7 @@ export function Hero() {
 
       {/* Main Content */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-8 items-center">
 
           {/* ═══ LEFT COLUMN: Copy & CTAs ═══ */}
           <div className="flex flex-col max-w-xl">
@@ -347,7 +347,7 @@ export function Hero() {
             </motion.div>
 
             {/* Headline */}
-            <h1 className="text-[clamp(2.4rem,4.5vw,4rem)] font-bold tracking-[-0.04em] leading-[1.08] mb-6 text-white">
+            <h1 className="text-[clamp(1.8rem,5vw,4rem)] font-bold tracking-[-0.04em] leading-[1.08] mb-4 md:mb-6 text-white">
               <span className="whitespace-nowrap"><RevealWords text="Building Enterprise" delay={0.2} /></span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#00e5ff] to-[#8B5CF6]">
@@ -360,7 +360,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-white/50 text-[15px] md:text-[16px] leading-relaxed mb-8 max-w-md font-light"
+              className="text-white/50 text-[13px] md:text-[16px] leading-relaxed mb-5 md:mb-8 max-w-md font-light"
             >
               The next generation of intelligent platforms, decision systems, and autonomous agents — engineered for the world&apos;s most ambitious enterprises.
             </motion.p>
@@ -370,17 +370,17 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="flex flex-wrap items-center gap-4 mb-12"
+              className="flex flex-wrap items-center gap-3 mb-7 md:mb-12"
             >
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(0, 229, 255, 0.6)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
-                className="px-9 py-4 rounded-full bg-white text-black font-mono font-bold text-[12px] tracking-wider uppercase shadow-[0_0_25px_rgba(0,229,255,0.4)] flex items-center gap-3 transition-all cursor-pointer hover:bg-white"
+                className="px-6 py-3 md:px-9 md:py-4 rounded-full bg-white text-black font-mono font-bold text-[11px] md:text-[12px] tracking-wider uppercase shadow-[0_0_25px_rgba(0,229,255,0.4)] flex items-center gap-2.5 transition-all cursor-pointer hover:bg-white"
               >
                 <span>Talk To An Expert</span>
-                <ArrowRight size={16} className="text-black" />
+                <ArrowRight size={14} className="text-black" />
               </motion.a>
 
               <motion.a
@@ -388,7 +388,7 @@ export function Hero() {
                 whileHover={{ scale: 1.03, borderColor: "rgba(255,255,255,0.3)" }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.2 }}
-                className="px-8 py-4 rounded-full bg-white/[0.03] border border-white/15 text-white font-mono font-medium text-[12px] tracking-wider uppercase backdrop-blur-md transition-all cursor-pointer"
+                className="px-5 py-3 md:px-8 md:py-4 rounded-full bg-white/[0.03] border border-white/15 text-white font-mono font-medium text-[11px] md:text-[12px] tracking-wider uppercase backdrop-blur-md transition-all cursor-pointer"
               >
                 Explore Ecosystem
               </motion.a>
@@ -399,7 +399,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
-              className="grid grid-cols-3 gap-3 md:gap-4 max-w-lg"
+              className="grid grid-cols-3 gap-2 md:gap-4 max-w-lg"
             >
               {[
                 { value: "25+", label: "AI Products", icon: Sparkles, color: "#00e5ff" },
@@ -411,17 +411,17 @@ export function Hero() {
                   <motion.div
                     key={i}
                     whileHover={{ y: -4, scale: 1.03 }}
-                    className="glass-card p-3.5 md:p-4 rounded-2xl border border-white/[0.08] hover:border-white/20 transition-all duration-300 flex flex-col justify-between"
+                    className="glass-card p-2.5 md:p-4 rounded-xl md:rounded-2xl border border-white/[0.08] hover:border-white/20 transition-all duration-300 flex flex-col justify-between"
                   >
-                    <div className="flex items-center justify-between mb-2">
-                      <Icon size={14} style={{ color: stat.color }} />
+                    <div className="flex items-center justify-between mb-1.5 md:mb-2">
+                      <Icon size={12} style={{ color: stat.color }} />
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: stat.color }} />
                     </div>
                     <div>
-                      <div className="font-mono font-bold text-lg md:text-xl text-white tracking-tight">
+                      <div className="font-mono font-bold text-base md:text-xl text-white tracking-tight">
                         {stat.value}
                       </div>
-                      <div className="text-white/40 text-[9px] md:text-[10px] uppercase font-mono tracking-wider mt-0.5">
+                      <div className="text-white/40 text-[8px] md:text-[10px] uppercase font-mono tracking-wider mt-0.5">
                         {stat.label}
                       </div>
                     </div>
@@ -436,7 +436,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative w-full aspect-square max-w-[500px] mx-auto lg:mx-0 lg:ml-auto flex items-center justify-center"
+            className="relative w-full aspect-square max-w-[260px] sm:max-w-[380px] md:max-w-[500px] mx-auto lg:mx-0 lg:ml-auto flex items-center justify-center"
           >
             {/* R3F Canvas 3D Core */}
             <Premium3DScene className="absolute inset-0 z-10" />
@@ -459,15 +459,15 @@ export function TrustStrip() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section ref={ref} className="py-16 relative overflow-hidden bg-[#020203] border-y border-white/[0.06]">
+    <section ref={ref} className="py-10 md:py-16 relative overflow-hidden bg-[#020203] border-y border-white/[0.06]">
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6 md:mb-8"
         >
-          <p className="text-white/30 text-[10px] uppercase tracking-[0.25em] font-mono">
+          <p className="text-white/30 text-[8px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] font-mono px-4">
             Engineered for High-Stakes Enterprise Architecture
           </p>
         </motion.div>
@@ -476,7 +476,7 @@ export function TrustStrip() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center justify-center gap-8 md:gap-14 flex-wrap"
+          className="flex items-center justify-center gap-4 sm:gap-8 md:gap-14 flex-wrap"
         >
           {["Healthcare", "Finance", "Manufacturing", "Telecom", "Energy", "Defense"].map((label, i) => (
             <motion.div
@@ -484,12 +484,12 @@ export function TrustStrip() {
               initial={{ opacity: 0, y: 10 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-              className="flex items-center gap-2.5 opacity-30 hover:opacity-80 transition-opacity duration-500 cursor-default group"
+              className="flex items-center gap-2 sm:gap-2.5 opacity-40 md:opacity-30 hover:opacity-80 transition-opacity duration-500 cursor-default group"
             >
-              <div className="w-6 h-6 rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:border-[#00e5ff]/50 transition-colors">
-                <ShieldCheck size={12} className="text-[#00e5ff]" />
+              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-md sm:rounded-lg bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:border-[#00e5ff]/50 transition-colors">
+                <ShieldCheck size={11} className="text-[#00e5ff]" />
               </div>
-              <span className="text-white text-[12px] font-mono tracking-wider uppercase">{label}</span>
+              <span className="text-white text-[10px] sm:text-[12px] font-mono tracking-wider uppercase">{label}</span>
             </motion.div>
           ))}
         </motion.div>

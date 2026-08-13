@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Section 1: Hero (Abstract Commerce Grid)
 const HeroSection = () => {
@@ -42,17 +42,16 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-12 mt-12 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-4 sm:gap-12 mt-4 sm:mt-12 w-full">
         
-        {/* Left Side: Information */}
         <div className="lg:w-1/2 text-left">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ec4899]/10 border border-[#ec4899]/30 text-xs font-bold text-[#ec4899] uppercase tracking-widest mb-8 shadow-[0_0_20px_rgba(236,72,153,0.3)]"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#ec4899]/10 border border-[#ec4899]/30 text-[9px] sm:text-xs font-bold text-[#ec4899] uppercase tracking-widest mb-4 sm:mb-8 shadow-[0_0_20px_rgba(236,72,153,0.3)]"
           >
-            <ShoppingBag className="w-4 h-4 animate-bounce" />
+            <ShoppingBag className="w-3 h-3 sm:w-4 sm:h-4 animate-bounce" />
             Retail Intelligence
           </motion.div>
           
@@ -60,7 +59,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-[75px] font-bold leading-[1.1] mb-8 tracking-tight text-white"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[75px] font-bold leading-[1.1] mb-4 sm:mb-8 tracking-tight text-white"
           >
             Hyper-Personalized.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ec4899] via-[#d946ef] to-[#8b5cf6]">Zero Friction.</span>
@@ -70,7 +69,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed mb-10"
+            className="text-gray-400 text-sm sm:text-lg md:text-xl max-w-xl leading-relaxed mb-6 sm:mb-10"
           >
             Transform fragmented retail data into strategic executive dashboards, 360-degree customer profiles, and real-time recommendation engines that skyrocket conversion rates.
           </motion.p>
@@ -79,12 +78,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-row items-center gap-2 sm:gap-4"
           >
-            <button className="px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3 sm:py-4 rounded-full bg-white text-black text-[11px] sm:text-base font-bold hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.2)]">
               Deploy Engine
             </button>
-            <button className="px-8 py-4 rounded-full border border-white/20 text-white font-bold hover:bg-white/5 transition-colors">
+            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20 text-white text-[11px] sm:text-base font-bold hover:bg-white/5 transition-colors">
               View Architecture
             </button>
           </motion.div>
@@ -101,7 +100,7 @@ const HeroSection = () => {
                rotateY: { duration: 8, repeat: Infinity, ease: "easeInOut" },
                rotateX: { duration: 10, repeat: Infinity, ease: "easeInOut" }
             }}
-            className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#0a0205] to-[#120308] rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(236,72,153,0.15)] flex items-center justify-center overflow-hidden"
+            className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[#0a0205] to-[#120308] rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(236,72,153,0.15)] flex items-center justify-center overflow-hidden transform scale-[0.75] sm:scale-100 origin-center -mt-8 sm:mt-0"
           >
             {/* Background Rings */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -174,19 +173,19 @@ const HeroSection = () => {
 // Section 2: Retail Metrics Ticker
 const MetricsTickerSection = () => {
   return (
-    <section className="py-10 bg-gradient-to-r from-[#050103] via-[#100308] to-[#050103] border-y border-white/5 overflow-hidden">
+    <section className="py-4 sm:py-10 bg-gradient-to-r from-[#050103] via-[#100308] to-[#050103] border-y border-white/5 overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 px-8 items-center"
+          className="flex gap-8 sm:gap-16 px-4 sm:px-8 items-center"
         >
           {[...Array(2)].map((_, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3"><TrendingUp className="w-6 h-6 text-[#ec4899]" /><span className="text-2xl font-black text-white">3.4x CONVERSION LIFT</span></div>
-              <div className="flex items-center gap-3"><Target className="w-6 h-6 text-[#8b5cf6]" /><span className="text-2xl font-black text-white">99% RECOMMENDATION ACCURACY</span></div>
-              <div className="flex items-center gap-3"><Box className="w-6 h-6 text-[#d946ef]" /><span className="text-2xl font-black text-white">ZERO INVENTORY BLIND SPOTS</span></div>
-              <div className="flex items-center gap-3"><CreditCard className="w-6 h-6 text-[#f43f5e]" /><span className="text-2xl font-black text-white">&lt;5ms FRAUD DETECTION</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><TrendingUp className="w-4 h-4 sm:w-6 sm:h-6 text-[#ec4899]" /><span className="text-sm sm:text-2xl font-black text-white">3.4x CONVERSION LIFT</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><Target className="w-4 h-4 sm:w-6 sm:h-6 text-[#8b5cf6]" /><span className="text-sm sm:text-2xl font-black text-white">99% RECOMMENDATION ACCURACY</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><Box className="w-4 h-4 sm:w-6 sm:h-6 text-[#d946ef]" /><span className="text-sm sm:text-2xl font-black text-white">ZERO INVENTORY BLIND SPOTS</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><CreditCard className="w-4 h-4 sm:w-6 sm:h-6 text-[#f43f5e]" /><span className="text-sm sm:text-2xl font-black text-white">&lt;5ms FRAUD DETECTION</span></div>
             </React.Fragment>
           ))}
         </motion.div>
@@ -198,17 +197,18 @@ const MetricsTickerSection = () => {
 // Section 3: AI Recommendation Engine (Animated Node Graph)
 const RecommendationEngineSection = () => {
   return (
-    <section className="py-24 relative bg-[#030102] overflow-hidden">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Collaborative <span className="text-[#ec4899]">Filtering</span></h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-sm md:text-base">Serve the perfect product to the right user in real-time through deep neural networks and behavioral analysis.</p>
+    <section className="py-12 sm:py-24 relative bg-[#030102] overflow-hidden">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Collaborative <span className="text-[#ec4899]">Filtering</span></h2>
+          <p className="text-gray-400 max-w-xl mx-auto text-[13px] sm:text-sm md:text-base">Serve the perfect product to the right user in real-time through deep neural networks and behavioral analysis.</p>
         </div>
 
-        <div className="relative w-full h-[400px] bg-[#080205] rounded-3xl border border-white/5 p-8 flex items-center justify-center overflow-hidden shadow-2xl">
+        <div className="relative w-full h-[220px] sm:h-[400px] bg-[#080205] rounded-xl sm:rounded-3xl border border-white/5 flex items-center justify-center overflow-hidden shadow-2xl">
+          <div className="relative w-[800px] h-[400px] flex-shrink-0 transform scale-[0.5] sm:scale-100 origin-center flex items-center justify-center">
           
           {/* Central User Profile */}
-          <div className="absolute left-[8%] md:left-[12%] flex flex-col items-center z-10">
+          <div className="absolute left-[12%] flex flex-col items-center z-10">
             <motion.div 
               animate={{ boxShadow: ["0 0 20px rgba(236,72,153,0.2)", "0 0 60px rgba(236,72,153,0.6)", "0 0 20px rgba(236,72,153,0.2)"] }}
               transition={{ duration: 4, repeat: Infinity }}
@@ -225,7 +225,7 @@ const RecommendationEngineSection = () => {
           </div>
 
           {/* Connection Lines (SVG) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block">
+          <svg className="absolute inset-0 w-[800px] h-[400px] pointer-events-none">
             {/* Line 1 */}
             <motion.path d="M 180 200 C 350 200, 400 80, 620 80" fill="none" stroke="rgba(236,72,153,0.2)" strokeWidth="2" />
             <motion.circle cx="0" cy="0" r="4" fill="#ec4899">
@@ -246,7 +246,7 @@ const RecommendationEngineSection = () => {
           </svg>
 
           {/* Suggested Products */}
-          <div className="absolute right-[8%] md:right-[12%] flex flex-col gap-8 z-10 hidden md:flex">
+          <div className="absolute right-[12%] flex flex-col gap-8 z-10">
             {[
               { title: "Trending Fashion", match: "98%", color: "text-[#ec4899]", border: "border-[#ec4899]/30" },
               { title: "Premium Electronics", match: "85%", color: "text-[#8b5cf6]", border: "border-[#8b5cf6]/30" },
@@ -268,6 +268,7 @@ const RecommendationEngineSection = () => {
               </motion.div>
             ))}
           </div>
+          </div>
         </div>
       </div>
     </section>
@@ -284,12 +285,12 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <section className="py-24 max-w-5xl mx-auto px-6">
-      <div className="mb-16 text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Retail <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-400">Applications</span></h2>
+    <section className="py-12 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="mb-8 sm:mb-16 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 text-white">Retail <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-400">Applications</span></h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6">
         {cases.map((card, i) => (
           <div key={i} className="group relative rounded-2xl overflow-hidden p-[1px] transition-all duration-500 hover:-translate-y-1">
             
@@ -303,26 +304,26 @@ const UseCasesSection = () => {
             </div>
 
             {/* Inner Content Container */}
-            <div className="relative z-10 h-full bg-[#070103] border border-white/5 p-8 rounded-[15px] transition-all duration-500 cursor-pointer flex flex-col group-hover:bg-[#070103]/90 backdrop-blur-md">
+            <div className="relative z-10 h-full bg-[#070103] border border-white/5 p-4 sm:p-8 rounded-[15px] transition-all duration-500 cursor-pointer flex flex-col group-hover:bg-[#070103]/90 backdrop-blur-md">
                 
                 {/* Ambient glow behind icon */}
-                <div className="absolute top-8 left-8 w-14 h-14 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" style={{ backgroundColor: card.hexColor }} />
+                <div className="absolute top-4 left-4 sm:top-8 sm:left-8 w-8 h-8 sm:w-14 sm:h-14 rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500" style={{ backgroundColor: card.hexColor }} />
                 
-                <div className="flex items-start justify-between mb-6 relative z-10">
-                  <div className="w-14 h-14 rounded-xl bg-[#0a0205] border border-white/5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
-                    <card.icon className={`w-7 h-7 ${card.color}`} />
+                <div className="flex items-start justify-between mb-3 sm:mb-6 relative z-10">
+                  <div className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl bg-[#0a0205] border border-white/5 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg">
+                    <card.icon className={`w-4 h-4 sm:w-7 sm:h-7 ${card.color}`} />
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <ArrowUpRight className={`w-4 h-4 ${card.color}`} />
+                  <div className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <ArrowUpRight className={`w-2 h-2 sm:w-4 sm:h-4 ${card.color}`} />
                   </div>
                 </div>
                 
-                <h3 className="text-2xl font-bold mb-3 relative z-10">
-                  <span className="absolute left-0 top-0 text-transparent bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap" style={{ backgroundImage: `linear-gradient(to right, #ffffff, ${card.hexColor})` }}>{card.title}</span>
+                <h3 className="text-[11px] sm:text-2xl font-bold mb-1.5 sm:mb-3 leading-tight relative z-10">
+                  <span className="absolute left-0 top-0 text-transparent bg-clip-text opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" style={{ backgroundImage: `linear-gradient(to right, #ffffff, ${card.hexColor})` }}>{card.title}</span>
                   <span className="text-white group-hover:opacity-0 transition-opacity duration-300 relative">{card.title}</span>
                 </h3>
                 
-                <p className="text-gray-400 text-sm leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
+                <p className="text-gray-400 text-[9px] sm:text-sm leading-tight sm:leading-relaxed relative z-10 group-hover:text-gray-300 transition-colors">
                   {card.desc}
                 </p>
             </div>
@@ -336,14 +337,14 @@ const UseCasesSection = () => {
 // Section 5: Customer 360 Dashboard Mockup
 const DashboardMockupSection = () => {
   return (
-    <section className="py-24 relative bg-[#030102] overflow-hidden">
+    <section className="py-12 sm:py-24 relative bg-[#030102] overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.05),transparent_50%)]" />
       
-      <div className="max-w-5xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-10 md:gap-16 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-6 sm:gap-16 relative z-10">
         
         {/* Animated Dashboard UI */}
-        <div className="lg:w-1/2 w-full perspective-1000 order-2 lg:order-1 relative">
+        <div className="lg:w-1/2 w-full perspective-1000 order-2 lg:order-1 relative transform scale-[0.85] sm:scale-100 origin-center -mt-6 sm:mt-0">
           {/* Dashboard Glow */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-br from-[#ec4899]/10 to-[#8b5cf6]/10 blur-[100px] pointer-events-none" />
 
@@ -413,30 +414,30 @@ const DashboardMockupSection = () => {
           </motion.div>
         </div>
 
-        <div className="lg:w-1/2 order-1 lg:order-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[10px] font-mono text-[#8b5cf6] mb-6 uppercase tracking-widest">
-            <Users className="w-3.5 h-3.5" />
+        <div className="lg:w-1/2 order-1 lg:order-2 w-full">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[9px] sm:text-[10px] font-mono text-[#8b5cf6] mb-4 sm:mb-6 uppercase tracking-widest">
+            <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             360° Profiles
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white leading-tight">Unified <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">Customer 360.</span></h2>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white leading-tight">Unified <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#ec4899]">Customer 360.</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg">
             Fuse online browsing behavior, in-store point-of-sale transactions, and customer service interactions into a single, cohesive intelligence profile.
           </p>
           
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {[
               { title: 'Predictive Lifetime Value', desc: 'Forecast exact customer spend over the next 5 years.', icon: TrendingUp },
               { title: 'Automated Retention', desc: 'Trigger hyper-personalized campaigns before a user churns.', icon: Target },
               { title: 'Omnichannel Sync', desc: 'Real-time synchronization across web, app, and physical stores.', icon: Box }
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4 p-3 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-colors group cursor-default">
-                <div className="w-10 h-10 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center shrink-0 border border-[#8b5cf6]/20 group-hover:scale-110 transition-transform">
-                  <item.icon className="w-5 h-5 text-[#8b5cf6]" />
+              <div key={i} className="flex items-start gap-2.5 sm:gap-4 p-2.5 sm:p-3 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-colors group cursor-default">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-[#8b5cf6]/10 flex items-center justify-center shrink-0 border border-[#8b5cf6]/20 group-hover:scale-110 transition-transform">
+                  <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#8b5cf6]" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm mb-1 group-hover:text-[#8b5cf6] transition-colors">{item.title}</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                  <h4 className="text-white font-bold text-[11px] sm:text-sm mb-0.5 sm:mb-1 group-hover:text-[#8b5cf6] transition-colors">{item.title}</h4>
+                  <p className="text-[9px] sm:text-sm text-gray-500 leading-tight sm:leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -451,51 +452,51 @@ const DashboardMockupSection = () => {
 // Section 6: Supply Chain Anomaly Tracking
 const SupplyChainSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#030102]">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="bg-[#050103] border border-white/5 rounded-3xl p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 md:gap-16 relative overflow-hidden shadow-2xl">
+    <section className="py-12 sm:py-24 relative overflow-hidden bg-[#030102]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="bg-[#050103] border border-white/5 rounded-[23px] sm:rounded-3xl p-5 sm:p-8 md:p-12 flex flex-col lg:flex-row items-center gap-6 sm:gap-10 md:gap-16 relative overflow-hidden shadow-2xl">
           
           {/* Background Glow */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#d946ef]/10 blur-[120px] pointer-events-none" />
 
           {/* Left Side: Information */}
-          <div className="lg:w-1/2 relative z-10 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#d946ef]/10 border border-[#d946ef]/30 text-[10px] font-mono text-[#d946ef] mb-6 uppercase tracking-widest shadow-[0_0_15px_rgba(217,70,239,0.2)]">
-              <MapPin className="w-3.5 h-3.5" />
+          <div className="lg:w-1/2 relative z-10 text-left w-full">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#d946ef]/10 border border-[#d946ef]/30 text-[9px] sm:text-[10px] font-mono text-[#d946ef] mb-4 sm:mb-6 uppercase tracking-widest shadow-[0_0_15px_rgba(217,70,239,0.2)]">
+              <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               Global Monitoring
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white leading-tight">
               Zero Inventory <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d946ef] to-[#ec4899]">Blind Spots.</span>
             </h2>
             
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-lg">
+            <p className="text-gray-400 text-[13px] sm:text-sm md:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg">
               Monitor millions of SKUs across global warehouses in real-time. Our AI automatically detects supply chain anomalies, predicts stockouts, and flags fraudulent POS transactions instantly.
             </p>
 
-            <ul className="space-y-4">
+            <ul className="space-y-2.5 sm:space-y-4">
               {[
                 { label: 'Real-Time Tracking', val: '< 10ms Latency' },
                 { label: 'Anomaly Detection', val: '99.9% Accuracy' },
                 { label: 'Global Coverage', val: '150+ Regions' }
               ].map((stat, idx) => (
-                 <li key={idx} className="flex items-center gap-4 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-colors">
-                   <div className="w-2.5 h-2.5 rounded-full bg-[#d946ef] animate-pulse shadow-[0_0_10px_rgba(217,70,239,0.8)]" />
-                   <span className="text-white text-sm font-bold flex-1">{stat.label}</span>
-                   <span className="text-[#d946ef] font-mono text-xs font-bold">{stat.val}</span>
+                 <li key={idx} className="flex items-center gap-2.5 sm:gap-4 p-2.5 sm:p-3 rounded-lg sm:rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] transition-colors">
+                   <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#d946ef] animate-pulse shadow-[0_0_10px_rgba(217,70,239,0.8)]" />
+                   <span className="text-white text-[11px] sm:text-sm font-bold flex-1">{stat.label}</span>
+                   <span className="text-[#d946ef] font-mono text-[9px] sm:text-xs font-bold">{stat.val}</span>
                  </li>
               ))}
             </ul>
           </div>
 
           {/* Right Side: Map Animations */}
-          <div className="lg:w-1/2 w-full relative z-10 perspective-1000">
+          <div className="lg:w-1/2 w-full relative z-10 perspective-1000 transform scale-[0.85] sm:scale-100 origin-center -mt-4 sm:mt-0">
             <motion.div 
                initial={{ rotateY: 10, rotateX: 5 }}
                animate={{ rotateY: [10, 0, 10], rotateX: [5, -2, 5] }}
                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-               className="relative h-[300px] md:h-[400px] w-full flex items-center justify-center bg-[#070103] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(217,70,239,0.15)] overflow-hidden"
+               className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full flex items-center justify-center bg-[#070103] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(217,70,239,0.15)] overflow-hidden"
             >
               {/* Map Background */}
               <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain opacity-[0.15] grayscale invert mix-blend-screen"></div>

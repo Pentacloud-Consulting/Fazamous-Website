@@ -36,16 +36,19 @@ function SplashCanvas({ onComplete }: { onComplete: () => void }) {
       pulseSpeed: 0.02 + Math.random() * 0.02,
     });
 
-    // Add more nodes expanding outward
-    for (let i = 0; i < 60; i++) {
+    // Add more nodes expanding outward (fewer on mobile for performance)
+    const isMobile = width < 768;
+    const nodeCount = isMobile ? 30 : 60;
+    const spreadFactor = isMobile ? 0.25 : 0.35;
+    for (let i = 0; i < nodeCount; i++) {
       const angle = Math.random() * Math.PI * 2;
-      const dist = 30 + Math.random() * Math.min(width, height) * 0.35;
+      const dist = 20 + Math.random() * Math.min(width, height) * spreadFactor;
       nodes.push({
         x: cx + Math.cos(angle) * dist,
         y: cy + Math.sin(angle) * dist,
         vx: (Math.random() - 0.5) * 0.3,
         vy: (Math.random() - 0.5) * 0.3,
-        radius: 1.5 + Math.random() * 2,
+        radius: isMobile ? 1 + Math.random() * 1.5 : 1.5 + Math.random() * 2,
         opacity: 0,
         pulse: Math.random() * Math.PI * 2,
         pulseSpeed: 0.015 + Math.random() * 0.02,
@@ -223,16 +226,16 @@ export function SplashScreen() {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="relative z-10 flex flex-col items-center"
               >
-                <div className="flex items-center gap-5 mb-8">
+                <div className="flex items-center gap-3 sm:gap-5 mb-6 sm:mb-8">
                   <motion.div 
                     initial={{ rotate: -90 }}
                     animate={{ rotate: 0 }}
                     transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#4EA8FF] to-[#8b5cf6] flex items-center justify-center shadow-[0_0_60px_rgba(139,92,246,0.3)]"
+                    className="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-[#4EA8FF] to-[#8b5cf6] flex items-center justify-center shadow-[0_0_40px_rgba(139,92,246,0.3)] sm:shadow-[0_0_60px_rgba(139,92,246,0.3)]"
                   >
-                    <span className="text-black font-bold text-2xl">F</span>
+                    <span className="text-black font-bold text-base sm:text-2xl">F</span>
                   </motion.div>
-                  <span className="text-white text-4xl font-semibold tracking-[0.25em] uppercase">
+                  <span className="text-white text-2xl sm:text-4xl font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
                     FAZAMOUS
                   </span>
                 </div>
@@ -240,7 +243,7 @@ export function SplashScreen() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
-                  className="text-white/30 text-xs uppercase tracking-[0.4em] font-mono"
+                  className="text-white/30 text-[10px] sm:text-xs uppercase tracking-[0.3em] sm:tracking-[0.4em] font-mono px-4 text-center"
                 >
                   Building Enterprise Intelligence
                 </motion.span>
@@ -251,7 +254,7 @@ export function SplashScreen() {
           {/* Skip button */}
           <button
             onClick={handleSkip}
-            className="absolute bottom-10 right-10 text-xs text-white/30 hover:text-white/70 transition-colors uppercase tracking-widest font-mono z-20"
+            className="absolute bottom-6 right-6 sm:bottom-10 sm:right-10 text-[10px] sm:text-xs text-white/30 hover:text-white/70 transition-colors uppercase tracking-widest font-mono z-20"
           >
             Skip
           </button>

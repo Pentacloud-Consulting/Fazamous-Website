@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Custom Typewriter Component for Code Blocks
 const TypewriterLoop = ({ textLines, className, speed = 30, eraseSpeed = 15, delay = 2000 }: { textLines: string[], className?: string, speed?: number, eraseSpeed?: number, delay?: number }) => {
@@ -63,7 +63,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-20 bg-[#030105]">
+    <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-24 pb-12 sm:pb-0 bg-[#030105]">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[10%] right-[10%] w-[600px] h-[600px] bg-[#8b5cf6]/10 blur-[130px] rounded-full pointer-events-none" />
         <div className="absolute bottom-[10%] left-[10%] w-[500px] h-[500px] bg-[#6d28d9]/10 blur-[140px] rounded-full pointer-events-none" />
@@ -92,17 +92,17 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-16 mt-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-16 mt-8 sm:mt-12">
         
         {/* Left Side: Information */}
-        <div className="lg:w-1/2 text-left">
+        <div className="lg:w-1/2 w-full text-left">
           <motion.div 
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 text-xs font-bold text-[#8b5cf6] uppercase tracking-widest mb-8 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/30 text-[9px] sm:text-xs font-bold text-[#8b5cf6] uppercase tracking-widest mb-4 sm:mb-8 shadow-[0_0_20px_rgba(139,92,246,0.3)]"
           >
-            <Code2 className="w-4 h-4 animate-pulse" />
+            <Code2 className="w-3 h-3 sm:w-4 sm:h-4 animate-pulse" />
             CodeMorph AI
           </motion.div>
           
@@ -110,7 +110,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6 tracking-tight text-white"
+            className="text-[36px] sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-4 sm:mb-6 tracking-tight text-white"
           >
             Automated Legacy.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] via-[#a855f7] to-[#e879f9]">Instant Modernization.</span>
@@ -120,7 +120,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed mb-12"
+            className="text-gray-400 text-[13px] sm:text-lg md:text-xl max-w-xl leading-relaxed mb-6 sm:mb-12"
           >
             Autonomously parse and rewrite monolithic SAS codebases into optimized, distributed PySpark microservices. Eliminate human error and accelerate digital transformation by 85%.
           </motion.p>
@@ -129,55 +129,55 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex gap-4"
+            className="flex flex-row gap-3 sm:gap-4"
           >
-            <button className="px-8 py-4 bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all flex items-center gap-2 group">
-              Start Migration <ArrowRightLeft className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <button className="px-4 sm:px-8 py-3 sm:py-4 text-[11px] sm:text-base bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all flex items-center justify-center gap-1.5 sm:gap-2 group flex-1 sm:flex-none">
+              Start Migration <ArrowRightLeft className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all">
+            <button className="px-4 sm:px-8 py-3 sm:py-4 text-[11px] sm:text-base bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center flex-1 sm:flex-none text-center">
               View Case Study
             </button>
           </motion.div>
         </div>
 
         {/* Right Side: Looping Diagram */}
-        <div className="lg:w-1/2 w-full perspective-1000 hidden lg:block">
+        <div className="relative w-full lg:w-1/2 perspective-1000 transform scale-[0.9] sm:scale-100 origin-center -mt-4 sm:mt-0">
           <motion.div 
             initial={{ y: 0 }}
             animate={{ y: [-10, 10, -10] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="relative w-full h-[500px] bg-[#0a0514] border border-[#8b5cf6]/30 rounded-3xl p-6 shadow-[0_30px_100px_rgba(139,92,246,0.15)] flex flex-col justify-between overflow-hidden"
+            className="relative w-full h-[400px] sm:h-[500px] bg-[#0a0514] border border-[#8b5cf6]/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_30px_100px_rgba(139,92,246,0.15)] flex flex-col justify-between overflow-hidden"
           >
             {/* Background Lines */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#8b5cf6 1px, transparent 1px), linear-gradient(90deg, #8b5cf6 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
             
             {/* Top Row: Legacy SAS */}
-            <div className="relative z-10 bg-[#120524]/80 border border-red-500/30 rounded-xl p-4 backdrop-blur-md h-32">
-              <div className="flex justify-between items-center mb-3">
-                <div className="text-xs font-mono text-red-400 font-bold tracking-widest flex items-center gap-2"><Database className="w-4 h-4" /> LEGACY MONOLITH (SAS)</div>
-                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <div className="relative z-10 bg-[#120524]/80 border border-red-500/30 rounded-xl p-3 sm:p-4 backdrop-blur-md h-28 sm:h-32">
+              <div className="flex justify-between items-center mb-2 sm:mb-3">
+                <div className="text-[9px] sm:text-xs font-mono text-red-400 font-bold tracking-widest flex items-center gap-1.5 sm:gap-2"><Database className="w-3 h-3 sm:w-4 sm:h-4" /> LEGACY MONOLITH (SAS)</div>
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500 animate-pulse" />
               </div>
-              <TypewriterLoop textLines={legacyCode} className="text-xs text-gray-400" />
+              <TypewriterLoop textLines={legacyCode} className="text-[9px] sm:text-xs text-gray-400 leading-relaxed" />
             </div>
 
             {/* Middle: CodeMorph AI Processing Engine */}
-            <div className="relative z-10 flex justify-center py-6">
+            <div className="relative z-10 flex justify-center py-2 sm:py-6">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                  <motion.div animate={{ height: ["0%", "100%"] }} transition={{ duration: 2, repeat: Infinity }} className="w-px bg-gradient-to-b from-red-500 via-[#8b5cf6] to-emerald-500 shadow-[0_0_10px_#8b5cf6]" />
               </div>
-              <div className="w-24 h-24 bg-[#0a0514] border-2 border-[#8b5cf6] rounded-full flex items-center justify-center relative z-20 shadow-[0_0_40px_rgba(139,92,246,0.4)]">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 bg-[#0a0514] border-2 border-[#8b5cf6] rounded-full flex items-center justify-center relative z-20 shadow-[0_0_40px_rgba(139,92,246,0.4)]">
                  <motion.div animate={{ rotate: 360 }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }} className="absolute inset-[-2px] border border-dashed border-[#a855f7] rounded-full" />
-                 <Code2 className="w-10 h-10 text-[#8b5cf6]" />
+                 <Code2 className="w-6 h-6 sm:w-10 sm:h-10 text-[#8b5cf6]" />
               </div>
             </div>
 
             {/* Bottom Row: Modern PySpark */}
-            <div className="relative z-10 bg-[#120524]/80 border border-emerald-500/30 rounded-xl p-4 backdrop-blur-md h-32">
-              <div className="flex justify-between items-center mb-3">
-                <div className="text-xs font-mono text-emerald-400 font-bold tracking-widest flex items-center gap-2"><Server className="w-4 h-4" /> MICROSERVICES (PYSPARK)</div>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="relative z-10 bg-[#120524]/80 border border-emerald-500/30 rounded-xl p-3 sm:p-4 backdrop-blur-md h-28 sm:h-32">
+              <div className="flex justify-between items-center mb-2 sm:mb-3">
+                <div className="text-[9px] sm:text-xs font-mono text-emerald-400 font-bold tracking-widest flex items-center gap-1.5 sm:gap-2"><Server className="w-3 h-3 sm:w-4 sm:h-4" /> MICROSERVICES (PYSPARK)</div>
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse" />
               </div>
-              <TypewriterLoop textLines={modernCode} className="text-xs text-emerald-400" delay={2500} />
+              <TypewriterLoop textLines={modernCode} className="text-[9px] sm:text-xs text-emerald-400 leading-relaxed" delay={2500} />
             </div>
           </motion.div>
         </div>
@@ -189,19 +189,19 @@ const HeroSection = () => {
 // Section 2: Dev Metrics Ticker
 const MetricsTickerSection = () => {
   return (
-    <section className="py-10 bg-gradient-to-r from-[#030105] via-[#120524] to-[#030105] border-y border-[#8b5cf6]/10 overflow-hidden">
+    <section className="py-4 sm:py-10 bg-gradient-to-r from-[#030105] via-[#120524] to-[#030105] border-y border-[#8b5cf6]/10 overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 px-8 items-center"
+          className="flex gap-8 sm:gap-16 px-4 sm:px-8 items-center"
         >
           {[...Array(2)].map((_, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3"><Rocket className="w-6 h-6 text-[#8b5cf6]" /><span className="text-2xl font-black text-white">85% FASTER DEV CYCLES</span></div>
-              <div className="flex items-center gap-3"><CheckCircle className="w-6 h-6 text-[#a855f7]" /><span className="text-2xl font-black text-white">100% LOGIC PRESERVATION</span></div>
-              <div className="flex items-center gap-3"><CloudCog className="w-6 h-6 text-[#e879f9]" /><span className="text-2xl font-black text-white">CLOUD-NATIVE SCALABILITY</span></div>
-              <div className="flex items-center gap-3"><GitPullRequest className="w-6 h-6 text-purple-400" /><span className="text-2xl font-black text-white">ZERO DOWNTIME MIGRATIONS</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><Rocket className="w-4 h-4 sm:w-6 sm:h-6 text-[#8b5cf6]" /><span className="text-sm sm:text-2xl font-black text-white">85% FASTER DEV CYCLES</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><CheckCircle className="w-4 h-4 sm:w-6 sm:h-6 text-[#a855f7]" /><span className="text-sm sm:text-2xl font-black text-white">100% LOGIC PRESERVATION</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><CloudCog className="w-4 h-4 sm:w-6 sm:h-6 text-[#e879f9]" /><span className="text-sm sm:text-2xl font-black text-white">CLOUD-NATIVE SCALABILITY</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><GitPullRequest className="w-4 h-4 sm:w-6 sm:h-6 text-purple-400" /><span className="text-sm sm:text-2xl font-black text-white">ZERO DOWNTIME MIGRATIONS</span></div>
             </React.Fragment>
           ))}
         </motion.div>
@@ -303,12 +303,12 @@ const CapabilitiesSection = () => {
   ];
 
   return (
-    <section className="py-24 max-w-5xl mx-auto px-6">
-      <div className="mb-12">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Modernization <span className="text-gray-500">Suite</span></h2>
+    <section className="py-12 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-white">Modernization <span className="text-gray-500">Suite</span></h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-3 sm:gap-6">
         {cases.map((card, i) => (
           <motion.div 
             key={i} 
@@ -328,26 +328,26 @@ const CapabilitiesSection = () => {
             </div>
 
             {/* Inner Card Container */}
-            <div className="relative z-10 h-full bg-[#080310] border border-white/10 group-hover:border-transparent rounded-2xl p-6 transition-all duration-500 overflow-hidden flex flex-col group-hover:bg-[#120524]/60 shadow-lg">
+            <div className="relative z-10 h-full bg-[#080310] border border-white/10 group-hover:border-transparent rounded-2xl p-3 sm:p-6 transition-all duration-500 overflow-hidden flex flex-col group-hover:bg-[#120524]/60 shadow-lg">
               {/* Background Glow */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#8b5cf6]/20 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 bg-[#8b5cf6]/20 blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
-              <div className="flex items-center justify-between mb-4">
-                <div className={`w-10 h-10 rounded-xl bg-[#0e051a] border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#8b5cf6]/20 group-hover:border-[#8b5cf6]/40 shadow-inner`}>
-                  <card.icon className={`w-5 h-5 text-gray-500 group-hover:text-white transition-colors duration-500`} />
+              <div className="flex items-center justify-between mb-2 sm:mb-4">
+                <div className={`w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0e051a] border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-[#8b5cf6]/20 group-hover:border-[#8b5cf6]/40 shadow-inner`}>
+                  <card.icon className={`w-3.5 h-3.5 sm:w-5 sm:h-5 text-gray-500 group-hover:text-white transition-colors duration-500`} />
                 </div>
               </div>
 
               {/* Dynamic Visual Animation Section */}
-              <div className="w-full h-16 flex items-center justify-center mb-4">
+              <div className="w-full h-8 sm:h-16 flex items-center justify-center mb-2 sm:mb-4 transform scale-[0.6] sm:scale-100 origin-center">
                  <card.visual />
               </div>
               
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-white transition-colors">
+              <h3 className="text-[11px] sm:text-lg font-bold text-white mb-1 sm:mb-2 group-hover:text-white transition-colors leading-tight">
                 {card.title}
               </h3>
               
-              <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mt-auto">
+              <p className="text-[9px] sm:text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors mt-auto line-clamp-4">
                 {card.desc}
               </p>
             </div>
@@ -408,17 +408,17 @@ const MorphingEditor = () => {
   };
 
   return (
-    <div className="w-full bg-[#0d071a] border border-[#8b5cf6]/20 rounded-2xl shadow-[0_20px_60px_rgba(139,92,246,0.3)] overflow-hidden flex flex-col font-mono text-[11px] md:text-xs relative">
+    <div className="w-full bg-[#0d071a] border border-[#8b5cf6]/20 rounded-2xl shadow-[0_20px_60px_rgba(139,92,246,0.3)] overflow-hidden flex flex-col font-mono text-[9px] sm:text-[11px] md:text-xs relative">
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#8b5cf6]/10 blur-[80px] pointer-events-none" />
 
       {/* Header */}
-      <div className="h-10 border-b border-white/10 flex items-center px-4 gap-2 bg-[#080410] relative z-10">
-        <div className="flex gap-2 mr-4">
-          <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-          <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+      <div className="h-8 sm:h-10 border-b border-white/10 flex items-center px-3 sm:px-4 gap-2 bg-[#080410] relative z-10">
+        <div className="flex gap-1.5 sm:gap-2 mr-2 sm:mr-4">
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80"></div>
         </div>
-        <div className="flex gap-4 text-[10px] text-gray-500 uppercase tracking-widest font-bold">
+        <div className="flex gap-2 sm:gap-4 text-[8px] sm:text-[10px] text-gray-500 uppercase tracking-widest font-bold">
            <span className={phase.startsWith("sas") ? "text-red-400 transition-colors" : ""}>legacy.sas</span>
            <span>→</span>
            <span className={phase.startsWith("py") ? "text-emerald-400 transition-colors" : ""}>modern.py</span>
@@ -426,15 +426,15 @@ const MorphingEditor = () => {
       </div>
       
       {/* Body */}
-      <div className="p-6 h-[250px] relative z-10 flex flex-col">
-        <div className="text-gray-300 whitespace-pre-wrap leading-loose" dangerouslySetInnerHTML={{ __html: renderHighlighted(currentCode) + '<span class="animate-pulse text-white">|</span>' }} />
+      <div className="p-4 sm:p-6 h-[160px] sm:h-[250px] relative z-10 flex flex-col">
+        <div className="text-gray-300 whitespace-pre-wrap leading-relaxed sm:leading-loose" dangerouslySetInnerHTML={{ __html: renderHighlighted(currentCode) + '<span class="animate-pulse text-white">|</span>' }} />
 
         {/* Status Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-[#080410] border-t border-white/5 flex items-center px-4 justify-between text-[10px]">
+        <div className="absolute bottom-0 left-0 right-0 h-6 sm:h-8 bg-[#080410] border-t border-white/5 flex items-center px-3 sm:px-4 justify-between text-[8px] sm:text-[10px]">
            {phase.startsWith("sas") ? (
-             <span className="text-red-400 flex items-center gap-2"><Scan className="w-3 h-3 animate-pulse"/> Analyzing Legacy Logic...</span>
+             <span className="text-red-400 flex items-center gap-1.5 sm:gap-2"><Scan className="w-2.5 h-2.5 sm:w-3 sm:h-3 animate-pulse"/> Analyzing Legacy Logic...</span>
            ) : (
-             <span className="text-emerald-400 flex items-center gap-2"><CheckCircle className="w-3 h-3"/> Translation Complete</span>
+             <span className="text-emerald-400 flex items-center gap-1.5 sm:gap-2"><CheckCircle className="w-2.5 h-2.5 sm:w-3 sm:h-3"/> Translation Complete</span>
            )}
            <span className="text-gray-500">CodeMorph Engine v2.0</span>
         </div>
@@ -445,33 +445,33 @@ const MorphingEditor = () => {
 
 const IDETranslationSection = () => {
   return (
-    <section className="py-24 relative bg-[#030105] overflow-hidden border-t border-white/5">
+    <section className="py-12 sm:py-24 relative bg-[#030105] overflow-hidden border-t border-white/5">
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-0 w-1/3 h-1/2 bg-[#8b5cf6]/5 blur-[120px] pointer-events-none -translate-y-1/2" />
       
-      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col lg:flex-row items-center gap-8 sm:gap-16 relative z-10">
         
         {/* Left Content */}
         <div className="lg:w-1/2">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">AI-Assisted <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#e879f9]">Refactoring</span></h2>
-          <p className="text-gray-400 text-lg leading-relaxed mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">AI-Assisted <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8b5cf6] to-[#e879f9]">Refactoring</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-lg leading-relaxed mb-6 sm:mb-8">
             Don't waste years rewriting legacy code manually. CodeMorph AI understands context, business logic, and dependencies, translating monolithic scripts into modern Python frameworks flawlessly.
           </p>
           <div className="flex flex-col gap-4">
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#0a0514] border border-[#8b5cf6]/20 shadow-[0_0_30px_rgba(139,92,246,0.1)] group hover:border-[#8b5cf6]/40 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-[#120524] border border-[#8b5cf6]/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Terminal className="w-5 h-5 text-[#a855f7]" />
+            <div className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-[14px] sm:rounded-2xl bg-[#0a0514] border border-[#8b5cf6]/20 shadow-[0_0_30px_rgba(139,92,246,0.1)] group hover:border-[#8b5cf6]/40 transition-colors">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#120524] border border-[#8b5cf6]/30 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-[#a855f7]" />
               </div>
               <div>
-                <h4 className="text-white font-bold text-sm mb-1 group-hover:text-[#a855f7] transition-colors">Context-Aware Translation</h4>
-                <p className="text-sm text-gray-400 leading-relaxed">Maintains exact business logic and mathematical precision while adapting to the target framework's best practices.</p>
+                <h4 className="text-white font-bold text-xs sm:text-sm mb-0.5 sm:mb-1 group-hover:text-[#a855f7] transition-colors">Context-Aware Translation</h4>
+                <p className="text-[10px] sm:text-sm text-gray-400 leading-relaxed">Maintains exact business logic and mathematical precision while adapting to the target framework's best practices.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Right IDE UI Mockup */}
-        <div className="lg:w-1/2 w-full perspective-1000">
+        <div className="lg:w-1/2 w-full perspective-1000 transform scale-[0.9] sm:scale-100 origin-center">
           <motion.div 
             initial={{ y: 0 }}
             animate={{ y: [-10, 10, -10] }}
@@ -490,11 +490,11 @@ const IDETranslationSection = () => {
 // Section 6: Monolith to Microservices Animation
 const MicroservicesSection = () => {
   return (
-    <section className="py-24 max-w-5xl mx-auto px-6 overflow-hidden">
-      <div className="bg-[#030105] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 shadow-2xl">
+    <section className="py-12 sm:py-24 max-w-5xl mx-auto px-4 sm:px-6 overflow-hidden">
+      <div className="bg-[#030105] border border-white/5 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 relative overflow-hidden flex flex-col lg:flex-row items-center gap-6 sm:gap-12 shadow-2xl">
         
         {/* Left Side: Visual Animation */}
-        <div className="relative w-full lg:w-1/2 h-72 flex items-center justify-center">
+        <div className="relative w-full lg:w-1/2 h-[200px] sm:h-72 flex items-center justify-center transform scale-[0.8] sm:scale-100 origin-center">
           
           {/* Background Pulse */}
           <div className="absolute inset-0 bg-[#e879f9]/5 blur-[60px] rounded-full pointer-events-none" />
@@ -541,12 +541,12 @@ const MicroservicesSection = () => {
 
         {/* Right Side: Information */}
         <div className="relative z-10 lg:w-1/2 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-white/60 mb-6 uppercase tracking-widest">
-            <Blocks className="w-3 h-3 text-[#e879f9]" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1 rounded-full bg-white/5 border border-white/10 text-[8px] sm:text-[10px] font-mono text-white/60 mb-4 sm:mb-6 uppercase tracking-widest">
+            <Blocks className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#e879f9]" />
             Architecture Modernization
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Break the <span className="text-[#e879f9]">Monolith.</span></h2>
-          <p className="text-gray-400 text-base leading-relaxed">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white">Break the <span className="text-[#e879f9]">Monolith.</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-base leading-relaxed">
             Automatically map rigid, interdependent legacy architectures and gracefully refactor them into decoupled, cloud-native microservices that scale infinitely.
           </p>
         </div>

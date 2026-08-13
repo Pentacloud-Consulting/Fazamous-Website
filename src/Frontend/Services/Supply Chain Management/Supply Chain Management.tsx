@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Section 1: Hero (Global Logistics Mesh)
 const HeroSection = () => {

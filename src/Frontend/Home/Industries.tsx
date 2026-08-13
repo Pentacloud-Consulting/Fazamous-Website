@@ -25,21 +25,21 @@ export function Industries() {
   const activeIndustry = industryData[activeIndex];
 
   return (
-    <section id="industries" className="py-12 md:py-16 relative overflow-hidden bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
+    <section id="industries" className="py-8 md:py-16 relative overflow-hidden bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-tr from-[#22D3EE]/[0.03] via-[#6366F1]/[0.03] to-transparent blur-[200px] pointer-events-none" />
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
         
         {/* Header */}
-        <div className="mb-10 md:mb-12">
+        <div className="mb-6 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-6"
+            className="mb-4 md:mb-6"
           >
-            <span className="glass-pill px-4 py-1.5 inline-flex items-center gap-2 border-glow text-white/50 uppercase tracking-widest text-[10px] font-mono">
+            <span className="glass-pill px-3 py-1 md:px-4 md:py-1.5 inline-flex items-center gap-2 border-glow text-white/50 uppercase tracking-widest text-[9px] md:text-[10px] font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-[#22D3EE] animate-pulse" />
               Industry Applications
             </span>
@@ -49,7 +49,7 @@ export function Industries() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-white"
+            className="text-xl md:text-4xl font-bold tracking-tight leading-tight mb-3 md:mb-4 text-white"
             style={{ fontFamily: fonts.display }}
           >
             Empowering <span className="text-white/40">Every Sector.</span>
@@ -59,7 +59,7 @@ export function Industries() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/50 max-w-xl text-[16px] leading-[1.7] font-light"
+            className="text-white/50 max-w-xl text-[13px] md:text-[16px] leading-[1.6] md:leading-[1.7] font-light"
           >
             Tailored AI architectures engineered to solve high-stakes challenges across critical global industries.
           </motion.p>
@@ -186,27 +186,27 @@ export function Industries() {
         </div>
 
         {/* Mobile Fallback Layout (Stacked Cards) */}
-        <div className="lg:hidden flex flex-col gap-6 mt-8">
+        <div className="lg:hidden flex flex-col gap-4 mt-6">
            {industryData.map((industry) => (
              <Link key={industry.id} href={`/services/${industry.slug}`}>
-               <div className="glass-card rounded-[24px] p-6 sm:p-8 border border-white/[0.08] hover:border-white/20 transition-colors flex flex-col h-full bg-[#12141C]">
-                  <div className="flex justify-between items-start mb-6">
-                     <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/[0.03] border border-white/5">
-                        <industry.icon size={20} style={{ color: industry.color }} />
+               <div className="glass-card rounded-[20px] p-5 border border-white/[0.08] hover:border-white/20 transition-colors flex flex-col h-full bg-[#12141C]">
+                  <div className="flex justify-between items-start mb-4">
+                     <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-white/[0.03] border border-white/5">
+                        <industry.icon size={18} style={{ color: industry.color }} />
                      </div>
-                     <span className="text-[10px] font-mono text-white/30 uppercase tracking-widest">{industry.id}</span>
+                     <span className="text-[9px] font-mono text-white/30 uppercase tracking-widest mt-1">{industry.id}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 tracking-tight" style={{ fontFamily: fonts.display }}>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight" style={{ fontFamily: fonts.display }}>
                     {industry.name}
                   </h3>
-                  <p className="text-white/50 text-[14px] leading-relaxed font-light mb-8 line-clamp-3">
+                  <p className="text-white/50 text-[13px] leading-relaxed font-light mb-6 line-clamp-3">
                     {industry.desc}
                   </p>
-                  <div className="mt-auto pt-6 border-t border-white/[0.05] flex justify-between items-center">
-                     <span className="text-[10px] font-mono uppercase tracking-widest text-white/50 border border-white/10 px-2 py-1 rounded">
+                  <div className="mt-auto pt-4 border-t border-white/[0.05] flex justify-between items-center">
+                     <span className="text-[9px] font-mono uppercase tracking-widest text-white/50 border border-white/10 px-2 py-1 rounded">
                        {industry.metric}
                      </span>
-                     <div className="flex items-center gap-2 text-[12px] font-semibold text-white">
+                     <div className="flex items-center gap-1.5 text-[11px] font-semibold text-white">
                        View <ArrowRight size={12} />
                      </div>
                   </div>

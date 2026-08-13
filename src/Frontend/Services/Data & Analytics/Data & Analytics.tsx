@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Section 1: Hero (Abstract Data Core)
 const HeroSection = () => {
@@ -20,7 +20,7 @@ const HeroSection = () => {
         <div className="absolute bottom-[10%] right-[10%] w-[500px] h-[500px] bg-[#fbbf24]/10 blur-[150px] rounded-full pointer-events-none" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full flex flex-col lg:flex-row items-center gap-6 sm:gap-12 lg:gap-16">
         
         {/* Left Side: Information */}
         <div className="lg:w-1/2 w-full text-left">
@@ -28,9 +28,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-xs font-bold text-[#f59e0b] uppercase tracking-widest mb-8 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[10px] sm:text-xs font-bold text-[#f59e0b] uppercase tracking-widest mb-4 sm:mb-8 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
           >
-            <Database className="w-4 h-4 animate-pulse" />
+            <Database className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-pulse" />
             DataPulse Platform
           </motion.div>
           
@@ -38,7 +38,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-[70px] font-bold leading-[1.1] mb-8 tracking-tight text-white"
+            className="text-[36px] sm:text-4xl md:text-6xl lg:text-[70px] font-bold leading-[1.1] mb-4 sm:mb-8 tracking-tight text-white"
           >
             Perfect Data.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] via-[#fbbf24] to-[#fcd34d]">Absolute Observability.</span>
@@ -48,7 +48,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"
+            className="text-gray-400 text-[13px] sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-10 max-w-lg"
           >
             Act as the guardian of your data warehouse. Continuously validate schema integrity, map end-to-end lineage, and resolve structural pipeline failures before downstream analytics are ever affected.
           </motion.p>
@@ -57,12 +57,12 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-row items-center gap-2 sm:gap-4"
           >
-            <button className="px-8 py-4 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white font-bold text-sm hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(245,158,11,0.3)]">
+            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white font-bold text-[11px] sm:text-sm hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(245,158,11,0.3)]">
               Start Free Trial
             </button>
-            <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-sm hover:bg-white/10 transition-colors backdrop-blur-md">
+            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-[11px] sm:text-sm hover:bg-white/10 transition-colors backdrop-blur-md">
               View Architecture
             </button>
           </motion.div>
@@ -74,7 +74,7 @@ const HeroSection = () => {
              initial={{ rotateY: 15, rotateX: 5 }}
              animate={{ rotateY: [15, 5, 15], rotateX: [5, 2, 5] }}
              transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-             className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center"
+             className="relative h-[280px] sm:h-[400px] md:h-[500px] w-full flex items-center justify-center transform scale-[0.75] sm:scale-100 origin-center -mt-8 sm:mt-0"
            >
              {/* Map Background */}
              <div className="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-no-repeat bg-center bg-contain opacity-20 grayscale invert mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,#000_40%,transparent_80%)]" />
@@ -144,19 +144,19 @@ const HeroSection = () => {
 // Section 2: Data Metrics Ticker
 const MetricsTickerSection = () => {
   return (
-    <section className="py-10 bg-gradient-to-r from-[#040201] via-[#1a0f02] to-[#040201] border-y border-[#f59e0b]/10 overflow-hidden">
+    <section className="py-4 sm:py-10 bg-gradient-to-r from-[#040201] via-[#1a0f02] to-[#040201] border-y border-[#f59e0b]/10 overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 px-8 items-center"
+          className="flex gap-8 sm:gap-16 px-4 sm:px-8 items-center"
         >
           {[...Array(2)].map((_, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3"><ShieldCheck className="w-6 h-6 text-[#f59e0b]" /><span className="text-2xl font-black text-white">ZERO DATA LOSS</span></div>
-              <div className="flex items-center gap-3"><SearchCode className="w-6 h-6 text-[#fbbf24]" /><span className="text-2xl font-black text-white">100% SCHEMA VALIDATION</span></div>
-              <div className="flex items-center gap-3"><Layers className="w-6 h-6 text-[#fcd34d]" /><span className="text-2xl font-black text-white">PETABYTE SCALE</span></div>
-              <div className="flex items-center gap-3"><Activity className="w-6 h-6 text-orange-500" /><span className="text-2xl font-black text-white">&lt;1ms DRIFT DETECTION</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><ShieldCheck className="w-4 h-4 sm:w-6 sm:h-6 text-[#f59e0b]" /><span className="text-sm sm:text-2xl font-black text-white">ZERO DATA LOSS</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><SearchCode className="w-4 h-4 sm:w-6 sm:h-6 text-[#fbbf24]" /><span className="text-sm sm:text-2xl font-black text-white">100% SCHEMA VALIDATION</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><Layers className="w-4 h-4 sm:w-6 sm:h-6 text-[#fcd34d]" /><span className="text-sm sm:text-2xl font-black text-white">PETABYTE SCALE</span></div>
+              <div className="flex items-center gap-2 sm:gap-3"><Activity className="w-4 h-4 sm:w-6 sm:h-6 text-orange-500" /><span className="text-sm sm:text-2xl font-black text-white">&lt;1ms DRIFT DETECTION</span></div>
             </React.Fragment>
           ))}
         </motion.div>
@@ -168,34 +168,34 @@ const MetricsTickerSection = () => {
 // Section 3: Data Pipeline Observability (Animated Diagram)
 const PipelineArchitectureSection = () => {
   return (
-    <section className="py-16 md:py-20 relative bg-[#040201] overflow-hidden">
+    <section className="py-12 sm:py-16 md:py-20 relative bg-[#040201] overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#f59e0b]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-4 uppercase tracking-widest">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-3 sm:mb-4 uppercase tracking-widest">
             <Activity className="w-3 h-3" />
             Pipeline Architecture
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">End-to-End <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] to-[#fcd34d]">Observability.</span></h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">End-to-End <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] to-[#fcd34d]">Observability.</span></h2>
         </div>
 
         <div className="relative flex flex-col items-center w-full">
           
           {/* Layer 1: INGESTION */}
           <div className="w-full relative z-10 text-center">
-             <div className="text-[#f59e0b] text-[9px] font-mono uppercase tracking-widest mb-4">1. Ingestion Layer</div>
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+             <div className="text-[#f59e0b] text-[8px] sm:text-[9px] font-mono uppercase tracking-widest mb-3 sm:mb-4">1. Ingestion Layer</div>
+             <div className="grid grid-cols-3 gap-2 sm:gap-4">
                 {[
                   { label: "PostgreSQL", icon: Database },
                   { label: "Kafka Stream", icon: Share2 },
                   { label: "REST APIs", icon: Network }
                 ].map((item, i) => (
-                  <motion.div key={i} whileHover={{ y: -3 }} className="bg-[#0a0602]/80 backdrop-blur-md border border-[#f59e0b]/20 rounded-2xl p-4 flex flex-col items-center text-center shadow-[0_0_20px_rgba(245,158,11,0.05)] relative overflow-hidden group">
+                  <motion.div key={i} whileHover={{ y: -3 }} className="bg-[#0a0602]/80 backdrop-blur-md border border-[#f59e0b]/20 rounded-lg sm:rounded-2xl p-2 sm:p-4 flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(245,158,11,0.05)] relative overflow-hidden group">
                      <div className="absolute inset-0 bg-gradient-to-b from-[#f59e0b]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                     <item.icon className="w-6 h-6 text-[#f59e0b] mb-3 relative z-10" />
-                     <div className="text-white text-sm font-bold relative z-10">{item.label}</div>
+                     <item.icon className="w-4 h-4 sm:w-6 sm:h-6 text-[#f59e0b] mb-1.5 sm:mb-3 relative z-10" />
+                     <div className="text-white text-[9px] sm:text-sm font-bold relative z-10 leading-tight">{item.label}</div>
                   </motion.div>
                 ))}
              </div>
@@ -208,30 +208,30 @@ const PipelineArchitectureSection = () => {
 
           {/* Layer 2: DATAPULSE AI (The Core) */}
           <div className="w-full max-w-2xl relative z-10 text-center">
-             <div className="text-[#f59e0b] text-[9px] font-mono uppercase tracking-widest mb-4">2. AI Validation Core</div>
-             <div className="relative p-[1px] rounded-3xl bg-gradient-to-r from-[#f59e0b]/50 via-white/20 to-[#f59e0b]/50 shadow-[0_0_50px_rgba(245,158,11,0.1)] text-left">
-               <div className="absolute inset-0 bg-[#f59e0b]/10 blur-xl rounded-3xl" />
-               <div className="bg-[#050201]/95 backdrop-blur-2xl rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 border border-white/10 relative overflow-hidden">
+             <div className="text-[#f59e0b] text-[8px] sm:text-[9px] font-mono uppercase tracking-widest mb-3 sm:mb-4">2. AI Validation Core</div>
+             <div className="relative p-[1px] rounded-[20px] sm:rounded-3xl bg-gradient-to-r from-[#f59e0b]/50 via-white/20 to-[#f59e0b]/50 shadow-[0_0_50px_rgba(245,158,11,0.1)] text-left">
+               <div className="absolute inset-0 bg-[#f59e0b]/10 blur-xl rounded-[20px] sm:rounded-3xl" />
+               <div className="bg-[#050201]/95 backdrop-blur-2xl rounded-[calc(20px-1px)] sm:rounded-[calc(1.5rem-1px)] p-4 sm:p-6 md:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 border border-white/10 relative overflow-hidden text-center sm:text-left">
                  
                  {/* Laser scan */}
                  <motion.div animate={{ left: ['-10%', '110%'] }} transition={{ duration: 4, repeat: Infinity, ease: 'linear' }} className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#f59e0b] to-transparent shadow-[0_0_15px_#f59e0b] z-0 opacity-50" />
 
                  <div className="shrink-0 relative z-10">
-                    <div className="w-16 h-16 rounded-full bg-[#1a1005] border border-[#f59e0b]/30 flex items-center justify-center relative z-10">
-                      <Cpu className="w-6 h-6 text-[#f59e0b]" />
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#1a1005] border border-[#f59e0b]/30 flex items-center justify-center relative z-10">
+                      <Cpu className="w-5 h-5 sm:w-6 sm:h-6 text-[#f59e0b]" />
                     </div>
-                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} className="absolute -inset-3 border border-dashed border-[#f59e0b]/40 rounded-full" />
-                    <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: 'linear' }} className="absolute -inset-6 border border-[#f59e0b]/10 rounded-full" />
+                    <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} className="absolute -inset-2 sm:-inset-3 border border-dashed border-[#f59e0b]/40 rounded-full" />
+                    <motion.div animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: 'linear' }} className="absolute -inset-4 sm:-inset-6 border border-[#f59e0b]/10 rounded-full" />
                  </div>
 
-                 <div className="flex-1 w-full text-center md:text-left relative z-10">
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">DataPulse Engine</h3>
-                    <p className="text-gray-400 text-xs mb-4">Real-time schema validation and anomaly detection before data hits your warehouse.</p>
+                 <div className="flex-1 w-full relative z-10">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1.5 sm:mb-2">DataPulse Engine</h3>
+                    <p className="text-gray-400 text-[10px] sm:text-xs mb-3 sm:mb-4 leading-relaxed">Real-time schema validation and anomaly detection before data hits your warehouse.</p>
                     
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-1.5 sm:gap-3">
                       {['Schema Integrity', 'Data Drift', 'Null Rates', 'Volume Spikes'].map((task, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5 text-[10px] text-gray-300 font-mono">
-                           <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse shrink-0" />
+                        <div key={i} className="flex items-center gap-1.5 sm:gap-2 bg-white/5 px-2 py-1.5 sm:px-3 sm:py-1.5 rounded border border-white/5 text-[8px] sm:text-[10px] text-gray-300 font-mono text-left">
+                           <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 rounded-full bg-[#10b981] animate-pulse shrink-0" />
                            <span className="truncate">{task}</span>
                         </div>
                       ))}
@@ -249,16 +249,16 @@ const PipelineArchitectureSection = () => {
 
           {/* Layer 3: DESTINATIONS */}
           <div className="w-full relative z-10 text-center">
-             <div className="text-[#10b981] text-[9px] font-mono uppercase tracking-widest mb-4">3. Destination Layer</div>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mx-auto">
+             <div className="text-[#10b981] text-[8px] sm:text-[9px] font-mono uppercase tracking-widest mb-3 sm:mb-4">3. Destination Layer</div>
+             <div className="grid grid-cols-2 gap-2 sm:gap-4 max-w-xl mx-auto">
                 {[
                   { label: "Snowflake DWH", icon: Layers },
                   { label: "Executive BI", icon: BarChart4 }
                 ].map((item, i) => (
-                  <motion.div key={i} whileHover={{ y: -3 }} className="bg-[#0a0602]/80 backdrop-blur-md border border-[#10b981]/20 rounded-2xl p-4 flex flex-col items-center text-center shadow-[0_0_20px_rgba(16,185,129,0.05)] relative overflow-hidden group">
+                  <motion.div key={i} whileHover={{ y: -3 }} className="bg-[#0a0602]/80 backdrop-blur-md border border-[#10b981]/20 rounded-lg sm:rounded-2xl p-2 sm:p-4 flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(16,185,129,0.05)] relative overflow-hidden group">
                      <div className="absolute inset-0 bg-gradient-to-b from-[#10b981]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                     <item.icon className="w-6 h-6 text-[#10b981] mb-3 relative z-10" />
-                     <div className="text-white text-sm font-bold relative z-10">{item.label}</div>
+                     <item.icon className="w-4 h-4 sm:w-6 sm:h-6 text-[#10b981] mb-1.5 sm:mb-3 relative z-10" />
+                     <div className="text-white text-[9px] sm:text-sm font-bold relative z-10 leading-tight">{item.label}</div>
                   </motion.div>
                 ))}
              </div>
@@ -281,17 +281,17 @@ const UseCasesSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 max-w-5xl mx-auto px-6">
-      <div className="mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-4 uppercase tracking-widest">
+    <section className="py-12 sm:py-16 md:py-20 max-w-5xl mx-auto px-4 sm:px-6">
+      <div className="mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-3 sm:mb-4 uppercase tracking-widest">
           <Layers className="w-3 h-3" />
           Platform Capabilities
         </div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-3 text-white">Unified <span className="text-[#f59e0b]">Intelligence</span></h2>
-        <p className="text-gray-400 max-w-xl text-sm md:text-base">Everything you need to ensure pristine data quality and unbreakable pipelines in one unified platform.</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-white">Unified <span className="text-[#f59e0b]">Intelligence</span></h2>
+        <p className="text-gray-400 max-w-xl text-[13px] sm:text-sm md:text-base">Everything you need to ensure pristine data quality and unbreakable pipelines in one unified platform.</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[200px] gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[160px] sm:auto-rows-[200px] gap-2 sm:gap-4">
         {cases.map((card, i) => (
           <motion.div 
             key={i} 
@@ -299,8 +299,8 @@ const UseCasesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: card.delay }}
-            className={`group relative rounded-2xl overflow-hidden bg-white/5 ${
-              i === 0 ? "md:col-span-2" : "col-span-1"
+            className={`group relative rounded-[20px] sm:rounded-2xl overflow-hidden bg-white/5 ${
+              i === 0 ? "col-span-2 md:col-span-2" : "col-span-1"
             }`}
           >
             {/* Spinning Magic Border (Hover) */}
@@ -311,7 +311,7 @@ const UseCasesSection = () => {
             />
             
             {/* Inner Content Card */}
-            <div className="absolute inset-[1.5px] rounded-[calc(1rem-1.5px)] bg-[#080402] z-10 flex flex-col p-5 md:p-6 transition-colors duration-500 overflow-hidden">
+            <div className="absolute inset-[1.5px] rounded-[calc(20px-1.5px)] sm:rounded-[calc(1rem-1.5px)] bg-[#080402] z-10 flex flex-col p-3 sm:p-5 md:p-6 transition-colors duration-500 overflow-hidden">
                
                {/* Subtle background grid on hover */}
                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 bg-[linear-gradient(rgba(245,158,11,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.2)_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none" />
@@ -328,16 +328,16 @@ const UseCasesSection = () => {
                )}
 
                {/* Icon */}
-               <div className="w-10 h-10 rounded-lg bg-[#150a04] border border-white/5 flex items-center justify-center mb-auto relative z-20 group-hover:bg-[#f59e0b]/20 group-hover:border-[#f59e0b]/40 transition-colors duration-500">
-                 <card.icon className="w-5 h-5 text-gray-500 group-hover:text-[#f59e0b] transition-colors duration-500" />
+               <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg bg-[#150a04] border border-white/5 flex items-center justify-center mb-2 sm:mb-auto relative z-20 group-hover:bg-[#f59e0b]/20 group-hover:border-[#f59e0b]/40 transition-colors duration-500">
+                 <card.icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-gray-500 group-hover:text-[#f59e0b] transition-colors duration-500" />
                </div>
                
                {/* Text Content */}
                <div className="relative z-20 w-full md:w-3/4">
-                 <h3 className="text-lg font-bold text-white mb-1.5 group-hover:text-[#f59e0b] transition-colors duration-500">
+                 <h3 className="text-[11px] sm:text-lg font-bold text-white mb-1 sm:mb-1.5 group-hover:text-[#f59e0b] transition-colors duration-500 leading-tight">
                    {card.title}
                  </h3>
-                 <p className="text-gray-400 text-xs leading-relaxed group-hover:text-gray-300 transition-colors duration-500">
+                 <p className="text-gray-400 text-[9px] sm:text-xs leading-tight sm:leading-relaxed group-hover:text-gray-300 transition-colors duration-500 line-clamp-3 sm:line-clamp-none">
                    {card.desc}
                  </p>
                </div>
@@ -353,25 +353,25 @@ const UseCasesSection = () => {
 // Section 5: Data Drift Dashboard Mockup
 const DashboardMockupSection = () => {
   return (
-    <section className="py-24 relative bg-[#040201] overflow-hidden">
+    <section className="py-12 sm:py-24 relative bg-[#040201] overflow-hidden">
       {/* Background Atmosphere */}
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-red-500/5 blur-[150px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/4" />
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#f59e0b]/5 blur-[120px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/4" />
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 items-center gap-8 sm:gap-16">
         
         {/* Left Side: Copy & Features */}
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-[10px] font-mono text-red-500 mb-6 uppercase tracking-widest">
-            <AlertTriangle className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3 sm:py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-[9px] sm:text-[10px] font-mono text-red-500 mb-4 sm:mb-6 uppercase tracking-widest">
+            <AlertTriangle className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             Proactive Alerting
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">Automated <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-[#f59e0b]">Drift Detection</span></h2>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-10 max-w-lg">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 sm:mb-6 text-white tracking-tight">Automated <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-[#f59e0b]">Drift Detection</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-sm md:text-base leading-relaxed mb-8 sm:mb-10 max-w-lg">
             Stop silent data failures before they reach your stakeholders. DataPulse AI autonomously profiles your datasets, learns historical distributions, and alerts engineering teams the exact moment anomalous patterns occur.
           </p>
           
-          <div className="flex flex-col gap-4 max-w-lg">
+          <div className="flex flex-col gap-3 sm:gap-4 max-w-lg">
             {[
               { title: "Statistical Profiling", desc: "Machine learning models learn the exact shape, variance, and null-rates of your data.", icon: Activity },
               { title: "Schema Evolution", desc: "Track dropped columns, type changes, or unexpected structural shifts instantly.", icon: Network }
@@ -379,14 +379,14 @@ const DashboardMockupSection = () => {
               <motion.div 
                 key={i} 
                 whileHover={{ x: 5, backgroundColor: "rgba(255,255,255,0.03)", borderColor: "rgba(255,255,255,0.1)" }}
-                className="flex items-start gap-5 p-5 rounded-2xl bg-white/[0.02] border border-white/5 transition-colors cursor-default group"
+                className="flex items-start gap-3.5 sm:gap-5 p-3.5 sm:p-5 rounded-[14px] sm:rounded-2xl bg-white/[0.02] border border-white/5 transition-colors cursor-default group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#1a0a05] border border-red-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 transition-colors">
-                  <feature.icon className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform" />
+                <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#1a0a05] border border-red-500/20 flex items-center justify-center shrink-0 group-hover:bg-red-500/20 transition-colors">
+                  <feature.icon className="w-4 h-4 sm:w-6 sm:h-6 text-red-500 group-hover:scale-110 transition-transform" />
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-sm mb-1">{feature.title}</h4>
-                  <p className="text-xs text-gray-500 leading-relaxed">{feature.desc}</p>
+                  <h4 className="text-white font-bold text-[11px] sm:text-sm mb-0.5 sm:mb-1">{feature.title}</h4>
+                  <p className="text-[9px] sm:text-xs text-gray-500 leading-tight sm:leading-relaxed">{feature.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -394,7 +394,7 @@ const DashboardMockupSection = () => {
         </div>
 
         {/* Right Side: High-Fidelity UI Mockup */}
-        <div className="relative w-full perspective-1000">
+        <div className="relative w-full perspective-1000 transform scale-[0.85] sm:scale-100 origin-center -mt-6 sm:mt-0">
           
           {/* Floating Alert Badge */}
           <motion.div 
@@ -503,23 +503,23 @@ const DashboardMockupSection = () => {
 // Section 6: Data Lineage Mapping
 const LineageSection = () => {
   return (
-    <section className="py-16 md:py-20 max-w-5xl mx-auto px-6 overflow-hidden">
-      <div className="relative rounded-3xl bg-[#040201] border border-white/5 overflow-hidden shadow-2xl group">
+    <section className="py-12 sm:py-16 md:py-20 max-w-5xl mx-auto px-4 sm:px-6 overflow-hidden">
+      <div className="relative rounded-[20px] sm:rounded-3xl bg-[#040201] border border-white/5 overflow-hidden shadow-2xl group">
         
         {/* Interactive Background Atmosphere */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,#f59e0b_0%,transparent_60%)] opacity-10 pointer-events-none group-hover:opacity-20 transition-opacity duration-1000" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:30px_30px] opacity-30 pointer-events-none" />
         
-        <div className="relative z-10 p-8 md:p-12 flex flex-col items-center text-center">
+        <div className="relative z-10 p-5 sm:p-8 md:p-12 flex flex-col items-center text-center">
           
           {/* Header */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-4 uppercase tracking-widest shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3 sm:py-1.5 rounded-full bg-[#f59e0b]/10 border border-[#f59e0b]/30 text-[9px] font-mono text-[#f59e0b] mb-3 sm:mb-4 uppercase tracking-widest shadow-[0_0_15px_rgba(245,158,11,0.2)]">
             <Share2 className="w-3 h-3" />
             End-to-End Visibility
           </div>
           
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-tight">Trace Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] to-yellow-400">Transformation.</span></h2>
-          <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white tracking-tight">Trace Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f59e0b] to-yellow-400">Transformation.</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-sm md:text-base leading-relaxed max-w-xl mx-auto mb-6 sm:mb-12">
             Visually trace exactly where a metric originated, what transformations were applied, and which downstream dashboards are affected if a pipeline breaks. Instantly perform Root Cause and Impact Analysis.
           </p>
 
@@ -594,9 +594,9 @@ const LineageSection = () => {
           </div>
 
           {/* Mobile Fallback Feature List */}
-          <div className="md:hidden flex flex-wrap justify-center gap-2 mt-8">
+          <div className="md:hidden flex flex-wrap justify-center gap-1.5 sm:gap-2 mt-2 sm:mt-8">
             {['Column-level Lineage', 'Impact Analysis', 'Root Cause Identification', 'dbt Integration'].map((item, i) => (
-               <div key={i} className="px-3 py-1.5 rounded-lg bg-[#120a05] border border-[#f59e0b]/20 text-[10px] text-gray-300 font-semibold flex items-center gap-1.5">
+               <div key={i} className="px-2 py-1 sm:px-3 sm:py-1.5 rounded sm:rounded-lg bg-[#120a05] border border-[#f59e0b]/20 text-[9px] sm:text-[10px] text-gray-300 font-semibold flex items-center gap-1 sm:gap-1.5">
                  <div className="w-1 h-1 rounded-full bg-[#f59e0b]" />
                  {item}
                </div>

@@ -47,7 +47,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-[#030303]">
+    <section id="about" className="py-12 md:py-28 relative overflow-hidden bg-[#030303]">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-gradient-to-tr from-[#00e5ff]/[0.02] via-[#8B5CF6]/[0.025] to-transparent blur-[200px] pointer-events-none" />
 
@@ -63,8 +63,8 @@ export function About() {
         }}
       />
 
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-12 items-center">
+      <div className="w-full max-w-[1400px] mx-auto px-4 md:px-12 relative z-10" ref={ref}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Big Mission Statement */}
           <div className="lg:col-span-7">
@@ -72,14 +72,14 @@ export function About() {
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="mb-6 flex items-center gap-3"
+              className="mb-4 md:mb-6 flex flex-wrap items-center gap-2 md:gap-3"
             >
-              <span className="glass-pill px-5 py-2 inline-flex items-center gap-2 border-glow text-white/40 uppercase tracking-[0.2em] text-[10px] font-mono">
+              <span className="glass-pill px-4 py-1.5 md:px-5 md:py-2 inline-flex items-center gap-2 border-glow text-white/40 uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-ping" />
                 About FAZAMOUS
               </span>
 
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[10px] font-mono font-medium">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-[9px] md:text-[10px] font-mono font-medium">
                 <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
                 DEEP-TECH PIONEERS
               </span>
@@ -89,7 +89,7 @@ export function About() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-8 pb-2 text-white"
+              className="text-xl md:text-4xl font-bold tracking-tight leading-tight mb-4 md:mb-8 pb-1 md:pb-2 text-white"
             >
               We don&apos;t build tools.<br />
               We build <span className="text-gradient-accent">intelligence</span><br />
@@ -100,7 +100,7 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/50 text-[16px] leading-relaxed max-w-xl font-light mb-10"
+              className="text-white/50 text-[13px] md:text-[16px] leading-relaxed max-w-xl font-light mb-6 md:mb-10"
             >
               FAZAMOUS is a deep-tech enterprise intelligence company. We combine proprietary AI research, 
               autonomous systems engineering, and enterprise-grade platform design to create technology that 
@@ -111,22 +111,22 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center gap-8 pt-6 border-t border-white/[0.06] text-white/40 text-[12px] font-mono"
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 pt-4 md:pt-6 border-t border-white/[0.06] text-white/40 text-[11px] md:text-[12px] font-mono"
             >
               <div className="flex items-center gap-2">
-                <Globe2 size={16} className="text-[#00e5ff]" />
+                <Globe2 className="w-4 h-4 md:w-4 md:h-4 text-[#00e5ff]" />
                 <span>Global Multi-Cloud Grid</span>
               </div>
               <div className="flex items-center gap-2">
-                <Award size={16} className="text-[#8B5CF6]" />
+                <Award className="w-4 h-4 md:w-4 md:h-4 text-[#8B5CF6]" />
                 <span>ISO/IEC 27001 Certified</span>
               </div>
             </motion.div>
           </div>
 
           {/* Right Column: Interactive Metric Cards Grid */}
-          <div className="lg:col-span-5 flex flex-col justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div className="lg:col-span-5 flex flex-col justify-center mt-2 lg:mt-0">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-5">
               {stats.map((stat, idx) => {
                 const Icon = stat.icon;
                 return (
@@ -140,7 +140,7 @@ export function About() {
                       y: { duration: 0.3 },
                       scale: { duration: 0.3 }
                     }}
-                    className="group glass-card p-6 md:p-7 rounded-[22px] border border-white/[0.08] hover:border-white/25 transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col justify-between"
+                    className="group glass-card p-3.5 md:p-7 rounded-[16px] md:rounded-[22px] border border-white/[0.08] hover:border-white/25 transition-all duration-500 cursor-pointer relative overflow-hidden flex flex-col justify-between h-full"
                   >
                     {/* Background color bloom on hover */}
                     <div 
@@ -157,34 +157,36 @@ export function About() {
                       />
                     </div>
 
-                    <div className="relative z-10">
-                      <div className="flex items-center justify-between mb-5">
+                    <div className="relative z-10 flex flex-col h-full">
+                      <div className="flex items-center justify-between mb-3 md:mb-5">
                         <div 
-                          className="w-10 h-10 rounded-xl border flex items-center justify-center transition-transform duration-500 group-hover:scale-110"
+                          className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl border flex items-center justify-center transition-transform duration-500 group-hover:scale-110 shrink-0"
                           style={{
                             background: `linear-gradient(135deg, ${stat.color}20, rgba(255,255,255,0.02))`,
                             borderColor: `${stat.color}40`,
                             boxShadow: `0 0 15px ${stat.color}20`
                           }}
                         >
-                          <Icon size={18} style={{ color: stat.color }} />
+                          <Icon className="w-4 h-4 md:w-[18px] md:h-[18px]" style={{ color: stat.color }} />
                         </div>
 
-                        <span className="w-2 h-2 rounded-full opacity-30 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: stat.color }} />
+                        <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full opacity-30 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: stat.color }} />
                       </div>
 
-                      <div 
-                        className="text-3xl md:text-4xl font-bold text-white font-mono mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-all duration-300"
-                      >
-                        {stat.value}
-                      </div>
-                      
-                      <div className="text-[12px] text-white/80 font-mono font-medium mb-1">
-                        {stat.label}
-                      </div>
+                      <div className="mt-auto">
+                        <div 
+                          className="text-[20px] md:text-4xl font-bold text-white font-mono mb-1 md:mb-1 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-all duration-300"
+                        >
+                          {stat.value}
+                        </div>
+                        
+                        <div className="text-[10px] md:text-[12px] text-white/80 font-mono font-medium mb-1 line-clamp-1">
+                          {stat.label}
+                        </div>
 
-                      <div className="text-[11px] text-white/35 font-light leading-tight">
-                        {stat.subtext}
+                        <div className="text-[9px] md:text-[11px] text-white/35 font-light leading-[1.2] line-clamp-2 md:line-clamp-none">
+                          {stat.subtext}
+                        </div>
                       </div>
                     </div>
                   </motion.div>

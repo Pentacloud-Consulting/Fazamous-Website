@@ -98,14 +98,14 @@ export function UseCases() {
 
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 relative z-10" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8 md:mb-12">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-5 flex justify-center"
+            className="mb-4 md:mb-5 flex justify-center"
           >
-            <span className="glass-pill px-5 py-2 inline-flex items-center gap-2 border-glow text-white/40 uppercase tracking-[0.2em] text-[10px] font-mono">
+            <span className="glass-pill px-4 py-1.5 md:px-5 md:py-2 inline-flex items-center gap-2 border-glow text-white/40 uppercase tracking-[0.2em] text-[9px] md:text-[10px] font-mono">
               <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-ping" />
               Autonomous Process
             </span>
@@ -115,7 +115,7 @@ export function UseCases() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl font-bold tracking-tight leading-tight mb-4 text-white"
+            className="text-xl md:text-4xl font-bold tracking-tight leading-tight mb-3 md:mb-4 text-white"
           >
             From Insight to <span className="text-gradient-accent">Autonomous Action.</span>
           </motion.h2>
@@ -124,7 +124,7 @@ export function UseCases() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white/50 max-w-xl mx-auto text-[15px] leading-relaxed font-light"
+            className="text-white/50 max-w-xl mx-auto text-[13px] md:text-[15px] leading-relaxed font-light px-4 md:px-0"
           >
             How our intelligence core transforms raw telemetry into instant, high-confidence enterprise execution.
           </motion.p>
@@ -134,7 +134,7 @@ export function UseCases() {
         <div className="relative max-w-4xl mx-auto">
           
           {/* Vertical timeline track background */}
-          <div className="absolute left-6 md:left-12 top-4 bottom-4 w-[2px] bg-white/[0.06] rounded-full">
+          <div className="absolute left-4 md:left-12 top-4 bottom-4 w-[2px] bg-white/[0.06] rounded-full">
             {/* Animated filling line */}
             <motion.div
               style={{ height: lineHeight }}
@@ -143,12 +143,12 @@ export function UseCases() {
             {/* Laser tip dot */}
             <motion.div
               style={{ top: laserTop }}
-              className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[#00e5ff] shadow-[0_0_15px_#00e5ff] border border-white"
+              className="absolute left-1/2 -translate-x-1/2 w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-[#00e5ff] shadow-[0_0_15px_#00e5ff] border border-white"
             />
           </div>
 
           {/* Steps */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4 md:gap-5">
             {steps.map((item, idx) => {
               const Icon = item.icon;
               const isHovered = activeStep === idx;
@@ -162,11 +162,11 @@ export function UseCases() {
                   transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.22, 1, 0.36, 1] }}
                   onMouseEnter={() => setActiveStep(idx)}
                   onMouseLeave={() => setActiveStep(null)}
-                  className="relative pl-16 md:pl-28 cursor-pointer group"
+                  className="relative pl-12 md:pl-28 cursor-pointer group"
                 >
                   {/* Timeline Node Ring */}
                   <div 
-                    className="absolute left-3 md:left-9 top-6 w-8 h-8 rounded-full border-2 bg-[#030303] flex items-center justify-center z-10 transition-all duration-500"
+                    className="absolute left-1 md:left-9 top-[22px] md:top-6 w-6 h-6 md:w-8 md:h-8 rounded-full border-[1.5px] md:border-2 bg-[#030303] flex items-center justify-center z-10 transition-all duration-500"
                     style={{
                       borderColor: isHovered ? item.accentColor : "rgba(255,255,255,0.15)",
                       boxShadow: isHovered ? `0 0 20px ${item.accentColor}` : "none",
@@ -174,7 +174,7 @@ export function UseCases() {
                     }}
                   >
                     <div 
-                      className="w-2.5 h-2.5 rounded-full transition-colors duration-300"
+                      className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full transition-colors duration-300"
                       style={{ backgroundColor: isHovered ? item.accentColor : "rgba(255,255,255,0.3)" }}
                     />
                   </div>
@@ -184,7 +184,7 @@ export function UseCases() {
                     whileHover={{ scale: 1.02, x: 6 }}
                     transition={{ duration: 0.3 }}
                     className={`
-                      glass-card rounded-[24px] p-5 md:p-6 border relative overflow-hidden transition-all duration-500
+                      glass-card rounded-[20px] md:rounded-[24px] p-4 md:p-6 border relative overflow-hidden transition-all duration-500
                       ${isHovered 
                         ? "border-white/30 bg-white/[0.04] shadow-[0_20px_50px_rgba(0,0,0,0.8)]" 
                         : "border-white/[0.08] hover:border-white/20"
@@ -208,24 +208,24 @@ export function UseCases() {
 
                     <div className="relative z-10">
                       {/* Top Header */}
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-4">
+                      <div className="flex items-center justify-between mb-3 md:mb-4">
+                        <div className="flex items-center gap-3 md:gap-4">
                           <div 
-                            className="w-12 h-12 rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110"
+                            className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center border transition-all duration-500 group-hover:scale-110 shrink-0"
                             style={{
                               background: `linear-gradient(135deg, ${item.accentColor}25, rgba(255,255,255,0.02))`,
                               borderColor: `${item.accentColor}40`,
                               boxShadow: isHovered ? `0 0 20px ${item.accentColor}40` : "none"
                             }}
                           >
-                            <Icon size={22} style={{ color: item.accentColor }} />
+                            <Icon className="w-5 h-5 md:w-[22px] md:h-[22px]" style={{ color: item.accentColor }} />
                           </div>
                           
                           <div>
-                            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/30 block mb-0.5">
+                            <span className="text-[9px] md:text-[10px] font-mono uppercase tracking-[0.2em] text-white/30 block mb-0.5">
                               STEP {item.step} — {item.subtitle}
                             </span>
-                            <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-colors">
+                            <h3 className="text-lg md:text-2xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/80 transition-colors">
                               {item.label}
                             </h3>
                           </div>
@@ -240,15 +240,15 @@ export function UseCases() {
                       </div>
 
                       {/* Description */}
-                      <p className="text-white/50 text-[14px] leading-relaxed font-light mb-4 group-hover:text-white/80 transition-colors">
+                      <p className="text-white/50 text-[12px] md:text-[14px] leading-relaxed font-light mb-4 group-hover:text-white/80 transition-colors">
                         {item.desc}
                       </p>
 
                       {/* Detail Telemetry Footer */}
-                      <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono">
+                      <div className="pt-3 md:pt-4 border-t border-white/[0.06] flex items-center justify-between text-[9px] md:text-[11px] font-mono">
                         <div className="flex items-center gap-2 text-white/40">
-                          <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.accentColor }} />
-                          <span>{item.detail}</span>
+                          <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: item.accentColor }} />
+                          <span className="line-clamp-1">{item.detail}</span>
                         </div>
                         
                         <span 

@@ -104,7 +104,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#020203] border-t border-white/[0.08] overflow-hidden pt-20 pb-10">
+    <footer className="relative bg-[#020203] border-t border-white/[0.08] overflow-hidden pt-12 md:pt-20 pb-8 md:pb-10">
       {/* Background Mesh */}
       <div className="absolute inset-0 pointer-events-none opacity-60">
         <FooterMesh />
@@ -114,14 +114,14 @@ export function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-gradient-to-t from-[#00e5ff]/[0.03] via-[#8B5CF6]/[0.02] to-transparent blur-[160px] pointer-events-none" />
 
       {/* Massive Background Watermark Typography */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-[11rem] md:text-[16rem] font-black tracking-tighter text-white/[0.015] select-none pointer-events-none uppercase font-mono whitespace-nowrap">
+      <div className="absolute bottom-10 md:bottom-16 left-1/2 -translate-x-1/2 text-[5rem] sm:text-[8rem] md:text-[16rem] font-black tracking-tighter text-white/[0.015] select-none pointer-events-none uppercase font-mono whitespace-nowrap">
         FAZAMOUS
       </div>
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12" ref={ref}>
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 md:px-12" ref={ref}>
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10 mb-12 md:mb-16">
           
           {/* Brand Column + Newsletter */}
           <div className="lg:col-span-5">
@@ -130,12 +130,12 @@ export function Footer() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-3 mb-6 group cursor-pointer"
+                className="flex items-center gap-2 md:gap-3 mb-5 md:mb-6 group cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-transform duration-500 group-hover:scale-110">
-                  <span className="text-black font-black text-base">F</span>
+                <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg md:rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-transform duration-500 group-hover:scale-110">
+                  <span className="text-black font-black text-sm md:text-base">F</span>
                 </div>
-                <span className="text-white font-bold text-xl tracking-wider font-mono">FAZAMOUS</span>
+                <span className="text-white font-bold text-lg md:text-xl tracking-wider font-mono">FAZAMOUS</span>
               </motion.div>
             </Link>
 
@@ -143,7 +143,7 @@ export function Footer() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-white/50 text-sm leading-relaxed mb-6 max-w-sm font-light"
+              className="text-white/50 text-[13px] md:text-sm leading-relaxed mb-6 max-w-sm font-light"
             >
               Building the future of Enterprise Intelligence. Autonomous systems, decision platforms, and AI agents for the world&apos;s most ambitious organizations.
             </motion.p>
@@ -170,7 +170,7 @@ export function Footer() {
               initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[11px] font-mono mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] md:text-[11px] font-mono mb-6 md:mb-8"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
               <span>SYSTEM STATUS: 100% OPERATIONAL</span>
@@ -195,7 +195,7 @@ export function Footer() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter email..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white text-sm placeholder:text-white/30 focus:outline-none focus:border-[#00e5ff]/50 focus:bg-white/[0.05] transition-all font-mono"
+                    className="w-full px-3 md:px-4 py-2.5 md:py-3 rounded-lg md:rounded-xl bg-white/[0.03] border border-white/10 text-white text-[12px] md:text-sm placeholder:text-white/30 focus:outline-none focus:border-[#00e5ff]/50 focus:bg-white/[0.05] transition-all font-mono"
                   />
                 </div>
                 
@@ -203,7 +203,7 @@ export function Footer() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.96 }}
                   type="submit" 
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#00e5ff] to-[#8B5CF6] text-black font-mono font-bold text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(0,229,255,0.5)] transition-all flex items-center gap-2 shrink-0 cursor-pointer"
+                  className="px-5 md:px-6 py-2.5 md:py-3 rounded-lg md:rounded-xl bg-gradient-to-r from-[#00e5ff] to-[#8B5CF6] text-black font-mono font-bold text-[10px] md:text-xs tracking-wider uppercase hover:shadow-[0_0_20px_rgba(0,229,255,0.5)] transition-all flex items-center justify-center gap-2 shrink-0 cursor-pointer"
                 >
                   {subscribed ? "Subscribed!" : "Subscribe"}
                   <Send size={12} />
@@ -213,7 +213,7 @@ export function Footer() {
           </div>
 
           {/* Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-8">
             {[
               {
                 title: "Industries",
@@ -257,7 +257,7 @@ export function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href || "#"}
-                        className="group flex items-center justify-between text-white/50 text-sm hover:text-white transition-all duration-300 font-light"
+                        className="group flex items-center justify-between text-white/50 text-[12px] md:text-sm hover:text-white transition-all duration-300 font-light"
                       >
                         <motion.span 
                           whileHover={{ x: 4 }}
@@ -289,16 +289,16 @@ export function Footer() {
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-mono"
+          className="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-mono text-center md:text-left"
         >
-          <div className="text-white/40 flex items-center gap-2">
-            <span>© {new Date().getFullYear()} FAZAMOUS Technologies Inc.</span>
-            <span className="text-white/20">•</span>
-            <span className="text-white/30">San Francisco & Zurich</span>
+          <div className="text-white/40 flex flex-wrap justify-center md:justify-start items-center gap-2">
+            <span>© {new Date().getFullYear()} FAZAMOUS Technologies.</span>
+            <span className="hidden sm:inline-block text-white/20">•</span>
+            <span className="text-white/30">SF & Zurich</span>
           </div>
 
           {/* Social Icons & Legal Links */}
-          <div className="flex flex-wrap items-center gap-6 text-white/40">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 text-white/40">
             <Link href="/" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/" className="hover:text-white transition-colors">Cookies</Link>

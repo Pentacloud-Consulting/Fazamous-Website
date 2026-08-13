@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Navbar } from "@/components/Top-bottom/Navbar";
 import { Footer } from "@/components/Top-bottom/Footer";
-import { Contact } from "@/components/sections/Contact";
+import Contact from "@/Frontend/Home/Contact";
 
 // We can just use the products array from before.
 const products = [

@@ -1,19 +1,18 @@
 "use client";
 
-import { SplashScreen } from "@/components/sections/SplashScreen";
+import { SplashScreen } from "@/Frontend/Animations/SplashScreen";
 import { Navbar } from "@/components/Top-bottom/Navbar";
-import { Hero, TrustStrip } from "@/components/sections/Hero";
-import { InsightsPlatform } from "@/components/sections/InsightsPlatform";
-import { Ecosystem } from "@/components/sections/Ecosystem";
-import { IntelligentProducts } from "@/components/sections/IntelligentProducts";
-import { AutonomousSystems } from "@/components/sections/AutonomousSystems";
-import { AIAgents } from "@/components/sections/AIAgents";
-import { Industries } from "@/components/sections/Industries";
-import { UseCases } from "@/components/sections/UseCases";
-import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
+import { Hero, TrustStrip } from "@/Frontend/Home/Hero";
+import { InsightsPlatform } from "@/Frontend/Home/InsightsPlatform";
+import { Ecosystem } from "@/Frontend/Home/Ecosystem";
+import { IntelligentProducts } from "@/Frontend/Home/IntelligentProducts";
+import { AutonomousSystems } from "@/Frontend/Home/AutonomousSystems";
+import { AIAgents } from "@/Frontend/Home/AIAgents";
+import { Industries } from "@/Frontend/Home/Industries";
+import { UseCases } from "@/Frontend/Home/UseCases";
+import { About } from "@/Frontend/Home/About";
+import CTA from "@/Frontend/Home/Contact";
 import { Footer } from "@/components/Top-bottom/Footer";
-import CTA from "./CTA";
 
 export default function Home() {
   return (
@@ -55,7 +54,6 @@ export default function Home() {
 
       <About />
       <CTA />
-      <Contact />
       <Footer />
     </main>
   );

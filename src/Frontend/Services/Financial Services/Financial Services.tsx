@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
-import CTA from '@/Frontend/Home/CTA';
+import CTA from '@/Frontend/Home/Contact';
 
 // Section 1: Hero (Data Stream / Money Flow)
 const HeroSection = () => {
@@ -38,13 +38,13 @@ const HeroSection = () => {
 
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-green-900/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 mt-12 grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 mt-4 sm:mt-12 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         <div className="text-center lg:text-left">
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }} 
             animate={{ opacity: 1, scale: 1 }} 
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-xs font-bold text-green-400 uppercase tracking-widest mb-8"
+            className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-green-500/10 border border-green-500/20 text-[9px] sm:text-xs font-bold text-green-400 uppercase tracking-widest mb-4 sm:mb-8"
           >
             <Landmark className="w-4 h-4" />
             Banking & Finance
@@ -54,7 +54,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight text-white"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-4 sm:mb-8 tracking-tight text-white"
           >
             Intelligent Finance.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-300 to-teal-500">Uncompromised Security.</span>
@@ -64,14 +64,14 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }} 
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-12"
+            className="text-gray-400 text-[13px] sm:text-lg md:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-4 sm:mb-12"
           >
             Deploy military-grade AI to detect fraud in milliseconds, automate compliance, and deliver hyper-personalized banking experiences.
           </motion.p>
         </div>
 
         {/* Right Side: Looping Diagram */}
-        <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center">
+        <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] flex items-center justify-center transform scale-[0.65] sm:scale-100 origin-center -mt-10 sm:mt-0">
             {/* Core Center */}
             <div className="absolute w-28 h-28 bg-[#050505] rounded-full border border-green-500/50 shadow-[0_0_50px_rgba(34,197,94,0.3)] z-20 flex items-center justify-center">
                 <Landmark className="w-10 h-10 text-green-400" />
@@ -138,11 +138,11 @@ const HeroSection = () => {
 // Section 2: Real-time Threat Detection (Interactive Diagram)
 const ThreatDetectionSection = () => {
   return (
-    <section className="py-12 md:py-16 relative bg-[#030408] border-y border-white/5 overflow-hidden">
+    <section className="py-10 sm:py-12 md:py-16 relative bg-[#030408] border-y border-white/5 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Real-Time <span className="text-green-500">Threat Mitigation</span></h2>
-          <p className="text-gray-400 max-w-xl mx-auto">See how our AI processes transactions, identifies anomalies, and neutralizes threats before they happen.</p>
+        <div className="text-center mb-8 sm:mb-10">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-4 text-white">Real-Time <span className="text-green-500">Threat Mitigation</span></h2>
+          <p className="text-gray-400 text-[13px] sm:text-base max-w-xl mx-auto">See how our AI processes transactions, identifies anomalies, and neutralizes threats before they happen.</p>
         </div>
 
         {/* Threat Architecture Diagram */}
@@ -225,25 +225,25 @@ const ThreatDetectionSection = () => {
         </div>
         
         {/* Mobile fallback for diagram */}
-        <div className="md:hidden flex flex-col gap-6 items-center">
-            <div className="w-full p-6 bg-[#0a0a0a] border border-white/10 rounded-2xl flex items-center justify-center gap-4">
-               <Wallet className="w-6 h-6 text-blue-400" />
-               <span className="text-sm text-gray-300">Incoming Transaction</span>
+        <div className="md:hidden flex flex-col gap-3 sm:gap-6 items-center">
+            <div className="w-full p-3 sm:p-6 bg-[#0a0a0a] border border-white/10 rounded-xl sm:rounded-2xl flex items-center justify-center gap-2 sm:gap-4">
+               <Wallet className="w-4 h-4 sm:w-6 sm:h-6 text-blue-400" />
+               <span className="text-[11px] sm:text-sm text-gray-300 font-medium">Incoming Transaction</span>
             </div>
-            <div className="w-[2px] h-12 bg-gradient-to-b from-blue-500 to-green-500"></div>
-            <div className="w-full p-8 bg-[#0a0a0a] border border-green-500/50 rounded-full flex flex-col items-center justify-center shadow-[0_0_40px_rgba(34,197,94,0.2)]">
-                <ShieldAlert className="w-8 h-8 text-green-400 mb-1" />
-                <span className="text-xs text-green-400 font-bold tracking-widest">AI CORE ANALYSIS</span>
+            <div className="w-[2px] h-6 sm:h-12 bg-gradient-to-b from-blue-500 to-green-500"></div>
+            <div className="w-full p-4 sm:p-8 bg-[#0a0a0a] border border-green-500/50 rounded-3xl sm:rounded-full flex flex-col items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.15)] sm:shadow-[0_0_40px_rgba(34,197,94,0.2)]">
+                <ShieldAlert className="w-5 h-5 sm:w-8 sm:h-8 text-green-400 mb-1" />
+                <span className="text-[9px] sm:text-xs text-green-400 font-bold tracking-widest text-center">AI CORE ANALYSIS</span>
             </div>
-            <div className="w-[2px] h-12 bg-gradient-to-b from-green-500 to-red-500"></div>
-            <div className="flex gap-4 w-full">
-               <div className="flex-1 p-6 bg-[#0a0a0a] border border-green-500/30 rounded-2xl flex flex-col items-center justify-center text-center">
-                 <Lock className="w-6 h-6 text-green-400 mb-2" />
-                 <span className="text-[10px] text-green-400 uppercase tracking-widest">Approved</span>
+            <div className="w-[2px] h-6 sm:h-12 bg-gradient-to-b from-green-500 to-red-500"></div>
+            <div className="flex gap-2 sm:gap-4 w-full">
+               <div className="flex-1 p-3 sm:p-6 bg-[#0a0a0a] border border-green-500/30 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-center">
+                 <Lock className="w-4 h-4 sm:w-6 sm:h-6 text-green-400 mb-1 sm:mb-2" />
+                 <span className="text-[8px] sm:text-[10px] text-green-400 uppercase tracking-widest font-bold">Approved</span>
                </div>
-               <div className="flex-1 p-6 bg-[#0a0a0a] border border-red-500/30 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(239,68,68,0.1)]">
-                 <ShieldAlert className="w-6 h-6 text-red-500 mb-2" />
-                 <span className="text-[10px] text-red-500 uppercase tracking-widest">Blocked</span>
+               <div className="flex-1 p-3 sm:p-6 bg-[#0a0a0a] border border-red-500/30 rounded-xl sm:rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_0_15px_rgba(239,68,68,0.1)] sm:shadow-[0_0_20px_rgba(239,68,68,0.1)]">
+                 <ShieldAlert className="w-4 h-4 sm:w-6 sm:h-6 text-red-500 mb-1 sm:mb-2" />
+                 <span className="text-[8px] sm:text-[10px] text-red-500 uppercase tracking-widest font-bold">Blocked</span>
                </div>
             </div>
         </div>
@@ -262,37 +262,37 @@ const SolutionsSection = () => {
   ];
 
   return (
-    <section className="py-24 max-w-6xl mx-auto px-6">
-      <div className="mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Financial <span className="text-gray-500">Intelligence</span></h2>
+    <section className="py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6">
+      <div className="mb-8 sm:mb-16">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 text-white">Financial <span className="text-gray-500">Intelligence</span></h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {cards.map((card, i) => (
-          <div key={i} className="group perspective-1000 w-full h-[300px]">
+          <div key={i} className="group perspective-1000 w-full h-[160px] sm:h-[300px]">
             {/* Flip Card Inner */}
             <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180">
               
               {/* Front Side */}
-              <div className={`absolute inset-0 bg-[#060810] border border-white/5 rounded-2xl p-8 flex flex-col items-center justify-center text-center backface-hidden ${card.border} transition-colors`}>
-                <div className={`w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6`}>
-                  <card.icon className={`w-8 h-8 ${card.color}`} />
+              <div className={`absolute inset-0 bg-[#060810] border border-white/5 rounded-xl sm:rounded-2xl p-3 sm:p-8 flex flex-col items-center justify-center text-center backface-hidden ${card.border} transition-colors`}>
+                <div className={`w-10 h-10 sm:w-16 sm:h-16 rounded-full bg-white/5 flex items-center justify-center mb-2 sm:mb-6`}>
+                  <card.icon className={`w-5 h-5 sm:w-8 sm:h-8 ${card.color}`} />
                 </div>
-                <h3 className="text-xl font-bold text-white">{card.title}</h3>
+                <h3 className="text-[11px] sm:text-xl font-bold text-white leading-tight">{card.title}</h3>
               </div>
 
               {/* Back Side */}
-              <div className="absolute inset-0 rounded-2xl p-[1px] overflow-hidden backface-hidden rotate-y-180 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl p-[1px] overflow-hidden backface-hidden rotate-y-180 shadow-[0_0_15px_rgba(255,255,255,0.02)] sm:shadow-[0_0_30px_rgba(255,255,255,0.05)]">
                 {/* Rotating Beam (visible when flipped) */}
                 <div 
                   className="absolute inset-[-100%] animate-[spin_2s_linear_infinite] z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 delay-300" 
                   style={{ backgroundImage: `conic-gradient(from 90deg, transparent 0 70%, ${card.beamColor} 100%)` }} 
                 />
                 
-                <div className="relative z-10 w-full h-full bg-gradient-to-br from-[#0a0a0a] to-[#111] rounded-[15px] p-8 flex flex-col items-center justify-center text-center">
-                  <p className="text-gray-300 text-sm leading-relaxed mb-6">{card.desc}</p>
-                  <button className={`text-xs font-bold uppercase tracking-widest ${card.color} flex items-center gap-2 group/btn`}>
-                    View Details <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                <div className="relative z-10 w-full h-full bg-gradient-to-br from-[#0a0a0a] to-[#111] rounded-[11px] sm:rounded-[15px] p-4 sm:p-8 flex flex-col items-center justify-center text-center">
+                  <p className="text-gray-300 text-[9px] sm:text-sm leading-relaxed mb-3 sm:mb-6 line-clamp-3 sm:line-clamp-none">{card.desc}</p>
+                  <button className={`text-[8px] sm:text-xs font-bold uppercase tracking-widest ${card.color} flex items-center gap-1.5 sm:gap-2 group/btn`}>
+                    View Details <ArrowRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -308,19 +308,19 @@ const SolutionsSection = () => {
 // Section 4: Live Market Stats (Ticker)
 const TickerSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-[#020202] via-[#050a14] to-[#020202] border-y border-white/5 overflow-hidden">
+    <section className="py-6 sm:py-16 bg-gradient-to-r from-[#020202] via-[#050a14] to-[#020202] border-y border-white/5 overflow-hidden">
       <div className="flex whitespace-nowrap">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="flex gap-16 px-8 items-center"
+          className="flex gap-8 sm:gap-16 px-4 sm:px-8 items-center"
         >
           {[...Array(2)].map((_, idx) => (
             <React.Fragment key={idx}>
-              <div className="flex items-center gap-3"><BarChart3 className="w-6 h-6 text-green-500" /><span className="text-2xl font-black text-white">99.9% ACCURACY</span></div>
-              <div className="flex items-center gap-3"><Zap className="w-6 h-6 text-yellow-500" /><span className="text-2xl font-black text-white">&lt;10ms LATENCY</span></div>
-              <div className="flex items-center gap-3"><ShieldAlert className="w-6 h-6 text-blue-500" /><span className="text-2xl font-black text-white">$2B+ FRAUD PREVENTED</span></div>
-              <div className="flex items-center gap-3"><Lock className="w-6 h-6 text-purple-500" /><span className="text-2xl font-black text-white">SOC2 COMPLIANT</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><BarChart3 className="w-4 h-4 sm:w-6 sm:h-6 text-green-500" /><span className="text-sm sm:text-2xl font-black text-white">99.9% ACCURACY</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Zap className="w-4 h-4 sm:w-6 sm:h-6 text-yellow-500" /><span className="text-sm sm:text-2xl font-black text-white">&lt;10ms LATENCY</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><ShieldAlert className="w-4 h-4 sm:w-6 sm:h-6 text-blue-500" /><span className="text-sm sm:text-2xl font-black text-white">$2B+ FRAUD PREVENTED</span></div>
+              <div className="flex items-center gap-1.5 sm:gap-3"><Lock className="w-4 h-4 sm:w-6 sm:h-6 text-purple-500" /><span className="text-sm sm:text-2xl font-black text-white">SOC2 COMPLIANT</span></div>
             </React.Fragment>
           ))}
         </motion.div>
@@ -332,18 +332,18 @@ const TickerSection = () => {
 // Section 5: Security Architecture (Layered Cards)
 const SecuritySection = () => {
   return (
-    <section className="py-24 max-w-6xl mx-auto px-6 overflow-hidden">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section className="py-12 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 overflow-hidden">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-16 items-center">
         <div>
-           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500">Compliance.</span></h2>
-           <p className="text-gray-400 text-lg leading-relaxed mb-8">
+           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-3 sm:mb-6 text-white">Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-500">Compliance.</span></h2>
+           <p className="text-gray-400 text-[13px] sm:text-lg leading-relaxed mb-4 sm:mb-8">
              We understand the rigid regulatory requirements of the financial sector. Our AI models are entirely explainable, locally deployable, and inherently secure.
            </p>
-           <ul className="space-y-4">
+           <ul className="space-y-2 sm:space-y-4">
              {['End-to-End Encryption', 'On-Premise Deployment Options', 'Full Audit Logs & Explainability', 'GDPR, CCPA, & HIPAA Ready'].map((item, i) => (
-               <li key={i} className="flex items-center gap-3 text-sm font-semibold text-gray-300">
-                 <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
-                   <div className="w-2 h-2 rounded-full bg-green-500" />
+               <li key={i} className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-sm font-semibold text-gray-300">
+                 <div className="w-3 h-3 sm:w-5 sm:h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                   <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500" />
                  </div>
                  {item}
                </li>
@@ -352,7 +352,7 @@ const SecuritySection = () => {
         </div>
         
         {/* Layered Security Cards */}
-        <div className="relative h-[400px] flex items-center justify-center perspective-1000 group">
+        <div className="relative h-[280px] sm:h-[400px] flex items-center justify-center perspective-1000 group transform scale-[0.8] sm:scale-100 origin-center mt-4 sm:mt-0">
            <motion.div 
              initial={{ rotateX: 20, rotateY: -20, z: -100 }}
              whileInView={{ rotateX: 20, rotateY: -20, z: -100 }}
