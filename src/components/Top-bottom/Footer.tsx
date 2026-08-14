@@ -234,10 +234,11 @@ export function Footer() {
               {
                 title: "Company",
                 links: [
+                  { name: "Home", href: "/" },
                   { name: "About", href: "/about" },
-                  { name: "Industries", href: "/services" },
+                  { name: "Services", href: "/services" },
+                  { name: "Solutions", href: "/solutions" },
                   { name: "Contact", href: "/contact" },
-                  { name: "Careers", tag: "HIRING", href: "/about" },
                 ],
               },
             ].map((group, gIdx) => (

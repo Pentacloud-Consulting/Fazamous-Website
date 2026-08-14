@@ -76,19 +76,7 @@ const HeroSection = () => {
             Act as the central nervous system for your enterprise. Turn petabytes of multi-modal data into zero-friction executive reporting, root cause analysis, and AI-prescribed actions.
           </motion.p>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-row gap-3 sm:gap-4 w-full"
-          >
-            <button className="flex-1 sm:flex-none px-4 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#6366f1] to-[#818cf8] text-white font-bold text-xs sm:text-base rounded-full hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] transition-all flex items-center justify-center gap-2 group whitespace-nowrap">
-              Explore Platform <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="flex-1 sm:flex-none px-4 sm:px-8 py-3.5 sm:py-4 bg-white/5 border border-white/10 text-white font-bold text-xs sm:text-base rounded-full hover:bg-white/10 transition-all flex items-center justify-center whitespace-nowrap">
-              Book Demo
-            </button>
-          </motion.div>
+
         </div>
 
         {/* Right Side: Animated Diagram */}

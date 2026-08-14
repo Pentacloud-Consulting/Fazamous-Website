@@ -15,7 +15,7 @@ import CTA from '@/Frontend/Home/Contact';
 // Section 1: Hero (2-Column Layout with AI Diagram)
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-24 sm:pt-40 lg:pt-32 bg-[#010606]">
+    <section className="relative min-h-[95vh] flex items-center overflow-hidden pt-24 lg:pt-20 bg-[#010606]">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[#14b8a6]/10 blur-[130px] rounded-full pointer-events-none" />
         <div className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-[#0d9488]/10 blur-[140px] rounded-full pointer-events-none" />
@@ -24,7 +24,7 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-20 w-full pb-10 sm:pb-20 lg:pb-0">
         
         {/* Left Side: Information */}
-        <div className="w-full lg:w-1/2 text-left pt-8 sm:pt-16 lg:pt-12">
+        <div className="w-full lg:w-1/2 text-left pt-8 lg:pt-0">
           <motion.div 
             initial={{ opacity: 0, y: -20 }} 
             animate={{ opacity: 1, y: 0 }} 

@@ -130,8 +130,9 @@ export function Navbar() {
                         </div>
                         <h4 className="text-white font-bold mb-2">Flagship Platform</h4>
                         <p className="text-white/50 text-[12px] leading-relaxed mb-6">The Intelligence Layer Behind Every Industry.</p>
-                        <Link href="/services/intelligent-platform" className="hidden mt-auto items-center gap-2 text-[13px] font-semibold text-[#4EA8FF] hover:text-white transition-colors">
-                          Explore Insights &rarr;
+                        <Link href="/services" className="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#4EA8FF]/10 hover:bg-[#4EA8FF]/20 border border-[#4EA8FF]/20 text-[#4EA8FF] hover:text-white text-[13px] font-semibold rounded-lg transition-all duration-300 group/btn">
+                          View Services
+                          <span className="group-hover/btn:translate-x-1 transition-transform">&rarr;</span>
                         </Link>
                       </div>
 
@@ -174,13 +175,6 @@ export function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-2">
-          <button
-            className="hidden sm:flex w-9 h-9 items-center justify-center rounded-full text-white/30 hover:text-white/70 hover:bg-white/[0.05] transition-all duration-300"
-            aria-label="Search"
-          >
-            <Search size={15} strokeWidth={1.5} />
-          </button>
-
           <Link href="/contact" className="hidden sm:block">
             <motion.div
               whileHover={{ scale: 1.03 }}
@@ -253,6 +247,20 @@ export function Navbar() {
                         className="overflow-hidden"
                       >
                         <div className="flex flex-col gap-4 pl-3 pt-4 border-l border-white/10 mt-2 mb-2 ml-1">
+                          {/* Services Link for Mobile */}
+                          <Link
+                            href="/services"
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setMobileIndustriesOpen(false);
+                            }}
+                            className="flex items-center gap-4 text-sm font-medium text-[#4EA8FF] hover:text-[#4EA8FF]/80 transition-colors mb-2"
+                          >
+                            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#4EA8FF]/10 border border-[#4EA8FF]/20 shrink-0">
+                              <Rocket size={14} className="text-[#4EA8FF]" />
+                            </div>
+                            <span className="text-[14px] leading-tight font-semibold">View Services &rarr;</span>
+                          </Link>
                           {industryData.map((ind) => (
                             <Link
                               key={ind.slug}

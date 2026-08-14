@@ -125,19 +125,7 @@ const HeroSection = () => {
             Autonomously parse and rewrite monolithic SAS codebases into optimized, distributed PySpark microservices. Eliminate human error and accelerate digital transformation by 85%.
           </motion.p>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-row gap-3 sm:gap-4"
-          >
-            <button className="px-4 sm:px-8 py-3 sm:py-4 text-[11px] sm:text-base bg-gradient-to-r from-[#8b5cf6] to-[#a855f7] text-white font-bold rounded-full hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all flex items-center justify-center gap-1.5 sm:gap-2 group flex-1 sm:flex-none">
-              Start Migration <ArrowRightLeft className="w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="px-4 sm:px-8 py-3 sm:py-4 text-[11px] sm:text-base bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all flex items-center justify-center flex-1 sm:flex-none text-center">
-              View Case Study
-            </button>
-          </motion.div>
+
         </div>
 
         {/* Right Side: Looping Diagram */}

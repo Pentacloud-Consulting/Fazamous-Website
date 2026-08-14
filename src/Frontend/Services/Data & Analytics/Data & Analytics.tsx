@@ -53,19 +53,7 @@ const HeroSection = () => {
             Act as the guardian of your data warehouse. Continuously validate schema integrity, map end-to-end lineage, and resolve structural pipeline failures before downstream analytics are ever affected.
           </motion.p>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-row items-center gap-2 sm:gap-4"
-          >
-            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#f59e0b] to-[#d97706] text-white font-bold text-[11px] sm:text-sm hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(245,158,11,0.3)]">
-              Start Free Trial
-            </button>
-            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3.5 sm:py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-[11px] sm:text-sm hover:bg-white/10 transition-colors backdrop-blur-md">
-              View Architecture
-            </button>
-          </motion.div>
+
         </div>
 
         {/* Right Side: Global Data Map */}

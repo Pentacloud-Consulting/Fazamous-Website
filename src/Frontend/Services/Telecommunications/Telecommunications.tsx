@@ -37,14 +37,7 @@ export default function Telecommunications() {
               new revenue streams with AI.
             </p>
 
-            <div className="flex flex-row items-center gap-2 sm:gap-4 w-full">
-              <button className="flex-1 sm:flex-none bg-white text-black px-2 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[9px] sm:text-sm font-bold hover:bg-gray-200 transition-colors flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap">
-                Book a Free Consultation <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-              </button>
-              <button className="flex-1 sm:flex-none bg-transparent border border-white/20 text-white px-2 sm:px-6 py-2.5 sm:py-3 rounded-xl text-[9px] sm:text-sm font-bold hover:bg-white/5 transition-colors flex items-center justify-center gap-1 sm:gap-2 whitespace-nowrap">
-                Explore Use Cases <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-              </button>
-            </div>
+
           </div>
 
           {/* Hero Visuals (Stats Cards) */}

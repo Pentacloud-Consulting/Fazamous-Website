@@ -4,7 +4,7 @@ import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Navbar } from "@/components/Top-bottom/Navbar";
 import { Footer } from "@/components/Top-bottom/Footer";
-import Contact from "@/Frontend/Home/Contact";
+import Contact from "../Home/Contact";
 
 // We can just use the products array from before.
 const products = [
@@ -162,28 +162,28 @@ export default function Services() {
     <main className="relative bg-[#050505]">
       <Navbar />
 
-      <section className="pt-36 pb-24 relative">
+      <section className="pt-24 sm:pt-36 pb-12 sm:pb-24 relative">
         {/* Background ambient glow */}
-        <div className="absolute top-[20%] left-0 w-[800px] h-[800px] rounded-full bg-[#4EA8FF]/[0.02] blur-[150px] pointer-events-none" />
+        <div className="absolute top-[20%] left-0 w-full sm:w-[800px] h-[500px] sm:h-[800px] rounded-full bg-[#4EA8FF]/[0.02] blur-[100px] sm:blur-[150px] pointer-events-none" />
         
-        <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12" ref={ref}>
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12" ref={ref}>
           {/* Header */}
-          <div className="flex flex-col items-center text-center gap-6 mb-20">
+          <div className="flex flex-col items-center text-center gap-4 sm:gap-6 mb-12 sm:mb-20">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 glass-pill border-glow"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 glass-pill border-glow"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#4EA8FF] shadow-[0_0_8px_#4EA8FF] animate-pulse" />
-              <span className="text-white/30 uppercase tracking-widest text-[10px] font-mono">Platform Suite</span>
+              <span className="text-white/30 uppercase tracking-widest text-[8px] sm:text-[10px] font-mono">Platform Suite</span>
             </motion.div>
             
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl md:text-6xl lg:text-[4.5rem] font-medium tracking-tight leading-[1.05]"
+              className="text-3xl sm:text-4xl md:text-6xl lg:text-[4.5rem] font-medium tracking-tight leading-[1.05]"
             >
               Intelligent<br />
               <span className="text-gradient">Products.</span>
@@ -193,14 +193,14 @@ export default function Services() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/40 text-[16px] leading-[1.8] font-light max-w-2xl"
+              className="text-white/40 text-xs sm:text-[16px] leading-relaxed sm:leading-[1.8] font-light max-w-2xl px-2 sm:px-0"
             >
               Explore our comprehensive suite of autonomous intelligence platforms. Each module is engineered for a specific operational domain, ensuring seamless integration and measurable ROI.
             </motion.p>
           </div>
 
           {/* Product Cards (Accordion Style) */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3 sm:gap-5">
             {products.map((product, idx) => {
               const isExpanded = expandedId === product.id;
 
@@ -242,17 +242,17 @@ export default function Services() {
                     {/* Light sweep */}
                     <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl light-sweep" />
 
-                    <div className="p-8 md:p-10 lg:p-12 relative z-10">
-                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="flex items-start gap-6 md:gap-8 flex-1">
-                          <span className="text-white/20 font-mono text-[11px] pt-2 shrink-0">{product.id}</span>
+                    <div className="p-4 sm:p-6 md:p-10 lg:p-12 relative z-10">
+                      <div className="flex flex-row items-start md:items-center justify-between gap-3 sm:gap-6">
+                        <div className="flex items-start gap-3 sm:gap-6 md:gap-8 flex-1">
+                          <span className="text-white/20 font-mono text-[9px] sm:text-[11px] pt-1.5 sm:pt-2 shrink-0">{product.id}</span>
                           <div className="flex-1">
-                            <div className="flex items-center gap-4 mb-3">
-                              <h3 className={`text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight transition-colors duration-500 ${isExpanded ? "text-white" : "text-white/60 group-hover:text-white/90"}`}>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 mb-2 sm:mb-3">
+                              <h3 className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight transition-colors duration-500 ${isExpanded ? "text-white" : "text-white/60 group-hover:text-white/90"}`}>
                                 {product.title}
                               </h3>
                               <span 
-                                className={`hidden md:inline text-[10px] font-mono uppercase tracking-[0.15em] px-2.5 py-1 rounded border transition-colors duration-500`}
+                                className={`inline-block w-fit text-[8px] sm:text-[10px] font-mono uppercase tracking-[0.15em] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border transition-colors duration-500`}
                                 style={{
                                   borderColor: isExpanded ? `${product.color}40` : 'rgba(255,255,255,0.08)',
                                   backgroundColor: isExpanded ? `${product.color}10` : 'transparent',
@@ -265,7 +265,7 @@ export default function Services() {
                             
                             <motion.p 
                               layout
-                              className={`text-[15px] transition-colors duration-500 font-light ${isExpanded ? "text-white/70" : "text-white/40"}`}
+                              className={`text-[11px] sm:text-[15px] transition-colors duration-500 font-light leading-snug sm:leading-relaxed ${isExpanded ? "text-white/70" : "text-white/40"}`}
                             >
                               {product.desc}
                             </motion.p>
@@ -274,14 +274,14 @@ export default function Services() {
 
                         {/* Toggle Icon */}
                         <div className={`
-                          w-12 h-12 rounded-full border flex items-center justify-center shrink-0
+                          w-8 h-8 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center shrink-0 mt-1 sm:mt-0
                           transition-all duration-700
                           ${isExpanded
                             ? "bg-white border-white text-black rotate-45"
                             : "border-white/[0.1] bg-white/[0.02] text-white/50 group-hover:border-white/[0.2] group-hover:text-white"
                           }
                         `}>
-                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <svg className="w-3 h-3 sm:w-[18px] sm:h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="12" y1="5" x2="12" y2="19" />
                             <line x1="5" y1="12" x2="19" y2="12" />
                           </svg>
@@ -298,19 +298,19 @@ export default function Services() {
                             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                             className="overflow-hidden"
                           >
-                            <div className="pt-8 md:pt-10 mt-8 md:mt-10 border-t border-white/[0.06]">
-                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+                            <div className="pt-5 sm:pt-8 md:pt-10 mt-5 sm:mt-8 md:mt-10 border-t border-white/[0.06]">
+                              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-16">
                                  <div className="lg:col-span-6">
-                                    <p className="text-white/60 leading-[1.8] text-[15px] font-light">
+                                    <p className="text-white/60 leading-relaxed sm:leading-[1.8] text-[11px] sm:text-[15px] font-light">
                                       {product.details}
                                     </p>
                                     
                                     <motion.button
                                       whileHover={{ x: 5 }}
-                                      className="mt-8 flex items-center gap-3 text-white text-[13px] font-medium group/btn"
+                                      className="mt-5 sm:mt-8 flex items-center gap-2 sm:gap-3 text-white text-[11px] sm:text-[13px] font-medium group/btn"
                                     >
                                       <span style={{ color: product.color }}>View Platform Specs</span>
-                                      <span className="w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300" style={{ backgroundColor: `${product.color}20` }}>
+                                      <span className="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center transition-all duration-300" style={{ backgroundColor: `${product.color}20` }}>
                                         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={product.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                           <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
                                         </svg>
@@ -320,13 +320,13 @@ export default function Services() {
                                  
                                  <div className="lg:col-span-6">
                                    {/* Metrics Grid */}
-                                   <div className="grid grid-cols-3 gap-4 md:gap-6">
+                                   <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
                                      {product.metrics.map((metric, mi) => (
-                                       <div key={mi} className="flex flex-col p-4 rounded-xl border border-white/[0.04] bg-white/[0.01]">
-                                         <div className="text-2xl md:text-3xl font-medium text-white font-mono mb-2 tracking-tight">
+                                       <div key={mi} className="flex flex-col p-2.5 sm:p-4 rounded-lg sm:rounded-xl border border-white/[0.04] bg-white/[0.01]">
+                                         <div className="text-[13px] sm:text-2xl md:text-3xl font-medium text-white font-mono mb-1 sm:mb-2 tracking-tight">
                                            {metric.value}
                                          </div>
-                                         <div className="text-[10px] text-white/30 uppercase tracking-[0.1em] font-mono leading-tight">
+                                         <div className="text-[7px] sm:text-[10px] text-white/30 uppercase tracking-[0.05em] sm:tracking-[0.1em] font-mono leading-tight">
                                            {metric.label}
                                          </div>
                                        </div>

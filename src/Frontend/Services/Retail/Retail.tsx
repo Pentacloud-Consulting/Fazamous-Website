@@ -74,19 +74,7 @@ const HeroSection = () => {
             Transform fragmented retail data into strategic executive dashboards, 360-degree customer profiles, and real-time recommendation engines that skyrocket conversion rates.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-row items-center gap-2 sm:gap-4"
-          >
-            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3 sm:py-4 rounded-full bg-white text-black text-[11px] sm:text-base font-bold hover:bg-gray-200 transition-colors shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-              Deploy Engine
-            </button>
-            <button className="flex-1 sm:flex-none px-3 sm:px-8 py-3 sm:py-4 rounded-full border border-white/20 text-white text-[11px] sm:text-base font-bold hover:bg-white/5 transition-colors">
-              View Architecture
-            </button>
-          </motion.div>
+
         </div>
 
         {/* Right Side: Animated Diagram */}
