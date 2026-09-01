@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface Node {
   x: number;
@@ -228,12 +229,18 @@ export function SplashScreen() {
               >
                 <div className="flex items-center gap-3 sm:gap-5 mb-6 sm:mb-8">
                   <motion.div 
-                    initial={{ rotate: -90 }}
-                    animate={{ rotate: 0 }}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
                     transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                    className="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br from-[#4EA8FF] to-[#8b5cf6] flex items-center justify-center shadow-[0_0_40px_rgba(139,92,246,0.3)] sm:shadow-[0_0_60px_rgba(139,92,246,0.3)]"
                   >
-                    <span className="text-black font-bold text-base sm:text-2xl">F</span>
+                    <Image
+                      src="/Logo/Final.png"
+                      alt="Fazamous Logo"
+                      width={52}
+                      height={52}
+                      className="object-contain sm:w-[68px] sm:h-[68px]"
+                      priority
+                    />
                   </motion.div>
                   <span className="text-white text-2xl sm:text-4xl font-semibold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
                     FAZAMOUS

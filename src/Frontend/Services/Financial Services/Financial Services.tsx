@@ -11,6 +11,17 @@ import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/Contact';
 
+// Pre-seeded static values to avoid SSR hydration mismatch
+const MATRIX_LINE_DURATIONS = [7.2, 6.8, 9.1, 5.5, 8.3, 7.6, 6.2, 9.8, 5.1, 8.7, 7.0, 6.5, 9.3, 5.8, 8.1, 7.4, 6.0, 9.6, 5.3, 8.9];
+const MATRIX_LINE_DELAYS = [2.1, 4.3, 0.8, 3.5, 1.2, 4.8, 2.7, 0.3, 3.9, 1.6, 4.1, 2.4, 0.6, 3.2, 1.9, 4.5, 2.0, 0.9, 3.7, 1.4];
+const PARTICLE_POSITIONS = [
+  { top: "42%", left: "35%" },
+  { top: "68%", left: "55%" },
+  { top: "35%", left: "45%" },
+  { top: "72%", left: "38%" },
+  { top: "28%", left: "62%" },
+];
+
 // Section 1: Hero (Data Stream / Money Flow)
 const HeroSection = () => {
   return (
@@ -25,10 +36,10 @@ const HeroSection = () => {
             initial={{ y: "-100%" }}
             animate={{ y: "100%" }}
             transition={{ 
-              duration: Math.random() * 5 + 5, 
+              duration: MATRIX_LINE_DURATIONS[i], 
               repeat: Infinity, 
               ease: "linear",
-              delay: Math.random() * 5 
+              delay: MATRIX_LINE_DELAYS[i]
             }}
             className="absolute top-0 w-[1px] h-[30%] bg-gradient-to-b from-transparent via-green-500 to-transparent"
             style={{ left: `${(i / 20) * 100}%` }}
@@ -112,7 +123,7 @@ const HeroSection = () => {
 
             {/* Glowing Particles */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
-              {[...Array(5)].map((_, i) => (
+              {PARTICLE_POSITIONS.map((pos, i) => (
                 <motion.div
                   key={i}
                   animate={{ 
@@ -123,8 +134,8 @@ const HeroSection = () => {
                   transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
                   className="absolute w-1.5 h-1.5 rounded-full bg-green-400 shadow-[0_0_10px_#4ade80]"
                   style={{
-                    top: `${Math.random() * 60 + 20}%`,
-                    left: `${Math.random() * 60 + 20}%`,
+                    top: pos.top,
+                    left: pos.left,
                   }}
                 />
               ))}

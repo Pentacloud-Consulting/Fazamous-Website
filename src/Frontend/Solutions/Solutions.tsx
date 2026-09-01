@@ -8,6 +8,24 @@ import CTA from "@/Frontend/Home/Contact";
 import { Globe, Layers, Shield, Zap, Database, Cpu, Network, Activity, BarChart, Server, Wallet, Lock, ShieldAlert, FileText, Settings, ArrowRight } from "lucide-react";
 import { industries, products } from "@/lib/data";
 
+// Pre-seeded static values to avoid SSR hydration mismatch
+const HERO_PARTICLE_POSITIONS = [
+  { top: "42%", left: "35%" },
+  { top: "68%", left: "55%" },
+  { top: "35%", left: "45%" },
+  { top: "72%", left: "38%" },
+  { top: "28%", left: "62%" },
+];
+const EDGE_NODE_POSITIONS = [
+  { top: "28%", left: "38%" },
+  { top: "55%", left: "60%" },
+  { top: "70%", left: "32%" },
+  { top: "38%", left: "65%" },
+  { top: "62%", left: "45%" },
+  { top: "22%", left: "52%" },
+];
+const BAR_CHART_HEIGHTS = [60, 85, 45, 100, 65, 110, 75, 90];
+
 // 1. Hero Section
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -81,7 +99,7 @@ const HeroSection = () => {
            
             {/* Glowing Particles */}
             <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-full">
-               {mounted && [...Array(5)].map((_, i) => (
+               {HERO_PARTICLE_POSITIONS.map((pos, i) => (
                  <motion.div
                    key={i}
                    animate={{ 
@@ -92,8 +110,8 @@ const HeroSection = () => {
                    transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.4 }}
                    className="absolute w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_10px_#60a5fa]"
                    style={{
-                     top: `${Math.random() * 60 + 20}%`,
-                     left: `${Math.random() * 60 + 20}%`,
+                     top: pos.top,
+                     left: pos.left,
                    }}
                  />
                ))}
@@ -231,15 +249,15 @@ const PlatformFeaturesSection = () => {
            <div className="relative z-10 w-full h-full bg-[#050505] rounded-[23px] p-5 md:p-6 flex flex-col justify-between overflow-hidden">
               {/* Diagram */}
               <div className="absolute top-4 md:top-6 right-4 md:right-6 w-16 h-16 md:w-24 md:h-24 opacity-60">
-                 {mounted && [...Array(6)].map((_, i) => (
-                   <motion.div 
-                     key={i}
-                     animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
-                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                     className="absolute w-1 md:w-1.5 h-1 md:h-1.5 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399]"
-                     style={{ top: `${20 + Math.random()*60}%`, left: `${20 + Math.random()*60}%` }}
-                   />
-                 ))}
+                  {mounted && EDGE_NODE_POSITIONS.map((pos, i) => (
+                    <motion.div 
+                      key={i}
+                      animate={{ opacity: [0.2, 1, 0.2], scale: [0.8, 1.2, 0.8] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
+                      className="absolute w-1 md:w-1.5 h-1 md:h-1.5 bg-emerald-400 rounded-full shadow-[0_0_10px_#34d399]"
+                      style={{ top: pos.top, left: pos.left }}
+                    />
+                  ))}
                  <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                     <motion.path d="M 20 50 L 50 20 L 80 50 L 50 80 Z" fill="none" stroke="#34d399" strokeWidth="0.5" strokeDasharray="150" animate={{ strokeDashoffset: [150, 0, 150] }} transition={{ duration: 6, repeat: Infinity, ease: "linear" }} opacity="0.4" />
                     <motion.path d="M 10 30 L 90 70" fill="none" stroke="#34d399" strokeWidth="0.5" strokeDasharray="150" animate={{ strokeDashoffset: [150, 0, 150] }} transition={{ duration: 5, repeat: Infinity, ease: "linear", delay: 1 }} opacity="0.3" />
@@ -263,7 +281,7 @@ const PlatformFeaturesSection = () => {
                  {mounted && [40, 70, 30, 90, 50, 100, 60, 80].map((height, i) => (
                     <motion.div
                       key={i}
-                      animate={{ height: [`${height}%`, `${Math.random()*100 + 20}%`, `${height}%`] }}
+                      animate={{ height: [`${height}%`, `${BAR_CHART_HEIGHTS[i]}%`, `${height}%`] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
                       className="flex-1 bg-yellow-500/20 border border-yellow-500/40 rounded-t-sm relative overflow-hidden"
                     >

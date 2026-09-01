@@ -11,6 +11,20 @@ import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/Contact';
 
+// Pre-seeded static values to avoid SSR hydration mismatch
+const FLOAT_ELEMENT_SIZES = [
+  { width: "120px", height: "145px" },
+  { width: "98px", height: "160px" },
+  { width: "140px", height: "100px" },
+  { width: "105px", height: "130px" },
+  { width: "155px", height: "110px" },
+  { width: "90px", height: "150px" },
+  { width: "135px", height: "95px" },
+  { width: "115px", height: "140px" },
+];
+const FLOAT_ELEMENT_DURATIONS = [22.5, 18.3, 26.1, 20.8, 16.7, 24.4, 29.2, 17.6];
+const FLOAT_ELEMENT_DELAYS = [1.2, 3.8, 0.5, 4.2, 2.1, 3.0, 0.9, 4.7];
+
 // Section 1: Hero (Abstract Commerce Grid)
 const HeroSection = () => {
   return (
@@ -31,13 +45,13 @@ const HeroSection = () => {
               rotate: [0, 90, 180]
             }}
             transition={{ 
-              duration: Math.random() * 15 + 15, 
+              duration: FLOAT_ELEMENT_DURATIONS[i], 
               repeat: Infinity, 
               ease: "linear",
-              delay: Math.random() * 5
+              delay: FLOAT_ELEMENT_DELAYS[i]
             }}
             className="absolute p-4 rounded-2xl border border-white/5 bg-white/[0.01] backdrop-blur-md"
-            style={{ left: `${12 * i + 5}%`, width: `${Math.random() * 80 + 80}px`, height: `${Math.random() * 80 + 80}px` }}
+            style={{ left: `${12 * i + 5}%`, width: FLOAT_ELEMENT_SIZES[i].width, height: FLOAT_ELEMENT_SIZES[i].height }}
           />
         ))}
       </div>

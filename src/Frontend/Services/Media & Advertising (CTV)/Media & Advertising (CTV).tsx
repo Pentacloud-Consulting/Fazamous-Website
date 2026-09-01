@@ -11,6 +11,19 @@ import { Navbar } from '@/components/Top-bottom/Navbar';
 import { Footer } from '@/components/Top-bottom/Footer';
 import CTA from '@/Frontend/Home/Contact';
 
+// Pre-seeded static values to avoid SSR hydration mismatch
+const STREAM_DURATIONS = [22.5, 18.3, 26.1, 20.8, 16.7];
+const STREAM_DELAYS = [1.2, 3.8, 0.5, 4.2, 2.1];
+const STREAM_SEGMENT_WIDTHS = [
+  ["180px","145px","220px","160px","195px","130px","205px","155px","170px","140px"],
+  ["110px","240px","175px","120px","215px","150px","195px","135px","185px","160px"],
+  ["200px","130px","165px","235px","145px","220px","110px","175px","190px","125px"],
+  ["155px","190px","120px","205px","140px","230px","165px","185px","115px","210px"],
+  ["225px","150px","185px","115px","240px","135px","200px","170px","125px","195px"],
+];
+const RED_PARTICLE_TOPS = ["46%", "48%", "52%", "45%", "50%", "47%"];
+const GREEN_PARTICLE_TOPS = ["49%", "51%", "50%", "48%", "52%"];
+
 // Section 1: Hero (CTV Abstract Streams)
 const HeroSection = () => {
   return (
@@ -27,10 +40,10 @@ const HeroSection = () => {
             key={i}
             animate={{ x: ["-100%", "100%"] }}
             transition={{ 
-              duration: Math.random() * 20 + 15, 
+              duration: STREAM_DURATIONS[i], 
               repeat: Infinity, 
               ease: "linear",
-              delay: Math.random() * 5
+              delay: STREAM_DELAYS[i]
             }}
             className="flex gap-4"
           >
@@ -38,7 +51,7 @@ const HeroSection = () => {
               <div 
                 key={j} 
                 className={`h-2 sm:h-4 rounded-full bg-gradient-to-r from-transparent via-[#eab308]/30 to-transparent backdrop-blur-sm`}
-                style={{ width: `${Math.random() * 200 + 100}px` }}
+                style={{ width: STREAM_SEGMENT_WIDTHS[i][j] }}
               />
             ))}
           </motion.div>
@@ -574,7 +587,7 @@ const AdFraudSection = () => {
           {[...Array(6)].map((_, i) => (
              <motion.div
                key={`red-${i}`}
-               initial={{ left: "15%", top: `${45 + Math.random() * 10}%`, opacity: 0, scale: 0.5 }}
+               initial={{ left: "15%", top: RED_PARTICLE_TOPS[i], opacity: 0, scale: 0.5 }}
                animate={{ 
                  left: ["15%", "48%", "48%"], 
                  opacity: [0, 1, 0],
@@ -589,7 +602,7 @@ const AdFraudSection = () => {
           {[...Array(5)].map((_, i) => (
              <motion.div
                key={`green-${i}`}
-               initial={{ left: "15%", top: `${48 + Math.random() * 4}%`, opacity: 0 }}
+               initial={{ left: "15%", top: GREEN_PARTICLE_TOPS[i], opacity: 0 }}
                animate={{ 
                  left: ["15%", "85%"], 
                  opacity: [0, 1, 1, 0],

@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Send, ShieldCheck, Activity, Phone, Mail } from "lucide-react";
 import { industryData } from "@/data/industryData";
 
@@ -132,9 +133,13 @@ export function Footer() {
                 transition={{ duration: 0.6 }}
                 className="flex items-center gap-2 md:gap-3 mb-5 md:mb-6 group cursor-pointer"
               >
-                <div className="w-8 h-8 md:w-9 md:h-9 rounded-lg md:rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-transform duration-500 group-hover:scale-110">
-                  <span className="text-black font-black text-sm md:text-base">F</span>
-                </div>
+                <Image
+                  src="/Logo/Final.png"
+                  alt="Fazamous Logo"
+                  width={36}
+                  height={36}
+                  className="object-contain"
+                />
                 <span className="text-white font-bold text-lg md:text-xl tracking-wider font-mono">FAZAMOUS</span>
               </motion.div>
             </Link>

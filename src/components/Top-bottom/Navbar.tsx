@@ -3,8 +3,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Search, ChevronDown, Rocket, Menu, X } from "lucide-react";
+import { ChevronDown, Rocket, Menu, X } from "lucide-react";
 import { industryData } from "@/data/industryData";
 
 const navLinks = [
@@ -70,9 +71,14 @@ export function Navbar() {
             transition={{ type: "spring", stiffness: 500, damping: 30 }}
             className="flex items-center gap-2.5"
           >
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#6366F1] to-[#4F46E5] flex items-center justify-center shadow-[0_0_20px_rgba(99,102,241,0.2)]">
-              <span className="text-white font-bold text-xs leading-none">F</span>
-            </div>
+            <Image
+              src="/Logo/Final.png"
+              alt="Fazamous Logo"
+              width={32}
+              height={32}
+              className="object-contain"
+              priority
+            />
             <span className="text-white/90 font-semibold text-[15px] tracking-[0.08em] uppercase group-hover:text-white transition-colors duration-300" style={{ fontFamily: "var(--font-display)" }}>
               Fazamous
             </span>
