@@ -51,7 +51,7 @@ export function Navbar() {
     >
       {/* Vignette / Ambient Glow */}
       <div className="absolute top-0 left-0 right-0 h-[120px] bg-gradient-to-b from-[#0A0B0F]/90 via-[#0A0B0F]/40 to-transparent pointer-events-none -z-10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[100px] bg-[#6366F1]/[0.08] blur-[80px] pointer-events-none -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[100px] bg-[#6366F1]/[0.08] blur-[80px] pointer-events-none -z-10" />
 
       <nav
         className={`
