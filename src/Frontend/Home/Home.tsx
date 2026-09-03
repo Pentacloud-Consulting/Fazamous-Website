@@ -8,6 +8,7 @@ import { Ecosystem } from "@/Frontend/Home/Ecosystem";
 import { IntelligentProducts } from "@/Frontend/Home/IntelligentProducts";
 import { AutonomousSystems } from "@/Frontend/Home/AutonomousSystems";
 import { AIAgents } from "@/Frontend/Home/AIAgents";
+import { ProprietaryAIStack } from "@/Frontend/Home/Proprietary AI Stack";
 import { Industries } from "@/Frontend/Home/Industries";
 import { UseCases } from "@/Frontend/Home/UseCases";
 import { About } from "@/Frontend/Home/About";
@@ -46,6 +47,13 @@ export default function Home() {
 
       <Industries />
       <UseCases />
+
+      {/* Separator */}
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="section-divider" />
+      </div>
+
+      <ProprietaryAIStack />
 
       {/* Separator */}
       <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">

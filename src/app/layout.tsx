@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "@/components/ui/SmoothScroll";
 
@@ -38,6 +39,18 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#0A0B0F] text-white selection:bg-[#6366F1] selection:text-white">
         <SmoothScroll>{children}</SmoothScroll>
+
+        {/* Google Analytics */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-YPH24K6WD4" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-YPH24K6WD4');
+          `}
+        </Script>
       </body>
     </html>
   );

@@ -118,8 +118,8 @@ export default function Contact() {
                     <h4 className="text-white font-bold text-[11px] sm:text-sm">Business Hours</h4>
                   </div>
                   <div className="flex flex-col gap-1 text-[10px] sm:text-xs text-gray-400 2xl:pl-14">
-                    <p>Mon - Sat: 9am - 6pm</p>
-                    <p>Sunday: Closed</p>
+                    <p>Mon - Fri: 9am - 6pm</p>
+                    <p>Saturday: Closed</p>
                   </div>
                 </div>
 
@@ -299,58 +299,28 @@ export default function Contact() {
               </div>
             </div>
             
-            {/* Right Side: Animated Finding Location */}
+            {/* Right Side: Real Map */}
             <div className="md:w-1/2 min-h-[250px] md:min-h-[350px] relative bg-[#05070f] overflow-hidden flex items-center justify-center border-t md:border-t-0 md:border-l border-white/5">
-              {/* Grid Background */}
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #5462ff 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.886539092!2d77.49085448373307!3d12.953959988118836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1716315532585!5m2!1sen!2sin"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0, filter: "grayscale(1) invert(1) contrast(0.8) hue-rotate(180deg) opacity(0.7)" }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
               
-              {/* Radar Sweeper */}
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 left-1/2 w-[300px] h-[300px] -mt-[150px] -ml-[150px] rounded-full border border-[#5462ff]/20"
-                style={{
-                  background: 'conic-gradient(from 0deg, transparent 70%, rgba(84, 98, 255, 0.3) 100%)'
-                }}
-              />
+              {/* Optional UI overlay for aesthetics */}
+              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10" />
               
-              {/* Pulsing Circles */}
-              <motion.div 
-                animate={{ scale: [1, 2.5], opacity: [0.5, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                className="absolute w-24 h-24 border-2 border-[#5462ff] rounded-full"
-              />
-              <motion.div 
-                animate={{ scale: [1, 2.5], opacity: [0.5, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: 1 }}
-                className="absolute w-24 h-24 border-2 border-[#5462ff] rounded-full"
-              />
-
-              {/* Center Pin */}
-              <div className="relative z-10 flex flex-col items-center">
-                <motion.div 
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-12 h-12 bg-[#5462ff]/20 backdrop-blur-md rounded-xl border border-[#5462ff]/50 flex items-center justify-center shadow-[0_0_30px_rgba(84,98,255,0.4)] mb-4"
-                >
-                  <MapPin className="w-6 h-6 text-[#5462ff]" />
-                </motion.div>
-                
-                <div className="bg-[#03050a]/80 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#5462ff] animate-pulse" />
-                  <span className="text-[10px] text-gray-300 font-mono tracking-widest uppercase">Finding Location...</span>
-                </div>
-              </div>
-
-              {/* Decorative Elements */}
-              <div className="absolute bottom-4 right-4 flex flex-col items-end gap-1 opacity-50">
+              <div className="absolute bottom-4 right-4 flex flex-col items-end gap-1 opacity-60 pointer-events-none">
                 <div className="h-1 w-12 bg-[#5462ff]/50 rounded-full"></div>
-                <div className="text-[9px] font-mono text-[#5462ff]">SYS.LOC.SEARCH</div>
+                <div className="text-[9px] font-mono text-[#5462ff] shadow-black drop-shadow-md">SYS.LOC.SEARCH</div>
               </div>
-              <div className="absolute top-4 left-4 flex gap-1 opacity-50">
-                <div className="w-1 h-1 bg-[#5462ff] rounded-full"></div>
-                <div className="w-1 h-1 bg-[#5462ff] rounded-full"></div>
-                <div className="w-1 h-1 bg-[#5462ff] rounded-full"></div>
+              <div className="absolute top-4 left-4 flex gap-1 opacity-60 pointer-events-none">
+                <div className="w-1 h-1 bg-[#5462ff] rounded-full shadow-black drop-shadow-md"></div>
+                <div className="w-1 h-1 bg-[#5462ff] rounded-full shadow-black drop-shadow-md"></div>
+                <div className="w-1 h-1 bg-[#5462ff] rounded-full shadow-black drop-shadow-md"></div>
               </div>
             </div>
             
