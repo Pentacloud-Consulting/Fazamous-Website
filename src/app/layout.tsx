@@ -43,7 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${ibmPlexSans.variable} ${plexMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0A0B0F] text-white selection:bg-[#6366F1] selection:text-white">
+      <body className="min-h-full flex flex-col bg-[#0A0B0F] text-white selection:bg-[#6366F1] selection:text-white overflow-x-hidden w-full">
         <SmoothScroll>{children}</SmoothScroll>
 
         {/* Google Analytics */}

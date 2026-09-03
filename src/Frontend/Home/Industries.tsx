@@ -25,7 +25,7 @@ export function Industries() {
   const activeIndustry = industryData[activeIndex];
 
   return (
-    <section id="industries" className="py-12 md:py-24 relative bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
+    <section id="industries" className="hidden md:block py-12 md:py-24 relative bg-[#0A0B0F] border-t border-white/[0.02]" ref={ref}>
       {/* Background ambient lighting */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[1200px] rounded-full bg-gradient-to-b from-[#22D3EE]/[0.02] via-[#6366F1]/[0.02] to-transparent blur-[150px] pointer-events-none" />
 

@@ -17,7 +17,7 @@ import { Footer } from "@/components/Top-bottom/Footer";
 
 export default function Home() {
   return (
-    <main className="relative bg-[#050505]">
+    <main className="relative bg-[#050505] overflow-x-hidden w-full">
       <SplashScreen />
       <Navbar />
       <Hero />
